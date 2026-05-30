@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0048)file:///C:/Users/PC/Downloads/ENGLISH_APP_3.html -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -9,11 +9,14 @@
 <meta name="apple-mobile-web-app-title" content="English Family">
 <meta name="theme-color" content="#4f46e5">
 <meta name="description" content="Ứng dụng học tiếng Anh cho cả gia đình với AI">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="file:///C:/Users/PC/Downloads/manifest.json">
+<!-- Favicon inline SVG — không cần file riêng, tránh lỗi 404 -->
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 100 100&#39;&gt;&lt;text y=&#39;.9em&#39; font-size=&#39;90&#39;&gt;%F0%9F%8C%9F&lt;/text&gt;&lt;/svg&gt;">
+<link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 100 100&#39;&gt;&lt;text y=&#39;.9em&#39; font-size=&#39;90&#39;&gt;%F0%9F%8C%9F&lt;/text&gt;&lt;/svg&gt;">
 <!-- iOS icon (vì iOS không đọc manifest icon) -->
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%234f46e5'/><text y='125' x='50%' text-anchor='middle' font-size='100' font-family='Arial'>🌟</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 180 180&#39;&gt;&lt;rect width=&#39;180&#39; height=&#39;180&#39; rx=&#39;40&#39; fill=&#39;%234f46e5&#39;/&gt;&lt;text y=&#39;125&#39; x=&#39;50%&#39; text-anchor=&#39;middle&#39; font-size=&#39;100&#39; font-family=&#39;Arial&#39;&gt;%F0%9F%8C%9F&lt;/text&gt;&lt;/svg&gt;">
 <title>English For Family 🌟</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="./English For Family 🌟_files/css2" rel="stylesheet">
 <style>
 :root {
   --primary: #4f46e5;
@@ -491,7 +494,7 @@ body {
     <div style="font-size:12px; opacity:.8">Dùng offline, không cần mở trình duyệt</div>
   </div>
   <button onclick="installApp()" style="background:#fde68a; color:#3730a3; border:none; border-radius:10px;
-    padding:10px 16px; font-family:'Nunito',sans-serif; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap;">
+    padding:10px 16px; font-family:&#39;Nunito&#39;,sans-serif; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap;">
     Cài ngay
   </button>
   <button onclick="dismissBanner()" style="background:rgba(255,255,255,0.15); color:#fff; border:none;
@@ -506,28 +509,28 @@ body {
   </div>
   <div class="api-banner" style="margin-top:12px">
     <span style="font-size:18px">🔑</span>
-    <input type="password" id="api-key-input" placeholder="Dán Gemini API key vào đây..." />
+    <input type="password" id="api-key-input" placeholder="Dán Gemini API key vào đây...">
     <button onclick="saveKey()">Lưu</button>
-    <span class="api-status" id="api-status">Chưa có key</span>
+    <span class="api-status ok" id="api-status">✓ Đã kết nối</span>
   </div>
 </div>
 
 <!-- NAV -->
 <div class="nav-wrap">
   <div class="nav-tabs">
-    <button class="tab active" onclick="switchTab('flashcard', this)">
+    <button class="tab active" onclick="switchTab(&#39;flashcard&#39;, this)">
       <span class="tab-icon">🃏</span>Flashcard
     </button>
-    <button class="tab" onclick="switchTab('listening', this)">
+    <button class="tab" onclick="switchTab(&#39;listening&#39;, this)">
       <span class="tab-icon">🎧</span>Nghe
     </button>
-    <button class="tab" onclick="switchTab('reading', this)">
+    <button class="tab" onclick="switchTab(&#39;reading&#39;, this)">
       <span class="tab-icon">📖</span>Đọc
     </button>
-    <button class="tab" onclick="switchTab('quiz', this)">
+    <button class="tab" onclick="switchTab(&#39;quiz&#39;, this)">
       <span class="tab-icon">✅</span>Trắc nghiệm
     </button>
-    <button class="tab" onclick="switchTab('writing', this)">
+    <button class="tab" onclick="switchTab(&#39;writing&#39;, this)">
       <span class="tab-icon">✍️</span>Viết
     </button>
   </div>
@@ -542,36 +545,36 @@ body {
     <div class="sec-sub">Bấm vào thẻ để xem nghĩa • Đánh giá mức độ nhớ của bạn</div>
 
     <div class="topic-grid" id="fc-topics">
-      <button class="topic-btn selected" onclick="loadTopic('daily', this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
-      <button class="topic-btn" onclick="loadTopic('food', this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
-      <button class="topic-btn" onclick="loadTopic('travel', this)"><span class="topic-icon">✈️</span>Du lịch</button>
-      <button class="topic-btn" onclick="loadTopic('work', this)"><span class="topic-icon">💼</span>Công việc</button>
-      <button class="topic-btn" onclick="loadTopic('nature', this)"><span class="topic-icon">🌿</span>Thiên nhiên</button>
-      <button class="topic-btn" onclick="loadTopic('emotion', this)"><span class="topic-icon">❤️</span>Cảm xúc</button>
+      <button class="topic-btn selected" onclick="loadTopic(&#39;daily&#39;, this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;food&#39;, this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;travel&#39;, this)"><span class="topic-icon">✈️</span>Du lịch</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;work&#39;, this)"><span class="topic-icon">💼</span>Công việc</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;nature&#39;, this)"><span class="topic-icon">🌿</span>Thiên nhiên</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;emotion&#39;, this)"><span class="topic-icon">❤️</span>Cảm xúc</button>
     </div>
 
     <div class="fc-wrap">
       <div class="fc-inner" id="fc-card" onclick="flipCard()">
         <div class="fc-front">
-          <div class="fc-word" id="fc-word">—</div>
-          <div class="fc-type" id="fc-type"></div>
+          <div class="fc-word" id="fc-word">Patience</div>
+          <div class="fc-type" id="fc-type">n</div>
           <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
           <div class="fc-hint">👆 Bấm để xem nghĩa</div>
         </div>
         <div class="fc-back">
-          <div class="fc-phonetic" id="fc-phonetic"></div>
-          <div class="fc-meaning" id="fc-meaning"></div>
-          <div class="fc-example" id="fc-example"></div>
+          <div class="fc-phonetic" id="fc-phonetic">/ˈpeɪʃns/</div>
+          <div class="fc-meaning" id="fc-meaning">Sự kiên nhẫn</div>
+          <div class="fc-example" id="fc-example">Patience is a virtue.</div>
         </div>
       </div>
     </div>
 
     <div class="fc-controls">
-      <button class="btn-hard" onclick="rateCard('hard')">😟 Chưa nhớ</button>
-      <button class="btn-ok" onclick="rateCard('ok')">🤔 Tạm ổn</button>
-      <button class="btn-easy" onclick="rateCard('easy')">😄 Đã nhớ</button>
+      <button class="btn-hard" onclick="rateCard(&#39;hard&#39;)">😟 Chưa nhớ</button>
+      <button class="btn-ok" onclick="rateCard(&#39;ok&#39;)">🤔 Tạm ổn</button>
+      <button class="btn-easy" onclick="rateCard(&#39;easy&#39;)">😄 Đã nhớ</button>
     </div>
-    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">0</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
+    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">8</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
   </div>
 
   <!-- ══ SCREEN 2: LUYỆN NGHE ══ -->
@@ -579,12 +582,12 @@ body {
     <div class="sec-title">Luyện nghe</div>
     <div class="sec-sub">Nghe câu tiếng Anh và chọn nghĩa đúng</div>
     <div class="listen-card">
-      <div style="font-size:13px;opacity:.7;margin-bottom:8px">Câu <span id="ls-num">1</span> / <span id="ls-total">8</span></div>
+      <div style="font-size:13px;opacity:.7;margin-bottom:8px">Câu <span id="ls-num">1</span> / <span id="ls-total">∞</span></div>
       <button class="play-btn" id="play-btn" onclick="playListen()">▶</button>
-      <div class="listen-sentence blurred" id="ls-sentence">Loading...</div>
+      <div class="listen-sentence blurred" id="ls-sentence">The early bird catches the worm.</div>
       <div style="font-size:12px;opacity:.6">Bấm ▶ để nghe • Chọn nghĩa đúng bên dưới</div>
     </div>
-    <div class="listen-options" id="ls-options"></div>
+    <div class="listen-options" id="ls-options"><button class="listen-opt">Con giun sợ chim.</button><button class="listen-opt">Những chú chim hót hay.</button><button class="listen-opt">Chim dậy sớm bắt được sâu.</button><button class="listen-opt">Buổi sáng rất đẹp.</button></div>
     <button class="btn-primary" id="ls-next-btn" onclick="nextListen()" style="display:none">Câu tiếp theo →</button>
   </div>
 
@@ -592,11 +595,11 @@ body {
   <div class="screen" id="screen-reading">
     <div class="sec-title">Luyện đọc</div>
     <div class="sec-sub">Đọc đoạn văn và trả lời câu hỏi</div>
-    <div class="reading-passage" id="rd-passage">Đang tải bài đọc...</div>
+    <div class="reading-passage" id="rd-passage">Vietnam is a beautiful country in Southeast Asia. It has a long coastline with many stunning beaches. The country is famous for its delicious food such as pho, banh mi, and spring rolls. Vietnamese people are known for their hospitality and hard work. The capital city is Hanoi, while Ho Chi Minh City is the largest city.</div>
     <div class="card">
-      <div class="reading-q" id="rd-question"></div>
-      <div class="reading-opts" id="rd-opts"></div>
-      <div class="reading-explain" id="rd-explain"></div>
+      <div class="reading-q" id="rd-question">1. What is Vietnam famous for?</div>
+      <div class="reading-opts" id="rd-opts"><button class="reading-opt">A. Its mountains and forests</button><button class="reading-opt">B. Its delicious food and hospitality</button><button class="reading-opt">C. Its modern technology</button><button class="reading-opt">D. Its cold weather</button></div>
+      <div class="reading-explain" id="rd-explain" style="display: none;"></div>
     </div>
     <button class="btn-primary" id="rd-next-btn" onclick="nextReading()" style="display:none">Bài tiếp theo →</button>
   </div>
@@ -612,8 +615,8 @@ body {
     </div>
     <div class="card">
       <div class="quiz-q-num" id="qz-num">Câu 1 / 10</div>
-      <div class="quiz-q" id="qz-question"></div>
-      <div class="quiz-opts" id="qz-opts"></div>
+      <div class="quiz-q" id="qz-question">Choose the correct meaning of "Perseverance"</div>
+      <div class="quiz-opts" id="qz-opts"><button class="quiz-opt"><div class="opt-letter">A</div><span>Sự tức giận</span></button><button class="quiz-opt"><div class="opt-letter">B</div><span>Sự kiên trì</span></button><button class="quiz-opt"><div class="opt-letter">C</div><span>Sự vô tâm</span></button><button class="quiz-opt"><div class="opt-letter">D</div><span>Sự hối hận</span></button></div>
       <div style="margin-top:12px;font-size:13px;color:var(--text-sub);display:none" id="qz-explain"></div>
     </div>
     <button class="btn-primary" id="qz-next-btn" onclick="nextQuiz()" style="display:none">Câu tiếp →</button>
@@ -625,11 +628,12 @@ body {
     <div class="sec-sub">AI chấm bài, sửa lỗi và gợi ý cải thiện</div>
     <div class="writing-prompt">
       <div class="label">📝 Chủ đề hôm nay</div>
-      <div class="prompt-text" id="wr-prompt">Đang tải chủ đề...</div>
+      <div class="prompt-text" id="wr-prompt">Describe your family in 3-5 sentences. (Mô tả gia đình bạn bằng 3-5 câu tiếng Anh)</div>
     </div>
     <div class="card">
       <label style="font-size:13px;font-weight:700;color:var(--text-sub);display:block;margin-bottom:8px">Bài viết của bạn:</label>
-      <textarea class="writing-area" id="wr-input" placeholder="Viết câu hoặc đoạn văn tiếng Anh của bạn vào đây...&#10;Ví dụ: I think my family is very important to me because..."></textarea>
+      <textarea class="writing-area" id="wr-input" placeholder="Viết câu hoặc đoạn văn tiếng Anh của bạn vào đây...
+Ví dụ: I think my family is very important to me because..."></textarea>
       <button class="btn-primary" onclick="checkWriting()" id="wr-btn">🤖 AI chấm bài ngay</button>
       <div class="ai-result" id="wr-result"></div>
     </div>
@@ -1280,23 +1284,38 @@ if ('serviceWorker' in navigator) {
 
 // ── Nút "Thêm vào màn hình chính" ──
 let deferredPrompt;
+
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
-  // Hiện banner gợi ý cài app
-  const banner = document.getElementById('install-banner');
-  if (banner) banner.style.display = 'flex';
+  if (localStorage.getItem('banner_dismissed')) return;
+  setTimeout(() => {
+    const banner = document.getElementById('install-banner');
+    if (banner) banner.style.display = 'flex';
+  }, 2000); // Chờ 2 giây rồi mới hiện
 });
 
 function installApp() {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(result => {
-    if (result.outcome === 'accepted') {
-      document.getElementById('install-banner').style.display = 'none';
-    }
-    deferredPrompt = null;
-  });
+  const banner = document.getElementById('install-banner');
+  // Android/Chrome: dùng native prompt
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(result => {
+      if (result.outcome === 'accepted') {
+        if (banner) banner.style.display = 'none';
+      }
+      deferredPrompt = null;
+    });
+    return;
+  }
+  // iOS Safari: hướng dẫn thủ công
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  if (isIOS) {
+    alert('📱 Trên iPhone/iPad:\n1. Bấm nút Chia sẻ ↗️ ở thanh dưới Safari\n2. Chọn "Thêm vào màn hình chính"\n3. Bấm "Thêm" → Xong! 🎉');
+  } else {
+    alert('📱 Trên Android:\n1. Bấm menu ⋮ (3 chấm) ở góc phải Chrome\n2. Chọn "Thêm vào màn hình chính"\n3. Bấm "Thêm" → Xong! 🎉');
+  }
+  if (banner) banner.style.display = 'none';
 }
 
 function dismissBanner() {
@@ -1318,5 +1337,6 @@ window.addEventListener('appinstalled', () => {
   if (b) b.style.display = 'none';
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
