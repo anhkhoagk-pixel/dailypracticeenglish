@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Family">
+<meta name="theme-color" content="#4f46e5">
+<meta name="description" content="Ứng dụng học tiếng Anh cho cả gia đình với AI">
+<link rel="manifest" href="manifest.json">
+<!-- iOS icon (vì iOS không đọc manifest icon) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%234f46e5'/><text y='125' x='50%' text-anchor='middle' font-size='100' font-family='Arial'>🌟</text></svg>">
+<title>English For Family 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --primary-dark: #3730a3;
+  --secondary: #06b6d4;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #f0f4ff;
+  --card: #ffffff;
+  --text: #1e1b4b;
+  --text-sub: #6b7280;
+  --border: #e5e7eb;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 24px rgba(79,70,229,0.10);
+  --shadow-lg: 0 8px 40px rgba(79,70,229,0.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--secondary) 100%);
+  padding: 20px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 30%;
+  width: 300px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.logo { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+.logo span { color: #fde68a; }
+
+/* API key setup */
+.api-banner {
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  position: relative; z-index: 1;
+}
+.api-banner input {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.api-banner input::placeholder { color: rgba(255,255,255,0.6); }
+.api-banner button {
+  background: #fde68a;
+  color: var(--primary-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.api-status { font-size: 12px; color: rgba(255,255,255,0.8); }
+.api-status.ok { color: #86efac; }
+
+/* ── NAV TABS ── */
+.nav-wrap {
+  padding: 0 16px;
+  margin-top: -48px;
+  position: relative; z-index: 10;
+}
+.nav-tabs {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  box-shadow: var(--shadow-lg);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 1;
+  min-width: 68px;
+  padding: 10px 6px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-sub);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all .2s;
+}
+.tab .tab-icon { font-size: 20px; }
+.tab.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+}
+.tab:hover:not(.active) { background: var(--bg); }
+
+/* ── MAIN CONTENT ── */
+.content { padding: 20px 16px 40px; }
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.sec-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
+
+/* ── CARD ── */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+/* ── MODULE 1: FLASHCARD ── */
+.fc-wrap { perspective: 1000px; margin: 0 auto 20px; max-width: 420px; }
+.fc-inner {
+  width: 100%; height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+}
+.fc-inner.flipped { transform: rotateY(180deg); }
+.fc-front, .fc-back {
+  position: absolute; inset: 0;
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  backface-visibility: hidden;
+  padding: 24px;
+}
+.fc-front {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #fff;
+}
+.fc-back {
+  background: linear-gradient(135deg, var(--success) 0%, #34d399 100%);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.fc-word { font-size: 32px; font-weight: 900; letter-spacing: -1px; }
+.fc-type { font-size: 12px; opacity: .7; margin-top: 4px; }
+.fc-hint { font-size: 13px; opacity: .75; margin-top: 12px; }
+.fc-phonetic { font-size: 16px; margin-bottom: 6px; opacity: .85; }
+.fc-meaning { font-size: 20px; font-weight: 800; }
+.fc-example { font-size: 12px; opacity: .8; margin-top: 10px; font-style: italic; text-align: center; }
+.fc-controls { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; }
+.fc-controls button { flex: 1; padding: 14px; border-radius: 12px; border: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; cursor: pointer; transition: transform .1s; }
+.fc-controls button:active { transform: scale(.97); }
+.btn-hard { background: #fee2e2; color: var(--danger); }
+.btn-ok { background: #fef3c7; color: #92400e; }
+.btn-easy { background: #d1fae5; color: #065f46; }
+.fc-progress { text-align: center; font-size: 13px; color: var(--text-sub); margin-top: 12px; }
+.fc-progress span { font-weight: 800; color: var(--primary); }
+.fc-speak-btn {
+  background: rgba(255,255,255,0.2);
+  border: none; border-radius: 8px;
+  padding: 6px 12px;
+  color: #fff; font-size: 12px;
+  cursor: pointer; margin-top: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+
+/* ── MODULE 2: LUYỆN NGHE ── */
+.listen-card {
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.listen-sentence {
+  font-size: 18px; font-weight: 800; letter-spacing: .5px;
+  min-height: 60px; display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  margin: 16px 0;
+  line-height: 1.5;
+}
+.listen-sentence.blurred { filter: blur(6px); user-select: none; }
+.play-btn {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), #0e7490);
+  border: none; color: #fff; font-size: 28px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 20px rgba(6,182,212,0.4);
+  transition: transform .15s;
+}
+.play-btn:hover { transform: scale(1.08); }
+.listen-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.listen-opt {
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--text);
+  transition: all .15s;
+  text-align: center;
+}
+.listen-opt:hover { border-color: var(--primary); background: #eef2ff; }
+.listen-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
+.listen-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+
+/* ── MODULE 3: LUYỆN ĐỌC ── */
+.reading-passage {
+  background: #fffbeb;
+  border-left: 4px solid var(--warning);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.reading-q { font-weight: 800; font-size: 15px; margin-bottom: 10px; }
+.reading-opts { display: flex; flex-direction: column; gap: 8px; }
+.reading-opt {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 600;
+  transition: all .15s;
+}
+.reading-opt:hover { border-color: var(--primary); background: #eef2ff; }
+.reading-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
+.reading-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+.reading-explain {
+  margin-top: 12px; padding: 12px 14px;
+  background: #eff6ff; border-radius: 10px;
+  font-size: 13px; line-height: 1.6; color: #1e40af;
+  display: none;
+}
+
+/* ── MODULE 4: TRẮC NGHIỆM ── */
+.quiz-q-num { font-size: 12px; color: var(--text-sub); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; }
+.quiz-q { font-size: 16px; font-weight: 800; margin-bottom: 16px; line-height: 1.5; }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 700;
+  transition: all .15s;
+  display: flex; align-items: center; gap: 12px;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--primary); background: #eef2ff; }
+.quiz-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
+.quiz-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+.quiz-opt:disabled { cursor: default; }
+.opt-letter {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; flex-shrink: 0;
+}
+.quiz-opt.correct .opt-letter { background: var(--success); color: #fff; }
+.quiz-opt.wrong .opt-letter { background: var(--danger); color: #fff; }
+.quiz-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+.quiz-score-bar { display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; }
+.score-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* ── MODULE 5: LUYỆN VIẾT ── */
+.writing-prompt {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.writing-prompt .label { font-size: 11px; font-weight: 700; opacity: .75; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+.writing-prompt .prompt-text { font-size: 16px; font-weight: 800; line-height: 1.5; }
+.writing-area {
+  width: 100%; min-height: 100px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px; line-height: 1.7;
+  resize: vertical;
+  outline: none;
+  transition: border-color .2s;
+  color: var(--text);
+}
+.writing-area:focus { border-color: var(--primary); }
+.ai-result {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  display: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.ai-result.show { display: block; }
+.ai-loading {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--primary); font-weight: 700; font-size: 14px;
+}
+.dot-anim span {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary); margin: 0 2px;
+  animation: bounce .9s infinite;
+}
+.dot-anim span:nth-child(2) { animation-delay: .15s; }
+.dot-anim span:nth-child(3) { animation-delay: .3s; }
+@keyframes bounce { 0%,80%,100%{transform:scale(.7)}40%{transform:scale(1.2)} }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  transition: transform .1s, box-shadow .1s;
+  box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,0.4); }
+.btn-primary:active { transform: scale(.98); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.btn-secondary {
+  background: var(--bg);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 11px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn-secondary:hover { background: #eef2ff; }
+
+/* ── PROGRESS HEADER ── */
+.progress-row {
+  display: flex; gap: 12px; margin-bottom: 20px;
+}
+.stat-chip {
+  flex: 1; background: var(--card);
+  border-radius: 12px; padding: 12px;
+  text-align: center; box-shadow: var(--shadow);
+}
+.stat-chip .val { font-size: 22px; font-weight: 900; color: var(--primary); }
+.stat-chip .lbl { font-size: 11px; color: var(--text-sub); font-weight: 600; margin-top: 2px; }
+
+/* ── RESULT POPUP ── */
+.result-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.result-overlay.show { display: flex; }
+.result-popup {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  max-width: 360px; width: 100%;
+  text-align: center;
+  animation: popIn .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popIn { from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1} }
+.result-emoji { font-size: 56px; margin-bottom: 12px; }
+.result-title { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+.result-msg { font-size: 14px; color: var(--text-sub); line-height: 1.6; margin-bottom: 20px; }
+.result-score-big { font-size: 48px; font-weight: 900; color: var(--primary); margin: 12px 0; }
+
+/* topic selector */
+.topic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.topic-btn {
+  padding: 12px 6px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px; font-weight: 700;
+  cursor: pointer; text-align: center;
+  transition: all .15s;
+}
+.topic-btn:hover, .topic-btn.selected { border-color: var(--primary); background: #eef2ff; color: var(--primary); }
+.topic-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+@media(max-width:480px) {
+  .header { padding: 16px 16px 72px; }
+  .fc-word { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER CÀI APP -->
+<div id="install-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:999;
+  background:linear-gradient(135deg,#3730a3,#4f46e5); color:#fff; padding:14px 16px;
+  align-items:center; gap:12px; box-shadow:0 -4px 24px rgba(0,0,0,0.2);">
+  <span style="font-size:28px">🌟</span>
+  <div style="flex:1">
+    <div style="font-weight:800; font-size:14px">Cài app vào điện thoại!</div>
+    <div style="font-size:12px; opacity:.8">Dùng offline, không cần mở trình duyệt</div>
+  </div>
+  <button onclick="installApp()" style="background:#fde68a; color:#3730a3; border:none; border-radius:10px;
+    padding:10px 16px; font-family:'Nunito',sans-serif; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap;">
+    Cài ngay
+  </button>
+  <button onclick="dismissBanner()" style="background:rgba(255,255,255,0.15); color:#fff; border:none;
+    border-radius:8px; padding:10px 12px; cursor:pointer; font-size:16px;">✕</button>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="logo">English <span>Family</span> 🌟</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.7)">Học cùng AI</div>
+  </div>
+  <div class="api-banner" style="margin-top:12px">
+    <span style="font-size:18px">🔑</span>
+    <input type="password" id="api-key-input" placeholder="Dán Gemini API key vào đây..." />
+    <button onclick="saveKey()">Lưu</button>
+    <span class="api-status" id="api-status">Chưa có key</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="tab active" onclick="switchTab('flashcard', this)">
+      <span class="tab-icon">🃏</span>Flashcard
+    </button>
+    <button class="tab" onclick="switchTab('listening', this)">
+      <span class="tab-icon">🎧</span>Nghe
+    </button>
+    <button class="tab" onclick="switchTab('reading', this)">
+      <span class="tab-icon">📖</span>Đọc
+    </button>
+    <button class="tab" onclick="switchTab('quiz', this)">
+      <span class="tab-icon">✅</span>Trắc nghiệm
+    </button>
+    <button class="tab" onclick="switchTab('writing', this)">
+      <span class="tab-icon">✍️</span>Viết
+    </button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ══ SCREEN 1: FLASHCARD ══ -->
+  <div class="screen active" id="screen-flashcard">
+    <div class="sec-title">Học từ vựng</div>
+    <div class="sec-sub">Bấm vào thẻ để xem nghĩa • Đánh giá mức độ nhớ của bạn</div>
+
+    <div class="topic-grid" id="fc-topics">
+      <button class="topic-btn selected" onclick="loadTopic('daily', this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
+      <button class="topic-btn" onclick="loadTopic('food', this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
+      <button class="topic-btn" onclick="loadTopic('travel', this)"><span class="topic-icon">✈️</span>Du lịch</button>
+      <button class="topic-btn" onclick="loadTopic('work', this)"><span class="topic-icon">💼</span>Công việc</button>
+      <button class="topic-btn" onclick="loadTopic('nature', this)"><span class="topic-icon">🌿</span>Thiên nhiên</button>
+      <button class="topic-btn" onclick="loadTopic('emotion', this)"><span class="topic-icon">❤️</span>Cảm xúc</button>
+    </div>
+
+    <div class="fc-wrap">
+      <div class="fc-inner" id="fc-card" onclick="flipCard()">
+        <div class="fc-front">
+          <div class="fc-word" id="fc-word">—</div>
+          <div class="fc-type" id="fc-type"></div>
+          <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
+          <div class="fc-hint">👆 Bấm để xem nghĩa</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-phonetic" id="fc-phonetic"></div>
+          <div class="fc-meaning" id="fc-meaning"></div>
+          <div class="fc-example" id="fc-example"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-controls">
+      <button class="btn-hard" onclick="rateCard('hard')">😟 Chưa nhớ</button>
+      <button class="btn-ok" onclick="rateCard('ok')">🤔 Tạm ổn</button>
+      <button class="btn-easy" onclick="rateCard('easy')">😄 Đã nhớ</button>
+    </div>
+    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">0</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
+  </div>
+
+  <!-- ══ SCREEN 2: LUYỆN NGHE ══ -->
+  <div class="screen" id="screen-listening">
+    <div class="sec-title">Luyện nghe</div>
+    <div class="sec-sub">Nghe câu tiếng Anh và chọn nghĩa đúng</div>
+    <div class="listen-card">
+      <div style="font-size:13px;opacity:.7;margin-bottom:8px">Câu <span id="ls-num">1</span> / <span id="ls-total">8</span></div>
+      <button class="play-btn" id="play-btn" onclick="playListen()">▶</button>
+      <div class="listen-sentence blurred" id="ls-sentence">Loading...</div>
+      <div style="font-size:12px;opacity:.6">Bấm ▶ để nghe • Chọn nghĩa đúng bên dưới</div>
+    </div>
+    <div class="listen-options" id="ls-options"></div>
+    <button class="btn-primary" id="ls-next-btn" onclick="nextListen()" style="display:none">Câu tiếp theo →</button>
+  </div>
+
+  <!-- ══ SCREEN 3: LUYỆN ĐỌC ══ -->
+  <div class="screen" id="screen-reading">
+    <div class="sec-title">Luyện đọc</div>
+    <div class="sec-sub">Đọc đoạn văn và trả lời câu hỏi</div>
+    <div class="reading-passage" id="rd-passage">Đang tải bài đọc...</div>
+    <div class="card">
+      <div class="reading-q" id="rd-question"></div>
+      <div class="reading-opts" id="rd-opts"></div>
+      <div class="reading-explain" id="rd-explain"></div>
+    </div>
+    <button class="btn-primary" id="rd-next-btn" onclick="nextReading()" style="display:none">Bài tiếp theo →</button>
+  </div>
+
+  <!-- ══ SCREEN 4: TRẮC NGHIỆM ══ -->
+  <div class="screen" id="screen-quiz">
+    <div class="sec-title">Kiểm tra từ vựng</div>
+    <div class="sec-sub">Chọn đáp án đúng nhất</div>
+    <div class="progress-row">
+      <div class="stat-chip"><div class="val" id="qz-score">0</div><div class="lbl">Điểm</div></div>
+      <div class="stat-chip"><div class="val" id="qz-correct">0</div><div class="lbl">✅ Đúng</div></div>
+      <div class="stat-chip"><div class="val" id="qz-wrong">0</div><div class="lbl">❌ Sai</div></div>
+    </div>
+    <div class="card">
+      <div class="quiz-q-num" id="qz-num">Câu 1 / 10</div>
+      <div class="quiz-q" id="qz-question"></div>
+      <div class="quiz-opts" id="qz-opts"></div>
+      <div style="margin-top:12px;font-size:13px;color:var(--text-sub);display:none" id="qz-explain"></div>
+    </div>
+    <button class="btn-primary" id="qz-next-btn" onclick="nextQuiz()" style="display:none">Câu tiếp →</button>
+  </div>
+
+  <!-- ══ SCREEN 5: LUYỆN VIẾT ══ -->
+  <div class="screen" id="screen-writing">
+    <div class="sec-title">Luyện viết</div>
+    <div class="sec-sub">AI chấm bài, sửa lỗi và gợi ý cải thiện</div>
+    <div class="writing-prompt">
+      <div class="label">📝 Chủ đề hôm nay</div>
+      <div class="prompt-text" id="wr-prompt">Đang tải chủ đề...</div>
+    </div>
+    <div class="card">
+      <label style="font-size:13px;font-weight:700;color:var(--text-sub);display:block;margin-bottom:8px">Bài viết của bạn:</label>
+      <textarea class="writing-area" id="wr-input" placeholder="Viết câu hoặc đoạn văn tiếng Anh của bạn vào đây...&#10;Ví dụ: I think my family is very important to me because..."></textarea>
+      <button class="btn-primary" onclick="checkWriting()" id="wr-btn">🤖 AI chấm bài ngay</button>
+      <div class="ai-result" id="wr-result"></div>
+    </div>
+    <button class="btn-secondary" onclick="newWritingPrompt()" style="width:100%">🔄 Đổi chủ đề khác</button>
+  </div>
+</div>
+
+<!-- RESULT POPUP -->
+<div class="result-overlay" id="result-overlay">
+  <div class="result-popup">
+    <div class="result-emoji" id="res-emoji">🎉</div>
+    <div class="result-title" id="res-title">Hoàn thành!</div>
+    <div class="result-score-big" id="res-score"></div>
+    <div class="result-msg" id="res-msg"></div>
+    <button class="btn-primary" onclick="closeResult()" style="margin-top:0">Chơi lại 🔄</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// CONFIG & STATE
+// ══════════════════════════════════════════
+let GEMINI_KEY = localStorage.getItem('gemini_key') || '';
+if (GEMINI_KEY) {
+  document.getElementById('api-key-input').value = '••••••••••••••••';
+  document.getElementById('api-status').textContent = '✓ Đã kết nối';
+  document.getElementById('api-status').className = 'api-status ok';
+}
+
+function saveKey() {
+  const val = document.getElementById('api-key-input').value.trim();
+  if (!val || val.includes('•')) return;
+  GEMINI_KEY = val;
+  localStorage.setItem('gemini_key', val);
+  document.getElementById('api-key-input').value = '••••••••••••••••';
+  document.getElementById('api-status').textContent = '✓ Đã kết nối';
+  document.getElementById('api-status').className = 'api-status ok';
+  alert('✅ API key đã lưu! Giờ bạn có thể dùng tất cả tính năng AI.');
+}
+
+async function callGemini(prompt) {
+  if (!GEMINI_KEY) {
+    return '⚠️ Bạn chưa nhập Gemini API key. Hãy dán key vào ô phía trên và nhấn Lưu.';
+  }
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      }
+    );
+    const data = await res.json();
+    if (data.error) return '❌ Lỗi API: ' + data.error.message;
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '❌ Không nhận được phản hồi.';
+  } catch (e) {
+    return '❌ Lỗi kết nối: ' + e.message;
+  }
+}
+
+// ══════════════════════════════════════════
+// TAB NAVIGATION
+// ══════════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════════
+// MODULE 1: FLASHCARD
+// ══════════════════════════════════════════
+const VOCAB = {
+  daily: [
+    {w:'Grateful',type:'adj',p:'/ˈɡreɪtfəl/',vi:'Biết ơn',ex:'I am grateful for my family.'},
+    {w:'Routine',type:'n',p:'/ruːˈtiːn/',vi:'Thói quen hàng ngày',ex:'Morning routine keeps me healthy.'},
+    {w:'Accomplish',type:'v',p:'/əˈkʌmplɪʃ/',vi:'Hoàn thành, đạt được',ex:'She accomplished her goal.'},
+    {w:'Genuine',type:'adj',p:'/ˈdʒenjuɪn/',vi:'Thật sự, chân thành',ex:'His smile was genuine.'},
+    {w:'Patience',type:'n',p:'/ˈpeɪʃns/',vi:'Sự kiên nhẫn',ex:'Patience is a virtue.'},
+    {w:'Embrace',type:'v',p:'/ɪmˈbreɪs/',vi:'Ôm, đón nhận',ex:'Embrace every opportunity.'},
+    {w:'Cherish',type:'v',p:'/ˈtʃerɪʃ/',vi:'Trân trọng, nâng niu',ex:'Cherish every moment with family.'},
+    {w:'Perseverance',type:'n',p:'/ˌpɜːrsɪˈvɪərəns/',vi:'Sự kiên trì',ex:'Success requires perseverance.'},
+  ],
+  food: [
+    {w:'Delicious',type:'adj',p:'/dɪˈlɪʃəs/',vi:'Ngon tuyệt vời',ex:'This pho is delicious!'},
+    {w:'Appetite',type:'n',p:'/ˈæpɪtaɪt/',vi:'Sự ngon miệng, khẩu vị',ex:'I have a great appetite today.'},
+    {w:'Savor',type:'v',p:'/ˈseɪvər/',vi:'Thưởng thức từng chút',ex:'Savor every bite of food.'},
+    {w:'Cuisine',type:'n',p:'/kwɪˈziːn/',vi:'Ẩm thực, nền nấu ăn',ex:'Vietnamese cuisine is famous worldwide.'},
+    {w:'Sizzle',type:'v',p:'/ˈsɪzl/',vi:'Xèo xèo, rán lửa to',ex:'The meat sizzled in the pan.'},
+    {w:'Nourish',type:'v',p:'/ˈnɜːrɪʃ/',vi:'Nuôi dưỡng, bổ sung dinh dưỡng',ex:'Good food nourishes your body.'},
+  ],
+  travel: [
+    {w:'Adventure',type:'n',p:'/ədˈventʃər/',vi:'Cuộc phiêu lưu',ex:'Travel is the greatest adventure.'},
+    {w:'Wander',type:'v',p:'/ˈwɒndər/',vi:'Lang thang, dạo quanh',ex:'I love to wander through old streets.'},
+    {w:'Itinerary',type:'n',p:'/aɪˈtɪnərəri/',vi:'Lịch trình chuyến đi',ex:'We planned our itinerary carefully.'},
+    {w:'Explore',type:'v',p:'/ɪkˈsplɔːr/',vi:'Khám phá',ex:'Let\'s explore the local culture.'},
+    {w:'Breathtaking',type:'adj',p:'/ˈbreθteɪkɪŋ/',vi:'Ngoạn mục, đẹp đến nghẹt thở',ex:'The view from the top was breathtaking.'},
+    {w:'Souvenir',type:'n',p:'/ˌsuːvəˈnɪər/',vi:'Quà lưu niệm',ex:'I bought souvenirs for my family.'},
+  ],
+  work: [
+    {w:'Efficient',type:'adj',p:'/ɪˈfɪʃnt/',vi:'Hiệu quả, năng suất',ex:'She is an efficient worker.'},
+    {w:'Collaborate',type:'v',p:'/kəˈlæbəreɪt/',vi:'Cộng tác, hợp tác',ex:'We collaborate on every project.'},
+    {w:'Deadline',type:'n',p:'/ˈdedlaɪn/',vi:'Hạn chót, deadline',ex:'The deadline is tomorrow morning.'},
+    {w:'Innovative',type:'adj',p:'/ˈɪnəveɪtɪv/',vi:'Đổi mới sáng tạo',ex:'The company uses innovative methods.'},
+    {w:'Resilient',type:'adj',p:'/rɪˈzɪliənt/',vi:'Kiên cường, có khả năng phục hồi',ex:'Good teams are resilient under pressure.'},
+  ],
+  nature: [
+    {w:'Serene',type:'adj',p:'/səˈriːn/',vi:'Thanh bình, yên tĩnh',ex:'The forest was serene and peaceful.'},
+    {w:'Flourish',type:'v',p:'/ˈflʌrɪʃ/',vi:'Phát triển mạnh, nở rộ',ex:'Plants flourish in sunlight.'},
+    {w:'Tranquil',type:'adj',p:'/ˈtræŋkwɪl/',vi:'Yên bình, êm ả',ex:'A tranquil lake at sunset.'},
+    {w:'Wilderness',type:'n',p:'/ˈwɪldənəs/',vi:'Vùng hoang dã',ex:'They camped in the wilderness.'},
+    {w:'Radiant',type:'adj',p:'/ˈreɪdiənt/',vi:'Rực rỡ, tỏa sáng',ex:'The sun was radiant this morning.'},
+  ],
+  emotion: [
+    {w:'Joyful',type:'adj',p:'/ˈdʒɔɪfəl/',vi:'Tràn đầy niềm vui',ex:'She felt joyful on her birthday.'},
+    {w:'Melancholy',type:'n',p:'/ˈmelənkɒli/',vi:'Nỗi buồn man mác',ex:'There was a touch of melancholy in the song.'},
+    {w:'Euphoric',type:'adj',p:'/juːˈfɒrɪk/',vi:'Hưng phấn, sung sướng tột đỉnh',ex:'He was euphoric after winning.'},
+    {w:'Compassion',type:'n',p:'/kəmˈpæʃn/',vi:'Lòng trắc ẩn, sự thương cảm',ex:'Show compassion to those in need.'},
+    {w:'Nostalgic',type:'adj',p:'/nɒˈstældʒɪk/',vi:'Hoài niệm',ex:'Old photos make me nostalgic.'},
+    {w:'Contentment',type:'n',p:'/kənˈtentmənt/',vi:'Sự mãn nguyện, thỏa mãn',ex:'Simple things bring contentment.'},
+  ]
+};
+
+let fcCards = [], fcIndex = 0, fcKnown = 0, fcFlipped = false;
+
+function loadTopic(topic, btn) {
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  fcCards = [...VOCAB[topic]].sort(() => Math.random() - 0.5);
+  fcIndex = 0; fcKnown = 0; fcFlipped = false;
+  renderCard();
+}
+
+function renderCard() {
+  if (!fcCards.length) return;
+  const c = fcCards[fcIndex];
+  document.getElementById('fc-word').textContent = c.w;
+  document.getElementById('fc-type').textContent = c.type;
+  document.getElementById('fc-phonetic').textContent = c.p;
+  document.getElementById('fc-meaning').textContent = c.vi;
+  document.getElementById('fc-example').textContent = c.ex;
+  document.getElementById('fc-cur').textContent = fcIndex + 1;
+  document.getElementById('fc-total').textContent = fcCards.length;
+  document.getElementById('fc-known').textContent = fcKnown;
+  const inner = document.getElementById('fc-card');
+  inner.classList.remove('flipped');
+  fcFlipped = false;
+}
+
+function flipCard() {
+  fcFlipped = !fcFlipped;
+  document.getElementById('fc-card').classList.toggle('flipped', fcFlipped);
+}
+
+function speakWord() {
+  if (!fcCards.length) return;
+  const u = new SpeechSynthesisUtterance(fcCards[fcIndex].w);
+  u.lang = 'en-US'; u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+
+function rateCard(rating) {
+  if (rating === 'easy') fcKnown++;
+  fcIndex = (fcIndex + 1) % fcCards.length;
+  renderCard();
+}
+
+loadTopic('daily', document.querySelector('.topic-btn'));
+
+// ══════════════════════════════════════════
+// MODULE 2: LUYỆN NGHE — AI tạo câu vô hạn
+// ══════════════════════════════════════════
+const LISTEN_BACKUP = [
+  {s:'The early bird catches the worm.',vi:'Chim dậy sớm bắt được sâu.',opts:['Chim dậy sớm bắt được sâu.','Con giun sợ chim.','Buổi sáng rất đẹp.','Những chú chim hót hay.']},
+  {s:'Actions speak louder than words.',vi:'Hành động nói lên nhiều hơn lời nói.',opts:['Nói chuyện phải to tiếng.','Lời nói quan trọng nhất.','Hành động nói lên nhiều hơn lời nói.','Cần học nhiều từ mới.']},
+  {s:'Practice makes perfect.',vi:'Luyện tập tạo nên sự hoàn hảo.',opts:['Sự hoàn hảo không cần luyện tập.','Luyện tập tạo nên sự hoàn hảo.','Hoàn hảo là điều không thể.','Mỗi ngày đều phải nghỉ ngơi.']},
+  {s:'Laughter is the best medicine.',vi:'Tiếng cười là liều thuốc tốt nhất.',opts:['Thuốc đắng dã tật.','Bác sĩ giỏi nhất ở đây.','Tiếng cười là liều thuốc tốt nhất.','Y học hiện đại rất tiên tiến.']},
+  {s:'Home is where the heart is.',vi:'Nhà là nơi trái tim thuộc về.',opts:['Nhà là nơi trái tim thuộc về.','Trái tim có thể ở khắp nơi.','Nhà đẹp nhất thế giới.','Tình yêu không có nhà.']},
+];
+
+const LS_TOPICS = ['daily life','family','food','travel','work','nature','school','friendship','health','hobbies'];
+let lsIndex = 0, lsTotal = 0, lsCurrentData = null, lsUsedSentences = [];
+
+function initListen() {
+  lsIndex = 0; lsTotal = 0; lsUsedSentences = [];
+  document.getElementById('ls-num').textContent = '1';
+  document.getElementById('ls-total').textContent = '∞';
+  loadNextListenQuestion();
+}
+
+async function loadNextListenQuestion() {
+  // Show loading state
+  const optsEl = document.getElementById('ls-options');
+  optsEl.innerHTML = '';
+  document.getElementById('ls-sentence').textContent = '⏳ AI đang tạo câu mới...';
+  document.getElementById('ls-sentence').className = 'listen-sentence blurred';
+  document.getElementById('ls-next-btn').style.display = 'none';
+  document.getElementById('play-btn').disabled = true;
+
+  if (!GEMINI_KEY) {
+    // Dùng backup nếu chưa có key
+    const d = LISTEN_BACKUP[lsIndex % LISTEN_BACKUP.length];
+    lsCurrentData = d;
+    renderListenCard(d);
+    document.getElementById('play-btn').disabled = false;
+    return;
+  }
+
+  const topic = LS_TOPICS[Math.floor(Math.random() * LS_TOPICS.length)];
+  const avoidList = lsUsedSentences.slice(-10).join('; ');
+  const prompt = `Create ONE English listening exercise about the topic: "${topic}".
+Rules:
+- The sentence must be natural, useful, suitable for Vietnamese family learners (all ages)
+- Length: 8-15 words
+- Do NOT use these sentences: ${avoidList || 'none'}
+- Return ONLY valid JSON, no markdown, no explanation:
+{"sentence":"...","meaning":"(Vietnamese translation)","options":["correct Vietnamese meaning","wrong option 2","wrong option 3","wrong option 4"]}
+The "options" array must have exactly 4 items. The correct answer must be the FIRST item in the array. Make wrong options plausible but clearly incorrect.`;
+
+  try {
+    const raw = await callGemini(prompt);
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const start = clean.indexOf('{');
+    const end = clean.lastIndexOf('}');
+    const parsed = JSON.parse(clean.slice(start, end+1));
+
+    if (!parsed.sentence || !parsed.meaning || !Array.isArray(parsed.options) || parsed.options.length < 4) throw new Error('Bad format');
+
+    lsUsedSentences.push(parsed.sentence);
+    lsCurrentData = { s: parsed.sentence, vi: parsed.meaning, opts: parsed.options };
+    renderListenCard(lsCurrentData);
+  } catch(e) {
+    // Fallback về backup
+    const d = LISTEN_BACKUP[lsIndex % LISTEN_BACKUP.length];
+    lsCurrentData = d;
+    renderListenCard(d);
+  }
+  document.getElementById('play-btn').disabled = false;
+}
+
+function renderListenCard(d) {
+  lsTotal++;
+  document.getElementById('ls-num').textContent = lsTotal;
+  document.getElementById('ls-total').textContent = '∞';
+  document.getElementById('ls-sentence').textContent = d.s;
+  document.getElementById('ls-sentence').className = 'listen-sentence blurred';
+
+  const optsEl = document.getElementById('ls-options');
+  optsEl.innerHTML = '';
+  // Shuffle: correct is first in array, randomize positions
+  const shuffled = [...d.opts].sort(() => Math.random() - 0.5);
+  shuffled.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'listen-opt';
+    btn.textContent = opt;
+    btn.onclick = () => checkListen(btn, opt, d.vi);
+    optsEl.appendChild(btn);
+  });
+}
+
+function playListen() {
+  if (!lsCurrentData) return;
+  document.getElementById('ls-sentence').classList.remove('blurred');
+  const u = new SpeechSynthesisUtterance(lsCurrentData.s);
+  u.lang = 'en-US'; u.rate = 0.78;
+  speechSynthesis.speak(u);
+}
+
+function checkListen(btn, chosen, correct) {
+  document.querySelectorAll('.listen-opt').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === correct) b.classList.add('correct');
+    else if (b === btn && chosen !== correct) b.classList.add('wrong');
+  });
+  document.getElementById('ls-next-btn').style.display = 'block';
+}
+
+function nextListen() {
+  lsIndex++;
+  loadNextListenQuestion();
+}
+
+initListen();
+
+// ══════════════════════════════════════════
+// MODULE 3: LUYỆN ĐỌC — AI tạo bài vô hạn
+// ══════════════════════════════════════════
+const READING_BACKUP = [
+  {
+    passage: 'Vietnam is a beautiful country in Southeast Asia. It has a long coastline with many stunning beaches. The country is famous for its delicious food such as pho, banh mi, and spring rolls. Vietnamese people are known for their hospitality and hard work. The capital city is Hanoi, while Ho Chi Minh City is the largest city.',
+    q: 'What is Vietnam famous for?',
+    opts: ['Its mountains and forests', 'Its delicious food and hospitality', 'Its modern technology', 'Its cold weather'],
+    correct: 1,
+    explain: '✅ Đúng! Đoạn văn nói "The country is famous for its delicious food... Vietnamese people are known for their hospitality."'
+  },
+  {
+    passage: 'Reading books has many benefits for people of all ages. It improves vocabulary and language skills. Reading also helps reduce stress and improves concentration. Studies show that people who read regularly have better memory. Books can take you to different worlds and help you understand different cultures.',
+    q: 'According to the passage, what is ONE benefit of reading?',
+    opts: ['It makes you sleep better', 'It improves vocabulary and language skills', 'It helps you make more money', 'It makes you physically stronger'],
+    correct: 1,
+    explain: '✅ Đúng! "It improves vocabulary and language skills" là một trong những lợi ích được đề cập.'
+  },
+  {
+    passage: 'Exercise is essential for maintaining good health. Regular physical activity helps control weight, reduces the risk of heart disease, and strengthens bones and muscles. Even 30 minutes of moderate exercise five days a week can make a big difference. Simple activities like walking, cycling, or swimming are great options.',
+    q: 'How many minutes of exercise per day is suggested?',
+    opts: ['10 minutes', '20 minutes', '30 minutes', '60 minutes'],
+    correct: 2,
+    explain: '✅ Chính xác! "Even 30 minutes of moderate exercise five days a week can make a big difference."'
+  },
+];
+
+const RD_TOPICS = ['Vietnamese culture','healthy lifestyle','technology','environment','family','education','travel in Vietnam','famous people','animals','food and nutrition'];
+let rdIndex = 0, rdUsedTopics = [];
+
+function initReading() {
+  rdIndex = 0; rdUsedTopics = [];
+  loadNextReading();
+}
+
+async function loadNextReading() {
+  document.getElementById('rd-passage').textContent = '⏳ AI đang tạo bài đọc mới...';
+  document.getElementById('rd-opts').innerHTML = '';
+  document.getElementById('rd-question').textContent = '';
+  document.getElementById('rd-explain').style.display = 'none';
+  document.getElementById('rd-next-btn').style.display = 'none';
+
+  if (!GEMINI_KEY) {
+    const d = READING_BACKUP[rdIndex % READING_BACKUP.length];
+    renderReading(d);
+    return;
+  }
+
+  const available = RD_TOPICS.filter(t => !rdUsedTopics.includes(t));
+  if (available.length === 0) rdUsedTopics = [];
+  const topic = available[Math.floor(Math.random() * available.length)];
+  rdUsedTopics.push(topic);
+
+  const prompt = `Create an English reading comprehension exercise about: "${topic}"
+For Vietnamese family learners (all ages, beginner to intermediate).
+
+Rules:
+- Passage: 4-6 sentences, clear and natural English
+- One comprehension question with 4 options (A,B,C,D)
+- Return ONLY valid JSON, no markdown:
+{
+  "passage": "...",
+  "question": "...",
+  "options": ["option A","option B","option C","option D"],
+  "correct": 0,
+  "explain": "Vietnamese explanation of why the answer is correct, cite from the passage"
+}
+"correct" is the index (0-3) of the correct option in the "options" array.`;
+
+  try {
+    const raw = await callGemini(prompt);
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const start = clean.indexOf('{');
+    const end = clean.lastIndexOf('}');
+    const parsed = JSON.parse(clean.slice(start, end+1));
+    if (!parsed.passage || !parsed.question || !Array.isArray(parsed.options)) throw new Error('Bad');
+    renderReading({
+      passage: parsed.passage,
+      q: parsed.question,
+      opts: parsed.options,
+      correct: Number(parsed.correct),
+      explain: parsed.explain || '✅ Đây là đáp án đúng theo nội dung bài đọc.'
+    });
+  } catch(e) {
+    const d = READING_BACKUP[rdIndex % READING_BACKUP.length];
+    renderReading(d);
+  }
+}
+
+function renderReading(d) {
+  document.getElementById('rd-passage').textContent = d.passage;
+  document.getElementById('rd-question').textContent = (rdIndex + 1) + '. ' + d.q;
+  document.getElementById('rd-explain').style.display = 'none';
+
+  const optsEl = document.getElementById('rd-opts');
+  optsEl.innerHTML = '';
+  d.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'reading-opt';
+    btn.textContent = ['A. ','B. ','C. ','D. '][i] + opt;
+    btn.onclick = () => checkReading(btn, i, d.correct, d.explain);
+    optsEl.appendChild(btn);
+  });
+}
+
+function checkReading(btn, chosen, correct, explain) {
+  document.querySelectorAll('.reading-opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    else if (b === btn && chosen !== correct) b.classList.add('wrong');
+  });
+  const explEl = document.getElementById('rd-explain');
+  explEl.textContent = explain;
+  explEl.style.display = 'block';
+  document.getElementById('rd-next-btn').style.display = 'block';
+}
+
+function nextReading() {
+  rdIndex++;
+  loadNextReading();
+}
+
+initReading();
+
+// ══════════════════════════════════════════
+// MODULE 4: TRẮC NGHIỆM — AI tạo câu vô hạn
+// ══════════════════════════════════════════
+const QUIZ_BACKUP = [
+  {q:'Choose the correct meaning of "Perseverance"',opts:['Sự tức giận','Sự kiên trì','Sự vô tâm','Sự hối hận'],correct:1},
+  {q:'Which word means "biết ơn"?',opts:['Angry','Grateful','Lonely','Brave'],correct:1},
+  {q:'"Resilient" có nghĩa là gì?',opts:['Yếu đuối','Kiêu ngạo','Kiên cường, bền bỉ','Thụ động'],correct:2},
+  {q:'Choose the correct sentence:',opts:['She go to school every day.','She goes to school every day.','She going to school every day.','She goed to school every day.'],correct:1},
+  {q:'What is the opposite of "generous"?',opts:['Kind','Selfish','Brave','Honest'],correct:1},
+  {q:'"Collaborate" có nghĩa là gì?',opts:['Cạnh tranh','Cô lập','Hợp tác','Từ chối'],correct:2},
+  {q:'Which word means "breathtaking"?',opts:['Nhàm chán','Mệt mỏi','Ngoạn mục','Bình thường'],correct:2},
+  {q:'"Compassion" means:',opts:['Sự ganh tị','Lòng trắc ẩn','Sự tức giận','Sự kiêu hãnh'],correct:1},
+  {q:'Fill in the blank: "I _____ English for 2 years."',opts:['study','studied','have been studying','am study'],correct:2},
+  {q:'Which is the correct past tense of "go"?',opts:['goed','goes','going','went'],correct:3},
+];
+
+const QZ_TYPES = [
+  'vocabulary meaning (English to Vietnamese)',
+  'vocabulary meaning (Vietnamese to English)',
+  'grammar - choose the correct sentence',
+  'fill in the blank with correct word',
+  'choose the correct word form',
+  'find the opposite meaning',
+  'choose the word that fits the sentence',
+];
+
+let qzIndex = 0, qzScore = 0, qzCorrect = 0, qzWrong = 0;
+let qzCurrentQ = null, qzAnswered = false;
+const QUIZ_PER_ROUND = 10;
+
+function initQuiz() {
+  qzIndex = 0; qzScore = 0; qzCorrect = 0; qzWrong = 0;
+  updateQzStats();
+  loadNextQuiz();
+}
+
+async function loadNextQuiz() {
+  if (qzIndex >= QUIZ_PER_ROUND) {
+    const pct = Math.round((qzCorrect / QUIZ_PER_ROUND) * 100);
+    const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '😊' : '💪';
+    const msg = pct >= 80 ? 'Xuất sắc! Bạn nắm vững từ vựng rồi!' : pct >= 60 ? 'Khá tốt! Tiếp tục luyện tập nhé!' : 'Cần luyện thêm — bạn sẽ giỏi hơn!';
+    showResult(emoji, 'Kết quả kiểm tra', pct + '%', `Đúng ${qzCorrect}/${QUIZ_PER_ROUND} câu. ${msg}`, 'quiz');
+    return;
+  }
+
+  qzAnswered = false;
+  document.getElementById('qz-num').textContent = `Câu ${qzIndex + 1} / ${QUIZ_PER_ROUND}`;
+  document.getElementById('qz-question').textContent = '⏳ AI đang tạo câu hỏi...';
+  document.getElementById('qz-opts').innerHTML = '';
+  document.getElementById('qz-next-btn').style.display = 'none';
+  document.getElementById('qz-explain').style.display = 'none';
+
+  if (!GEMINI_KEY) {
+    const d = QUIZ_BACKUP[qzIndex % QUIZ_BACKUP.length];
+    qzCurrentQ = d;
+    renderQuizCard(d);
+    return;
+  }
+
+  const qtype = QZ_TYPES[Math.floor(Math.random() * QZ_TYPES.length)];
+  const level = qzCorrect >= 6 ? 'intermediate' : 'beginner';
+  const prompt = `Create ONE English quiz question for Vietnamese family learners (${level} level).
+Type: ${qtype}
+Rules:
+- 4 options total (A, B, C, D)
+- Suitable for all ages in a Vietnamese family
+- Return ONLY valid JSON, no markdown:
+{
+  "question": "...",
+  "options": ["option A","option B","option C","option D"],
+  "correct": 0
+}
+"correct" is the index (0-3) of the correct answer.`;
+
+  try {
+    const raw = await callGemini(prompt);
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const start = clean.indexOf('{');
+    const end = clean.lastIndexOf('}');
+    const parsed = JSON.parse(clean.slice(start, end+1));
+    if (!parsed.question || !Array.isArray(parsed.options) || parsed.options.length < 4) throw new Error('Bad');
+    qzCurrentQ = { q: parsed.question, opts: parsed.options, correct: Number(parsed.correct) };
+    renderQuizCard(qzCurrentQ);
+  } catch(e) {
+    const d = QUIZ_BACKUP[qzIndex % QUIZ_BACKUP.length];
+    qzCurrentQ = d;
+    renderQuizCard(d);
+  }
+}
+
+function renderQuizCard(d) {
+  document.getElementById('qz-question').textContent = d.q;
+  const optsEl = document.getElementById('qz-opts');
+  optsEl.innerHTML = '';
+  d.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.innerHTML = `<div class="opt-letter">${['A','B','C','D'][i]}</div><span>${opt}</span>`;
+    btn.onclick = () => { if (!qzAnswered) checkQuiz(i, d.correct, d.opts[d.correct]); };
+    optsEl.appendChild(btn);
+  });
+}
+
+function checkQuiz(chosen, correct, correctText) {
+  if (qzAnswered) return;
+  qzAnswered = true;
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    else if (i === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+  if (chosen === correct) { qzCorrect++; qzScore += 10; }
+  else qzWrong++;
+  updateQzStats();
+  document.getElementById('qz-next-btn').style.display = 'block';
+}
+
+function updateQzStats() {
+  document.getElementById('qz-score').textContent = qzScore;
+  document.getElementById('qz-correct').textContent = qzCorrect;
+  document.getElementById('qz-wrong').textContent = qzWrong;
+}
+
+function nextQuiz() { qzIndex++; loadNextQuiz(); }
+
+initQuiz();
+
+// ══════════════════════════════════════════
+// MODULE 5: LUYỆN VIẾT AI
+// ══════════════════════════════════════════
+const WRITING_PROMPTS = [
+  'Describe your family in 3-5 sentences. (Mô tả gia đình bạn bằng 3-5 câu tiếng Anh)',
+  'Write about your favorite food and why you like it. (Viết về món ăn yêu thích và lý do)',
+  'Describe your daily routine in English. (Mô tả thói quen hàng ngày của bạn)',
+  'Write 3 sentences about a place you love to visit. (Viết 3 câu về nơi bạn yêu thích)',
+  'Write about your hobby using at least 3 sentences. (Viết về sở thích bằng ít nhất 3 câu)',
+  'Describe a person you admire and why. (Mô tả người bạn ngưỡng mộ và lý do)',
+  'Write about your plans for the weekend. (Viết về kế hoạch cuối tuần của bạn)',
+  'What do you think is the most important thing in life? Write 3-4 sentences. (Điều quan trọng nhất trong cuộc sống là gì?)',
+];
+
+let wrPromptIdx = 0;
+
+function loadWritingPrompt() {
+  document.getElementById('wr-prompt').textContent = WRITING_PROMPTS[wrPromptIdx % WRITING_PROMPTS.length];
+  document.getElementById('wr-input').value = '';
+  document.getElementById('wr-result').className = 'ai-result';
+  document.getElementById('wr-result').innerHTML = '';
+}
+
+function newWritingPrompt() {
+  wrPromptIdx++;
+  loadWritingPrompt();
+}
+
+async function checkWriting() {
+  const text = document.getElementById('wr-input').value.trim();
+  if (!text) { alert('Vui lòng viết câu của bạn trước!'); return; }
+
+  const btn = document.getElementById('wr-btn');
+  btn.disabled = true;
+  const resultEl = document.getElementById('wr-result');
+  resultEl.className = 'ai-result show';
+  resultEl.innerHTML = `<div class="ai-loading">🤖 AI đang chấm bài<div class="dot-anim"><span></span><span></span><span></span></div></div>`;
+
+  const prompt = `Bạn là giáo viên tiếng Anh thân thiện dạy cho gia đình người Việt Nam.
+Học sinh viết đoạn sau:
+"${text}"
+
+Chủ đề: "${document.getElementById('wr-prompt').textContent}"
+
+Hãy phản hồi bằng tiếng Việt theo cấu trúc sau (ngắn gọn, thân thiện, dễ hiểu):
+
+⭐ ĐIỂM: X/10
+
+✅ ĐIỂM TỐT:
+(2-3 điểm tích cực cụ thể)
+
+⚠️ CẦN SỬA:
+(Liệt kê lỗi cụ thể nếu có, kèm cách sửa đúng)
+
+💡 GỢI Ý VIẾT LẠI:
+(Đưa ra 1 câu mẫu đã được cải thiện)
+
+Hãy khuyến khích và động viên người học!`;
+
+  const response = await callGemini(prompt);
+  resultEl.innerHTML = response.replace(/\n/g, '<br>');
+  btn.disabled = false;
+}
+
+loadWritingPrompt();
+
+// ══════════════════════════════════════════
+// RESULT POPUP
+// ══════════════════════════════════════════
+let resultResetFn = null;
+
+function showResult(emoji, title, score, msg, resetModule) {
+  document.getElementById('res-emoji').textContent = emoji;
+  document.getElementById('res-title').textContent = title;
+  document.getElementById('res-score').textContent = score;
+  document.getElementById('res-msg').textContent = msg;
+  document.getElementById('result-overlay').classList.add('show');
+  resultResetFn = resetModule;
+}
+
+function closeResult() {
+  document.getElementById('result-overlay').classList.remove('show');
+  if (resultResetFn === 'quiz') initQuiz();
+  if (resultResetFn === 'listening') initListen();
+}
+</script>
+<script>
+// ── Đăng ký Service Worker (PWA offline) ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => {
+        console.log('[PWA] Service Worker đã đăng ký:', reg.scope);
+        // Tự động cập nhật khi có version mới
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              if (confirm('🔄 Có phiên bản mới! Cập nhật ngay không?')) {
+                newWorker.postMessage('skipWaiting');
+                location.reload();
+              }
+            }
+          });
+        });
+      })
+      .catch(err => console.log('[PWA] SW đăng ký thất bại:', err));
+  });
+}
+
+// ── Nút "Thêm vào màn hình chính" ──
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Hiện banner gợi ý cài app
+  const banner = document.getElementById('install-banner');
+  if (banner) banner.style.display = 'flex';
+});
+
+function installApp() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(result => {
+    if (result.outcome === 'accepted') {
+      document.getElementById('install-banner').style.display = 'none';
+    }
+    deferredPrompt = null;
+  });
+}
+
+function dismissBanner() {
+  document.getElementById('install-banner').style.display = 'none';
+  localStorage.setItem('banner_dismissed', '1');
+}
+
+// Không hiện lại nếu đã bấm đóng
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('banner_dismissed')) {
+    const b = document.getElementById('install-banner');
+    if (b) b.style.display = 'none';
+  }
+});
+
+// Ẩn banner khi đã cài rồi
+window.addEventListener('appinstalled', () => {
+  const b = document.getElementById('install-banner');
+  if (b) b.style.display = 'none';
+});
+</script>
+</body>
+</html>
