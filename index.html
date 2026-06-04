@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///C:/Users/PC/Downloads/ENGLISH_APP_3.html -->
+<!-- saved from url=(0056)file:///C:/Users/PC/Downloads/English_For_Family_v3.html -->
 <html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -16,7 +16,7 @@
 <!-- iOS icon (vì iOS không đọc manifest icon) -->
 <link rel="apple-touch-icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 180 180&#39;&gt;&lt;rect width=&#39;180&#39; height=&#39;180&#39; rx=&#39;40&#39; fill=&#39;%234f46e5&#39;/&gt;&lt;text y=&#39;125&#39; x=&#39;50%&#39; text-anchor=&#39;middle&#39; font-size=&#39;100&#39; font-family=&#39;Arial&#39;&gt;%F0%9F%8C%9F&lt;/text&gt;&lt;/svg&gt;">
 <title>English For Family 🌟</title>
-<link href="./English For Family 🌟_files/css2" rel="stylesheet">
+<link href="./English For Family1 🌟_files/css2" rel="stylesheet">
 <style>
 :root {
   --primary: #4f46e5;
@@ -476,10 +476,203 @@ body {
 .topic-btn:hover, .topic-btn.selected { border-color: var(--primary); background: #eef2ff; color: var(--primary); }
 .topic-icon { font-size: 20px; display: block; margin-bottom: 4px; }
 
-@media(max-width:480px) {
-  .header { padding: 16px 16px 72px; }
-  .fc-word { font-size: 26px; }
+/* ── DAILY TOPIC BANNER ── */
+.daily-topic-banner {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #0891b2 100%);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(79,70,229,0.35);
 }
+.daily-topic-banner::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+.daily-topic-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; left: 20%;
+  width: 180px; height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.dtb-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.dtb-title {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.3px;
+  margin-bottom: 4px;
+  position: relative; z-index: 1;
+}
+.dtb-sub {
+  font-size: 13px;
+  opacity: .8;
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.dtb-modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  position: relative; z-index: 1;
+}
+.dtb-chip {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+}
+.dtb-chip:hover { background: rgba(255,255,255,0.3); }
+
+/* ── SPEAKING ── */
+.speak-mode-btn {
+  padding: 16px 10px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  transition: all .15s;
+  box-shadow: var(--shadow);
+}
+.speak-mode-btn:hover { border-color: var(--primary); background: #eef2ff; }
+.speak-mode-btn.active { border-color: var(--primary); background: linear-gradient(135deg,#eef2ff,#e0e7ff); }
+
+.sp-record-btn {
+  background: linear-gradient(135deg, var(--danger), #f87171);
+  color: #fff; border: none;
+  border-radius: 40px; padding: 14px 28px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 15px;
+  cursor: pointer; letter-spacing: .5px;
+  box-shadow: 0 4px 16px rgba(239,68,68,0.35);
+  transition: transform .1s, box-shadow .1s;
+}
+.sp-record-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(239,68,68,0.45); }
+.sp-record-btn.recording {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  box-shadow: 0 4px 16px rgba(107,114,128,0.35);
+  animation: pulse 1.2s infinite;
+}
+
+/* Chat bubbles */
+.sp-msg { display: flex; margin-bottom: 2px; }
+.sp-msg.user { justify-content: flex-end; }
+.sp-msg.ai   { justify-content: flex-start; }
+.sp-bubble {
+  max-width: 82%; padding: 10px 14px;
+  border-radius: 16px; font-size: 14px; line-height: 1.6;
+}
+.ai-bubble  { background: var(--bg); color: var(--text); border-bottom-left-radius: 4px; }
+.user-bubble{ background: linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; border-bottom-right-radius: 4px; }
+.sp-correction { font-size: 12px; color: var(--success); margin-top: 4px; font-style: italic; }
+
+/* ── INTONATION DISPLAY ── */
+.sp-intonation-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 6px 8px 10px;
+  line-height: 1;
+}
+.sp-word-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 2px;
+}
+.sp-word-text {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.sp-word-arrow {
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-up   { color: #ef4444; }   /* lên giọng — đỏ */
+.arrow-down { color: #3b82f6; }   /* xuống giọng — xanh */
+.arrow-flat { color: #10b981; }   /* giữ giọng — xanh lá */
+.sp-pause-mark {
+  display: inline-flex;
+  align-items: flex-end;
+  padding-bottom: 2px;
+  margin: 0 4px;
+}
+.sp-pause-line {
+  width: 2px;
+  background: #f59e0b;
+  border-radius: 2px;
+  margin: 0 1px;
+}
+.sp-pause-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: #f59e0b;
+  letter-spacing: .05em;
+  margin-left: 3px;
+  padding-bottom: 4px;
+}
+.sp-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+.sp-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-sub);
+}
+.sp-tip-box {
+  background: linear-gradient(135deg,#fef3c7,#fffbeb);
+  border: 1.5px solid #fde68a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #92400e;
+  text-align: left;
+}
+.sp-tip-box strong { font-weight: 800; }
 </style>
 </head>
 <body>
@@ -518,7 +711,7 @@ body {
 <!-- NAV -->
 <div class="nav-wrap">
   <div class="nav-tabs">
-    <button class="tab active" onclick="switchTab(&#39;flashcard&#39;, this)">
+    <button class="tab" onclick="switchTab(&#39;flashcard&#39;, this)">
       <span class="tab-icon">🃏</span>Flashcard
     </button>
     <button class="tab" onclick="switchTab(&#39;listening&#39;, this)">
@@ -533,20 +726,38 @@ body {
     <button class="tab" onclick="switchTab(&#39;writing&#39;, this)">
       <span class="tab-icon">✍️</span>Viết
     </button>
+    <button class="tab active" onclick="switchTab(&#39;speaking&#39;, this)">
+      <span class="tab-icon">🎤</span>Nói
+    </button>
   </div>
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
+  <!-- ══ DAILY TOPIC BANNER ══ -->
+  <div class="daily-topic-banner" id="daily-topic-banner">
+    <div class="dtb-label">📅 Chủ đề hôm nay</div>
+    <div class="dtb-title" id="dtb-title">🏠 Cuộc sống hàng ngày</div>
+    <div class="dtb-sub" id="dtb-sub">Tất cả bài học hôm nay đều theo chủ đề này</div>
+    <div class="dtb-modules">
+      <span class="dtb-chip" onclick="switchTabByName(&#39;flashcard&#39;)">🃏 Flashcard</span>
+      <span class="dtb-chip" onclick="switchTabByName(&#39;listening&#39;)">🎧 Nghe</span>
+      <span class="dtb-chip" onclick="switchTabByName(&#39;reading&#39;)">📖 Đọc</span>
+      <span class="dtb-chip" onclick="switchTabByName(&#39;quiz&#39;)">✅ Trắc nghiệm</span>
+      <span class="dtb-chip" onclick="switchTabByName(&#39;writing&#39;)">✍️ Viết</span>
+      <span class="dtb-chip" onclick="switchTabByName(&#39;speaking&#39;)">🎤 Nói</span>
+    </div>
+  </div>
+
   <!-- ══ SCREEN 1: FLASHCARD ══ -->
-  <div class="screen active" id="screen-flashcard">
+  <div class="screen" id="screen-flashcard">
     <div class="sec-title">Học từ vựng</div>
     <div class="sec-sub">Bấm vào thẻ để xem nghĩa • Đánh giá mức độ nhớ của bạn</div>
 
     <div class="topic-grid" id="fc-topics">
-      <button class="topic-btn selected" onclick="loadTopic(&#39;daily&#39;, this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
-      <button class="topic-btn" onclick="loadTopic(&#39;food&#39;, this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;daily&#39;, this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
+      <button class="topic-btn selected" onclick="loadTopic(&#39;food&#39;, this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
       <button class="topic-btn" onclick="loadTopic(&#39;travel&#39;, this)"><span class="topic-icon">✈️</span>Du lịch</button>
       <button class="topic-btn" onclick="loadTopic(&#39;work&#39;, this)"><span class="topic-icon">💼</span>Công việc</button>
       <button class="topic-btn" onclick="loadTopic(&#39;nature&#39;, this)"><span class="topic-icon">🌿</span>Thiên nhiên</button>
@@ -556,15 +767,15 @@ body {
     <div class="fc-wrap">
       <div class="fc-inner" id="fc-card" onclick="flipCard()">
         <div class="fc-front">
-          <div class="fc-word" id="fc-word">Patience</div>
+          <div class="fc-word" id="fc-word">Cuisine</div>
           <div class="fc-type" id="fc-type">n</div>
           <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
           <div class="fc-hint">👆 Bấm để xem nghĩa</div>
         </div>
         <div class="fc-back">
-          <div class="fc-phonetic" id="fc-phonetic">/ˈpeɪʃns/</div>
-          <div class="fc-meaning" id="fc-meaning">Sự kiên nhẫn</div>
-          <div class="fc-example" id="fc-example">Patience is a virtue.</div>
+          <div class="fc-phonetic" id="fc-phonetic">/kwɪˈziːn/</div>
+          <div class="fc-meaning" id="fc-meaning">Ẩm thực, nền nấu ăn</div>
+          <div class="fc-example" id="fc-example">Vietnamese cuisine is famous worldwide.</div>
         </div>
       </div>
     </div>
@@ -574,7 +785,76 @@ body {
       <button class="btn-ok" onclick="rateCard(&#39;ok&#39;)">🤔 Tạm ổn</button>
       <button class="btn-easy" onclick="rateCard(&#39;easy&#39;)">😄 Đã nhớ</button>
     </div>
-    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">8</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
+    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">6</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
+
+    <!-- Nút bắt đầu kiểm tra -->
+    <button class="btn-primary" onclick="startVocabTest()" style="margin-top:16px">
+      📝 Kiểm tra từ vựng ngay
+    </button>
+  </div>
+
+  <!-- ══ SCREEN KIỂM TRA TỪ VỰNG ══ -->
+  <div class="screen" id="screen-vocab-test">
+    <!-- Header kiểm tra -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+      <button onclick="exitVocabTest()" style="background:var(--bg);border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--primary);cursor:pointer;font-family:&#39;Nunito&#39;,sans-serif;">← Quay lại</button>
+      <div class="sec-title" style="margin:0">Kiểm tra từ vựng</div>
+    </div>
+
+    <!-- Vòng thi + tiến độ -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <div id="vt-round-badge" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800">Vòng 1 / 2</div>
+      <div style="flex:1;min-width:120px">
+        <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text-sub);margin-bottom:4px">
+          <span id="vt-progress-label">Câu 1 / 0</span>
+          <span id="vt-score-label">✅ 0 đúng</span>
+        </div>
+        <div style="background:var(--border);height:5px;border-radius:99px;overflow:hidden">
+          <div id="vt-progress-bar" style="height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));width:0%;transition:width .4s;border-radius:99px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card câu hỏi kiểm tra -->
+    <div class="card" id="vt-card" style="text-align:center">
+      <!-- Nhãn hướng dẫn -->
+      <div id="vt-direction" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px"></div>
+
+      <!-- Từ cần dịch -->
+      <div id="vt-word-display" style="font-size:28px;font-weight:900;color:var(--primary);margin-bottom:6px"></div>
+      <div id="vt-word-sub" style="font-size:13px;color:var(--text-sub);margin-bottom:20px"></div>
+
+      <!-- Input gõ đáp án -->
+      <input type="text" id="vt-input" placeholder="Gõ đáp án vào đây..." style="width:100%;padding:14px 16px;border-radius:12px;border:2px solid var(--border);font-size:16px;font-family:&#39;Nunito&#39;,sans-serif;outline:none;text-align:center;transition:border-color .2s" onkeydown="if(event.key===&#39;Enter&#39;) checkVocabAnswer()" oninput="document.getElementById(&#39;vt-input&#39;).style.borderColor=&#39;var(--border)&#39;">
+
+      <!-- Kết quả sau khi trả lời -->
+      <div id="vt-feedback" style="margin-top:14px;display:none">
+        <div id="vt-feedback-icon" style="font-size:32px;margin-bottom:6px"></div>
+        <div id="vt-feedback-text" style="font-size:14px;font-weight:700"></div>
+        <div id="vt-correct-ans" style="font-size:13px;color:var(--text-sub);margin-top:4px"></div>
+      </div>
+
+      <!-- Nút xác nhận / tiếp theo -->
+      <button id="vt-btn" onclick="checkVocabAnswer()" class="btn-primary" style="margin-top:16px">
+        Xác nhận ✓
+      </button>
+    </div>
+
+    <!-- Kết quả cuối -->
+    <div id="vt-result" style="display:none;text-align:center">
+      <div class="card">
+        <div id="vt-result-emoji" style="font-size:60px;margin-bottom:12px"></div>
+        <div id="vt-result-title" style="font-size:22px;font-weight:900;color:var(--text);margin-bottom:8px"></div>
+        <div id="vt-result-score" style="font-size:40px;font-weight:900;color:var(--primary);margin:10px 0"></div>
+        <div id="vt-result-msg" style="font-size:14px;color:var(--text-sub);line-height:1.6;margin-bottom:20px"></div>
+        <!-- Bảng kết quả chi tiết -->
+        <div id="vt-result-detail" style="text-align:left;margin-bottom:16px"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn-primary" onclick="startVocabTest()" style="margin-top:0">🔄 Thi lại</button>
+          <button onclick="exitVocabTest()" style="flex:1;padding:14px;border-radius:12px;border:2px solid var(--primary);background:transparent;color:var(--primary);font-family:&#39;Nunito&#39;,sans-serif;font-weight:800;font-size:15px;cursor:pointer;margin-top:0">← Học lại</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ══ SCREEN 2: LUYỆN NGHE ══ -->
@@ -622,22 +902,103 @@ body {
     <button class="btn-primary" id="qz-next-btn" onclick="nextQuiz()" style="display:none">Câu tiếp →</button>
   </div>
 
-  <!-- ══ SCREEN 5: LUYỆN VIẾT ══ -->
-  <div class="screen" id="screen-writing">
-    <div class="sec-title">Luyện viết</div>
-    <div class="sec-sub">AI chấm bài, sửa lỗi và gợi ý cải thiện</div>
-    <div class="writing-prompt">
-      <div class="label">📝 Chủ đề hôm nay</div>
-      <div class="prompt-text" id="wr-prompt">Describe your family in 3-5 sentences. (Mô tả gia đình bạn bằng 3-5 câu tiếng Anh)</div>
+  <!-- ══ SCREEN 6: LUYỆN NÓI ══ -->
+  <div class="screen active" id="screen-speaking">
+    <div class="sec-title">Luyện nói</div>
+    <div class="sec-sub">Nói tiếng Anh — AI nhận diện giọng &amp; sửa phát âm</div>
+
+    <!-- 2 chế độ -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+      <button class="speak-mode-btn active" id="mode-btn-repeat" onclick="setSpeakMode(&#39;repeat&#39;, this)">
+        <span style="font-size:22px">🔊</span>
+        <div style="font-weight:800;font-size:13px;margin-top:4px">Nói theo mẫu</div>
+        <div style="font-size:11px;opacity:.7;margin-top:2px">Nghe rồi lặp lại</div>
+      </button>
+      <button class="speak-mode-btn" id="mode-btn-chat" onclick="setSpeakMode(&#39;chat&#39;, this)">
+        <span style="font-size:22px">💬</span>
+        <div style="font-weight:800;font-size:13px;margin-top:4px">Hội thoại AI</div>
+        <div style="font-size:11px;opacity:.7;margin-top:2px">Nói chuyện với AI</div>
+      </button>
     </div>
-    <div class="card">
-      <label style="font-size:13px;font-weight:700;color:var(--text-sub);display:block;margin-bottom:8px">Bài viết của bạn:</label>
-      <textarea class="writing-area" id="wr-input" placeholder="Viết câu hoặc đoạn văn tiếng Anh của bạn vào đây...
-Ví dụ: I think my family is very important to me because..."></textarea>
-      <button class="btn-primary" onclick="checkWriting()" id="wr-btn">🤖 AI chấm bài ngay</button>
-      <div class="ai-result" id="wr-result"></div>
+
+    <!-- ── CHẾ ĐỘ 1: NÓI THEO MẪU ── -->
+    <div id="speak-repeat-section">
+      <div class="card" style="text-align:center">
+        <!-- Label -->
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:10px">Câu mẫu — Bấm 🔊 để nghe</div>
+
+        <!-- Intonation display (render bằng JS) -->
+        <div id="sp-intonation-display" style="min-height:60px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:0;margin-bottom:8px;padding:4px 4px 8px"><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">What</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">is</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">your</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">favorite</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">food</div></div><div class="sp-pause-mark"><div class="sp-pause-line" style="height:18px"></div><span class="sp-pause-label">ngắt</span></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">and</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">where</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">do</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">you</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">usually</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">go</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">to</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">eat</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">it?</div></div></div>
+
+        <!-- Bản dịch tiếng Việt -->
+        <div id="sp-sentence-vi" style="font-size:13px;color:var(--text-sub);margin-bottom:6px">Món ăn yêu thích của bạn là gì và bạn thường đi ăn ở đâu?</div>
+
+        <!-- Hidden plain text for speech synthesis & scoring -->
+        <div id="sp-sentence" style="display:none">What is your favorite food and where do you usually go to eat it?</div>
+
+        <!-- Legend ký hiệu -->
+        <div class="sp-legend">
+          <div class="sp-legend-item"><span style="color:#ef4444;font-size:14px;font-weight:900">↗</span> Lên giọng</div>
+          <div class="sp-legend-item"><span style="color:#3b82f6;font-size:14px;font-weight:900">↘</span> Xuống giọng</div>
+          <div class="sp-legend-item"><span style="color:#10b981;font-size:14px;font-weight:900">→</span> Giữ giọng</div>
+          <div class="sp-legend-item"><span style="color:#f59e0b;font-size:15px;font-weight:900">|</span> Ngắt ngắn</div>
+          <div class="sp-legend-item"><span style="color:#8b5cf6;font-size:15px;font-weight:900">‖</span> Ngắt dài</div>
+        </div>
+
+        <!-- Tip phát âm -->
+        <div class="sp-tip-box" id="sp-tip-box" style="display: block;">💡 Hai câu hỏi ghép — lên giọng ở "food?" rồi lên lại ở "eat it?"</div>
+
+        <!-- Nút phát âm mẫu -->
+        <button onclick="playSampleSentence()" style="background:linear-gradient(135deg,var(--secondary),#0e7490);color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:24px;cursor:pointer;margin:14px auto 14px;display:block;box-shadow:0 4px 16px rgba(6,182,212,0.35)">🔊</button>
+
+        <!-- Nút ghi âm -->
+        <div id="sp-record-wrap">
+          <button id="sp-record-btn" onclick="toggleRecording()" class="sp-record-btn">🎤 Bấm để nói</button>
+          <div id="sp-recording-indicator" style="display:none;color:var(--danger);font-weight:700;font-size:13px;margin-top:8px;animation:pulse 1s infinite">
+            ● Đang ghi âm... (bấm lại để dừng)
+          </div>
+        </div>
+
+        <!-- Kết quả nhận diện -->
+        <div id="sp-recognized" style="margin-top:14px;display:none">
+          <div style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:6px">Bạn vừa nói:</div>
+          <div id="sp-recognized-text" style="font-size:15px;font-weight:700;color:var(--text);background:var(--bg);padding:10px 14px;border-radius:10px;margin-bottom:10px"></div>
+          <div id="sp-score-wrap" style="display:none">
+            <div id="sp-score-bar-label" style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px">
+              <span>Độ chính xác</span><span id="sp-pct">0%</span>
+            </div>
+            <div style="background:var(--border);height:8px;border-radius:99px;overflow:hidden;margin-bottom:10px">
+              <div id="sp-score-bar" style="height:100%;border-radius:99px;transition:width .6s;width:0%"></div>
+            </div>
+            <div id="sp-feedback-text" style="font-size:13px;line-height:1.6;color:var(--text-sub)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <button class="btn-secondary" onclick="newSampleSentence()" style="flex:1">🔄 Câu khác</button>
+        <button class="btn-primary" onclick="newSampleSentence()" style="flex:1;margin-top:0">Câu tiếp →</button>
+      </div>
     </div>
-    <button class="btn-secondary" onclick="newWritingPrompt()" style="width:100%">🔄 Đổi chủ đề khác</button>
+
+    <!-- ── CHẾ ĐỘ 2: HỘI THOẠI AI ── -->
+    <div id="speak-chat-section" style="display:none">
+      <div class="card" style="padding:0;overflow:hidden">
+        <!-- Chat messages -->
+        <div id="sp-chat-messages" style="height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px">
+          <div class="sp-msg ai">
+            <div class="sp-bubble ai-bubble" id="chat-init-msg">Hi! I'm your English conversation partner 😊 Let's practice speaking together! You can type OR use the microphone to talk to me. What would you like to talk about today?</div>
+          </div>
+        </div>
+        <!-- Input area -->
+        <div style="border-top:1.5px solid var(--border);padding:12px;display:flex;gap:8px;align-items:center">
+          <input type="text" id="sp-chat-input" placeholder="Gõ hoặc nói tiếng Anh..." style="flex:1;padding:11px 14px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-family:&#39;Nunito&#39;,sans-serif;outline:none" onkeydown="if(event.key===&#39;Enter&#39;) sendChatMessage()">
+          <button onclick="toggleChatRecording()" id="sp-chat-mic" title="Nói" style="width:42px;height:42px;border-radius:50%;border:none;background:var(--bg);font-size:20px;cursor:pointer;flex-shrink:0;transition:background .15s">🎤</button>
+          <button onclick="sendChatMessage()" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:10px;padding:0 16px;height:42px;font-size:20px;cursor:pointer;flex-shrink:0">➤</button>
+        </div>
+      </div>
+      <button onclick="clearChat()" class="btn-secondary" style="width:100%;margin-top:8px">🗑 Xoá hội thoại</button>
+    </div>
   </div>
 </div>
 
@@ -703,6 +1064,164 @@ function switchTab(id, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
   btn.classList.add('active');
+}
+
+// ══════════════════════════════════════════
+// DAILY TOPIC SYSTEM
+// ══════════════════════════════════════════
+const DAILY_TOPICS = [
+  {
+    key: 'daily',
+    emoji: '🏠',
+    name: 'Cuộc sống hàng ngày',
+    nameEn: 'Daily Life',
+    sub: 'Từ vựng & kỹ năng cho cuộc sống mỗi ngày',
+    fcTopic: 'daily',
+    listenTopic: 'daily life',
+    readingTopic: 'daily routines and habits',
+    writingPrompt: 'Describe your typical morning routine. What do you do from when you wake up until you leave home? (Mô tả thói quen buổi sáng của bạn)',
+    speakSentences: [
+      {s:'I wake up at six o\'clock every morning and start my daily routine.',vi:'Tôi thức dậy lúc sáu giờ sáng và bắt đầu thói quen hàng ngày.',tip:'💡 Ngắt nhẹ sau "morning," để người nghe kịp hiểu.',tokens:[{t:'I',a:'flat'},{t:'wake',a:'up'},{t:'up',a:'down'},{t:'at',a:'flat'},{t:'six',a:'up'},{t:"o'clock",a:'flat'},{t:'every',a:'flat'},{t:'morning',a:'down'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'start',a:'up'},{t:'my',a:'flat'},{t:'daily',a:'up'},{t:'routine.',a:'down'}]},
+      {s:'My morning routine keeps me focused and energized throughout the whole day.',vi:'Thói quen buổi sáng giúp tôi tập trung và tràn đầy năng lượng suốt cả ngày.',tip:'💡 Nhấn "FOcused" và "eNERgized". Giọng xuống dần ở "whole day".',tokens:[{t:'My',a:'flat'},{t:'morning',a:'flat'},{t:'routine',a:'flat'},{t:'keeps',a:'up'},{t:'me',a:'flat'},{t:'focused',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'energized',a:'up'},{t:'throughout',a:'flat'},{t:'the',a:'flat'},{t:'whole',a:'flat'},{t:'day.',a:'down'}]},
+      {s:'I am truly grateful for another beautiful day with my loving family.',vi:'Tôi thực sự biết ơn vì một ngày đẹp nữa bên gia đình yêu thương.',tip:'💡 Nhấn "TRUly GRATeful" và "LOving family" với giọng ấm áp.',tokens:[{t:'I',a:'flat'},{t:'am',a:'flat'},{t:'truly',a:'up'},{t:'grateful',a:'up'},{t:'|',a:'pause-short'},{t:'for',a:'flat'},{t:'another',a:'flat'},{t:'beautiful',a:'up'},{t:'day',a:'flat'},{t:'|',a:'pause-short'},{t:'with',a:'flat'},{t:'my',a:'flat'},{t:'loving',a:'up'},{t:'family.',a:'down'}]},
+      {s:'Patience and a healthy routine are the most important keys to a happy life.',vi:'Kiên nhẫn và thói quen lành mạnh là chìa khóa quan trọng nhất cho cuộc sống hạnh phúc.',tip:'💡 Ngắt sau "routine," rồi nhấn "MOST important" để nhấn mạnh.',tokens:[{t:'Patience',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'a',a:'flat'},{t:'healthy',a:'up'},{t:'routine',a:'down'},{t:'‖',a:'pause-long'},{t:'are',a:'flat'},{t:'the',a:'flat'},{t:'most',a:'up'},{t:'important',a:'up'},{t:'keys',a:'flat'},{t:'|',a:'pause-short'},{t:'to',a:'flat'},{t:'a',a:'flat'},{t:'happy',a:'up'},{t:'life.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'food',
+    emoji: '🍜',
+    name: 'Ẩm thực & Nấu ăn',
+    nameEn: 'Food & Cooking',
+    sub: 'Từ vựng về món ăn, nguyên liệu và nấu nướng',
+    fcTopic: 'food',
+    listenTopic: 'food',
+    readingTopic: 'Vietnamese food and cuisine',
+    writingPrompt: 'Write about your favorite Vietnamese dish. How is it made and why do you love it? (Viết về món ăn Việt Nam yêu thích của bạn)',
+    speakSentences: [
+      {s:'This dish smells absolutely delicious, just like my grandmother used to make.',vi:'Món này có mùi thơm tuyệt vời, y như bà ngoại tôi nấu ngày xưa.',tip:'💡 Nghỉ rõ ở dấu phẩy. Phần sau đọc chậm và hoài niệm.',tokens:[{t:'This',a:'flat'},{t:'dish',a:'flat'},{t:'smells',a:'up'},{t:'absolutely',a:'up'},{t:'delicious,',a:'down'},{t:'‖',a:'pause-long'},{t:'just',a:'flat'},{t:'like',a:'flat'},{t:'my',a:'flat'},{t:'grandmother',a:'up'},{t:'used',a:'flat'},{t:'to',a:'flat'},{t:'make.',a:'down'}]},
+      {s:'Vietnamese cuisine is incredibly rich and famous all around the world.',vi:'Ẩm thực Việt Nam vô cùng phong phú và nổi tiếng khắp thế giới.',tip:'💡 Nhấn "inCREDibly RICH" — giọng tự hào, đi lên trước khi xuống.',tokens:[{t:'Vietnamese',a:'flat'},{t:'cuisine',a:'up'},{t:'is',a:'flat'},{t:'incredibly',a:'up'},{t:'rich',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'famous',a:'up'},{t:'all',a:'flat'},{t:'around',a:'flat'},{t:'the',a:'flat'},{t:'world.',a:'down'}]},
+      {s:'I love to savor every single bite of home-cooked food with my whole family.',vi:'Tôi thích thưởng thức từng miếng cơm nhà cùng cả gia đình.',tip:'💡 Nhấn "SAvor EVery SINgle bite" — đọc chậm, thưởng thức.',tokens:[{t:'I',a:'flat'},{t:'love',a:'up'},{t:'to',a:'flat'},{t:'savor',a:'up'},{t:'every',a:'flat'},{t:'single',a:'up'},{t:'bite',a:'down'},{t:'|',a:'pause-short'},{t:'of',a:'flat'},{t:'home-cooked',a:'up'},{t:'food',a:'flat'},{t:'|',a:'pause-short'},{t:'with',a:'flat'},{t:'my',a:'flat'},{t:'whole',a:'flat'},{t:'family.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'travel',
+    emoji: '✈️',
+    name: 'Du lịch & Khám phá',
+    nameEn: 'Travel & Exploration',
+    sub: 'Từ vựng về chuyến đi, địa điểm và phiêu lưu',
+    fcTopic: 'travel',
+    listenTopic: 'travel',
+    readingTopic: 'travel in Vietnam',
+    writingPrompt: 'Write about a place in Vietnam you want to visit or have visited. What makes it special? (Viết về một địa điểm ở Việt Nam bạn muốn đến hoặc đã đến)',
+    speakSentences: [
+      {s:'Traveling around the world opens your mind and helps you understand different cultures.',vi:'Du lịch khắp thế giới mở rộng tầm nhìn và giúp bạn hiểu các nền văn hóa khác nhau.',tip:'💡 Ngắt sau "world," và sau "mind,". Nhấn "DIFferent CULtures".',tokens:[{t:'Traveling',a:'up'},{t:'around',a:'flat'},{t:'the',a:'flat'},{t:'world',a:'down'},{t:'|',a:'pause-short'},{t:'opens',a:'up'},{t:'your',a:'flat'},{t:'mind',a:'down'},{t:'‖',a:'pause-long'},{t:'and',a:'flat'},{t:'helps',a:'flat'},{t:'you',a:'flat'},{t:'understand',a:'up'},{t:'different',a:'up'},{t:'cultures.',a:'down'}]},
+      {s:'The view from the mountain top was so breathtaking that I could not say a word.',vi:'Cảnh nhìn từ đỉnh núi đẹp đến mức tôi không thể nói nên lời.',tip:'💡 Nhấn "breathTAKing" mạnh. Ngắt dài trước "that I could not".',tokens:[{t:'The',a:'flat'},{t:'view',a:'up'},{t:'from',a:'flat'},{t:'the',a:'flat'},{t:'mountain',a:'flat'},{t:'top',a:'down'},{t:'|',a:'pause-short'},{t:'was',a:'flat'},{t:'so',a:'up'},{t:'breathtaking',a:'up'},{t:'‖',a:'pause-long'},{t:'that',a:'flat'},{t:'I',a:'flat'},{t:'could',a:'flat'},{t:'not',a:'up'},{t:'say',a:'flat'},{t:'a',a:'flat'},{t:'word.',a:'down'}]},
+      {s:'Every adventure we take as a family teaches us something new and brings us closer.',vi:'Mỗi chuyến phiêu lưu gia đình đều dạy chúng ta điều mới và kéo chúng ta lại gần hơn.',tip:'💡 Nhấn "FAMily" và "CLOser". Giọng ấm áp, hạnh phúc.',tokens:[{t:'Every',a:'flat'},{t:'adventure',a:'up'},{t:'we',a:'flat'},{t:'take',a:'flat'},{t:'as',a:'flat'},{t:'a',a:'flat'},{t:'family',a:'up'},{t:'|',a:'pause-short'},{t:'teaches',a:'flat'},{t:'us',a:'flat'},{t:'something',a:'up'},{t:'new',a:'down'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'brings',a:'up'},{t:'us',a:'flat'},{t:'closer.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'work',
+    emoji: '💼',
+    name: 'Công việc & Sự nghiệp',
+    nameEn: 'Work & Career',
+    sub: 'Từ vựng nghề nghiệp, công sở và kỹ năng mềm',
+    fcTopic: 'work',
+    listenTopic: 'work',
+    readingTopic: 'workplace skills and career',
+    writingPrompt: 'Describe your dream job or your current job. What skills do you need? (Mô tả công việc mơ ước hoặc công việc hiện tại của bạn)',
+    speakSentences: [
+      {s:'Collaboration and good communication are the keys to building a successful team.',vi:'Hợp tác và giao tiếp tốt là chìa khóa để xây dựng một đội nhóm thành công.',tip:'💡 Ngắt sau "communication," và nhấn "SUCcessful TEAM".',tokens:[{t:'Collaboration',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'good',a:'flat'},{t:'communication',a:'down'},{t:'‖',a:'pause-long'},{t:'are',a:'flat'},{t:'the',a:'flat'},{t:'keys',a:'flat'},{t:'to',a:'flat'},{t:'building',a:'up'},{t:'a',a:'flat'},{t:'successful',a:'up'},{t:'team.',a:'down'}]},
+      {s:'Being efficient and meeting deadlines on time shows that you are a reliable professional.',vi:'Làm việc hiệu quả và hoàn thành deadline đúng giờ cho thấy bạn là người chuyên nghiệp đáng tin.',tip:'💡 Nhấn "EFFicient" và "reLIable proFESsional". Giọng tự tin.',tokens:[{t:'Being',a:'flat'},{t:'efficient',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'meeting',a:'flat'},{t:'deadlines',a:'up'},{t:'on',a:'flat'},{t:'time',a:'down'},{t:'‖',a:'pause-long'},{t:'shows',a:'flat'},{t:'that',a:'flat'},{t:'you',a:'flat'},{t:'are',a:'flat'},{t:'a',a:'flat'},{t:'reliable',a:'up'},{t:'professional.',a:'down'}]},
+      {s:'Resilient people always bounce back stronger after every failure and never stop trying.',vi:'Người kiên cường luôn trở lại mạnh mẽ hơn sau mỗi thất bại và không bao giờ bỏ cuộc.',tip:'💡 Nhấn "BOUNCE back STRONGer" và "NEver stop". Giọng mạnh mẽ, quyết tâm.',tokens:[{t:'Resilient',a:'up'},{t:'people',a:'flat'},{t:'always',a:'flat'},{t:'bounce',a:'up'},{t:'back',a:'flat'},{t:'stronger',a:'up'},{t:'|',a:'pause-short'},{t:'after',a:'flat'},{t:'every',a:'flat'},{t:'failure',a:'down'},{t:'‖',a:'pause-long'},{t:'and',a:'flat'},{t:'never',a:'up'},{t:'stop',a:'up'},{t:'trying.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'nature',
+    emoji: '🌿',
+    name: 'Thiên nhiên & Môi trường',
+    nameEn: 'Nature & Environment',
+    sub: 'Từ vựng về cây cối, thời tiết và môi trường',
+    fcTopic: 'nature',
+    listenTopic: 'nature',
+    readingTopic: 'environment and nature',
+    writingPrompt: 'Write about how you can protect the environment in your daily life. (Viết về cách bạn bảo vệ môi trường trong cuộc sống hàng ngày)',
+    speakSentences: [
+      {s:'The forest is serene and full of life, and it makes me feel completely at peace.',vi:'Khu rừng thanh bình và tràn đầy sức sống, khiến tôi cảm thấy hoàn toàn bình yên.',tip:'💡 Giọng nhẹ nhàng, chậm rãi. Ngắt dài ở dấu phẩy, như đang thở trong rừng.',tokens:[{t:'The',a:'flat'},{t:'forest',a:'up'},{t:'is',a:'flat'},{t:'serene',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'full',a:'up'},{t:'of',a:'flat'},{t:'life,',a:'down'},{t:'‖',a:'pause-long'},{t:'and',a:'flat'},{t:'it',a:'flat'},{t:'makes',a:'flat'},{t:'me',a:'flat'},{t:'feel',a:'up'},{t:'completely',a:'up'},{t:'at',a:'flat'},{t:'peace.',a:'down'}]},
+      {s:'We must protect our natural environment so that future generations can enjoy it too.',vi:'Chúng ta phải bảo vệ môi trường thiên nhiên để con cháu tương lai cũng được thưởng thức.',tip:'💡 Nhấn "MUST protect" và "FUture GENErations". Giọng nghiêm túc, trách nhiệm.',tokens:[{t:'We',a:'flat'},{t:'must',a:'up'},{t:'protect',a:'up'},{t:'our',a:'flat'},{t:'natural',a:'flat'},{t:'environment',a:'down'},{t:'‖',a:'pause-long'},{t:'so',a:'flat'},{t:'that',a:'flat'},{t:'future',a:'up'},{t:'generations',a:'up'},{t:'|',a:'pause-short'},{t:'can',a:'flat'},{t:'enjoy',a:'up'},{t:'it',a:'flat'},{t:'too.',a:'down'}]},
+      {s:'A tranquil walk through nature every morning refreshes both your mind and your soul.',vi:'Một buổi đi bộ yên bình trong thiên nhiên mỗi sáng làm sảng khoái cả tâm trí lẫn tâm hồn.',tip:'💡 Ngắt sau "morning," — giọng thư giãn, dễ chịu. Nhấn "BOTH mind AND soul".',tokens:[{t:'A',a:'flat'},{t:'tranquil',a:'up'},{t:'walk',a:'flat'},{t:'through',a:'flat'},{t:'nature',a:'down'},{t:'|',a:'pause-short'},{t:'every',a:'flat'},{t:'morning',a:'down'},{t:'‖',a:'pause-long'},{t:'refreshes',a:'up'},{t:'both',a:'up'},{t:'your',a:'flat'},{t:'mind',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'your',a:'flat'},{t:'soul.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'emotion',
+    emoji: '❤️',
+    name: 'Cảm xúc & Tâm trạng',
+    nameEn: 'Emotions & Feelings',
+    sub: 'Từ vựng diễn đạt cảm xúc và tâm trạng',
+    fcTopic: 'emotion',
+    listenTopic: 'friendship',
+    readingTopic: 'emotions and mental health',
+    writingPrompt: 'Write about a time when you felt very happy or proud. What happened? (Viết về một lần bạn cảm thấy rất vui hoặc tự hào. Chuyện gì đã xảy ra?)',
+    speakSentences: [
+      {s:'I feel truly joyful and grateful whenever I spend quality time with my family.',vi:'Tôi cảm thấy thực sự vui và biết ơn khi dành thời gian ý nghĩa bên gia đình.',tip:'💡 Nhấn "TRUly JOYful" và "QUAlity time". Giọng ấm áp, chân thành.',tokens:[{t:'I',a:'flat'},{t:'feel',a:'flat'},{t:'truly',a:'up'},{t:'joyful',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'grateful',a:'up'},{t:'|',a:'pause-short'},{t:'whenever',a:'flat'},{t:'I',a:'flat'},{t:'spend',a:'flat'},{t:'quality',a:'up'},{t:'time',a:'flat'},{t:'|',a:'pause-short'},{t:'with',a:'flat'},{t:'my',a:'flat'},{t:'family.',a:'down'}]},
+      {s:'Showing compassion to others, even strangers, is one of the most beautiful things in life.',vi:'Thể hiện lòng trắc ẩn với người khác, dù là người lạ, là một trong những điều đẹp nhất.',tip:'💡 Ngắt ở "others," và "strangers,". Nhấn "MOST beAUtiful things".',tokens:[{t:'Showing',a:'flat'},{t:'compassion',a:'up'},{t:'to',a:'flat'},{t:'others,',a:'down'},{t:'|',a:'pause-short'},{t:'even',a:'flat'},{t:'strangers,',a:'down'},{t:'‖',a:'pause-long'},{t:'is',a:'flat'},{t:'one',a:'flat'},{t:'of',a:'flat'},{t:'the',a:'flat'},{t:'most',a:'up'},{t:'beautiful',a:'up'},{t:'things',a:'flat'},{t:'in',a:'flat'},{t:'life.',a:'down'}]},
+      {s:'Finding contentment in small, simple moments is the true secret to lasting happiness.',vi:'Tìm thấy sự mãn nguyện trong những khoảnh khắc nhỏ bé, đơn giản mới là bí quyết thật sự của hạnh phúc.',tip:'💡 Đọc chậm rãi, suy tư. Ngắt sau "moments," và nhấn "TRUE secret".',tokens:[{t:'Finding',a:'flat'},{t:'contentment',a:'up'},{t:'|',a:'pause-short'},{t:'in',a:'flat'},{t:'small,',a:'flat'},{t:'simple',a:'up'},{t:'moments',a:'down'},{t:'‖',a:'pause-long'},{t:'is',a:'flat'},{t:'the',a:'flat'},{t:'true',a:'up'},{t:'secret',a:'up'},{t:'|',a:'pause-short'},{t:'to',a:'flat'},{t:'lasting',a:'flat'},{t:'happiness.',a:'down'}]},
+    ]
+  },
+  {
+    key: 'health',
+    emoji: '💪',
+    name: 'Sức khỏe & Thể thao',
+    nameEn: 'Health & Sports',
+    sub: 'Từ vựng về sức khỏe, tập luyện và dinh dưỡng',
+    fcTopic: 'daily',
+    listenTopic: 'health',
+    readingTopic: 'healthy lifestyle',
+    writingPrompt: 'Write about your exercise habits or a sport you enjoy. How does it benefit your health? (Viết về thói quen tập thể dục hoặc môn thể thao bạn thích)',
+    speakSentences: [
+      {s:'Exercising every day not only keeps you healthy but also improves your mental well-being.',vi:'Tập thể dục mỗi ngày không chỉ giữ sức khỏe mà còn cải thiện sức khỏe tinh thần.',tip:'💡 Nhấn "NOT only" và "ALSO IMproves". Giọng khẳng định, tích cực.',tokens:[{t:'Exercising',a:'flat'},{t:'every',a:'flat'},{t:'day',a:'down'},{t:'|',a:'pause-short'},{t:'not',a:'up'},{t:'only',a:'flat'},{t:'keeps',a:'flat'},{t:'you',a:'flat'},{t:'healthy',a:'down'},{t:'‖',a:'pause-long'},{t:'but',a:'flat'},{t:'also',a:'up'},{t:'improves',a:'up'},{t:'your',a:'flat'},{t:'mental',a:'up'},{t:'well-being.',a:'down'}]},
+      {s:'A healthy mind and a healthy body work together to help you live a longer and happier life.',vi:'Tâm trí khỏe mạnh và cơ thể khỏe mạnh kết hợp để giúp bạn sống lâu hơn và hạnh phúc hơn.',tip:'💡 Ngắt sau "body," — hai vế cân bằng nhau, nhấn cả hai như nhau.',tokens:[{t:'A',a:'flat'},{t:'healthy',a:'up'},{t:'mind',a:'down'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'a',a:'flat'},{t:'healthy',a:'up'},{t:'body',a:'down'},{t:'‖',a:'pause-long'},{t:'work',a:'flat'},{t:'together',a:'up'},{t:'|',a:'pause-short'},{t:'to',a:'flat'},{t:'help',a:'flat'},{t:'you',a:'flat'},{t:'live',a:'up'},{t:'longer',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'happier.',a:'down'}]},
+      {s:'I feel so much more energetic and focused after my morning jog in the fresh air.',vi:'Tôi cảm thấy tràn đầy năng lượng và tập trung hơn sau khi chạy bộ buổi sáng trong không khí trong lành.',tip:'💡 Nhấn "SO much MORE" và "FRESH air". Giọng vui tươi, sảng khoái.',tokens:[{t:'I',a:'flat'},{t:'feel',a:'flat'},{t:'so',a:'up'},{t:'much',a:'up'},{t:'more',a:'up'},{t:'energetic',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'focused',a:'up'},{t:'‖',a:'pause-long'},{t:'after',a:'flat'},{t:'my',a:'flat'},{t:'morning',a:'flat'},{t:'jog',a:'up'},{t:'|',a:'pause-short'},{t:'in',a:'flat'},{t:'the',a:'flat'},{t:'fresh',a:'up'},{t:'air.',a:'down'}]},
+    ]
+  },
+];
+
+// Chọn chủ đề theo ngày (không đổi trong ngày)
+function getDailyTopicIndex() {
+  const today = new Date();
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+  return dayOfYear % DAILY_TOPICS.length;
+}
+
+let currentDailyTopic = DAILY_TOPICS[getDailyTopicIndex()];
+
+function initDailyTopic() {
+  const t = currentDailyTopic;
+  document.getElementById('dtb-title').textContent = t.emoji + ' ' + t.name;
+  document.getElementById('dtb-sub').textContent = t.sub;
+
+  // Tự động load flashcard topic
+  const fcBtn = document.querySelector(`.topic-btn[onclick*="'${t.fcTopic}'"]`);
+  if (fcBtn) loadTopic(t.fcTopic, fcBtn);
+
+  // Override writing prompt
+  document.getElementById('wr-prompt').textContent = t.writingPrompt;
+
+  // Override speaking sentences
+  SAMPLE_SENTENCES.splice(0, SAMPLE_SENTENCES.length, ...t.speakSentences);
+  initSpeaking();
+
+  // Update chat init message
+  const initMsg = document.getElementById('chat-init-msg');
+  if (initMsg) {
+    initMsg.textContent = `Hi! I'm your English conversation partner 😊 Today's topic is "${t.nameEn}" — ${t.sub.toLowerCase()}. Let's practice together! You can type or use the microphone.`;
+  }
+}
+
+function switchTabByName(name) {
+  const tabs = document.querySelectorAll('.tab');
+  const names = ['flashcard','listening','reading','quiz','writing','speaking'];
+  const idx = names.indexOf(name);
+  if (idx >= 0) switchTab(name, tabs[idx]);
 }
 
 // ══════════════════════════════════════════
@@ -803,7 +1322,173 @@ function rateCard(rating) {
   renderCard();
 }
 
-loadTopic('daily', document.querySelector('.topic-btn'));
+loadTopic(currentDailyTopic.fcTopic, document.querySelector(`.topic-btn[onclick*="'${currentDailyTopic.fcTopic}'"]`) || document.querySelector('.topic-btn'));
+
+// ══════════════════════════════════════════
+// KIỂM TRA TỪ VỰNG — 2 vòng
+// ══════════════════════════════════════════
+let vtCards = [], vtRound = 1, vtIndex = 0, vtCorrect = 0, vtWrong = 0;
+let vtResults = []; // lưu chi tiết từng câu
+
+function startVocabTest() {
+  // Lấy bộ từ hiện tại
+  vtCards = [...fcCards].sort(() => Math.random() - 0.5);
+  vtRound = 1; vtIndex = 0; vtCorrect = 0; vtWrong = 0; vtResults = [];
+
+  // Chuyển sang màn hình kiểm tra
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-vocab-test').classList.add('active');
+
+  // Ẩn kết quả, hiện card
+  document.getElementById('vt-card').style.display = 'block';
+  document.getElementById('vt-result').style.display = 'none';
+
+  renderVtQuestion();
+}
+
+function exitVocabTest() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-flashcard').classList.add('active');
+  // Reset tab active
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('.tab').classList.add('active');
+}
+
+function renderVtQuestion() {
+  if (vtIndex >= vtCards.length) {
+    if (vtRound === 1) {
+      // Chuyển sang vòng 2
+      vtRound = 2;
+      vtIndex = 0;
+      vtCards = [...vtCards].sort(() => Math.random() - 0.5);
+      updateVtHeader();
+      renderVtQuestion();
+      return;
+    } else {
+      showVtResult();
+      return;
+    }
+  }
+
+  updateVtHeader();
+  const c = vtCards[vtIndex];
+  const feedback = document.getElementById('vt-feedback');
+  const input = document.getElementById('vt-input');
+
+  feedback.style.display = 'none';
+  input.value = '';
+  input.style.borderColor = 'var(--border)';
+  input.disabled = false;
+  input.focus();
+
+  document.getElementById('vt-btn').textContent = 'Xác nhận ✓';
+  document.getElementById('vt-btn').onclick = checkVocabAnswer;
+
+  if (vtRound === 1) {
+    // Vòng 1: Hiện tiếng Anh → gõ tiếng Việt
+    document.getElementById('vt-direction').textContent = '🇬🇧 Tiếng Anh → Gõ tiếng Việt';
+    document.getElementById('vt-word-display').textContent = c.w;
+    document.getElementById('vt-word-sub').textContent = c.type + '  ' + c.p;
+    input.placeholder = 'Gõ nghĩa tiếng Việt...';
+  } else {
+    // Vòng 2: Hiện tiếng Việt → gõ tiếng Anh
+    document.getElementById('vt-direction').textContent = '🇻🇳 Tiếng Việt → Gõ tiếng Anh';
+    document.getElementById('vt-word-display').textContent = c.vi;
+    document.getElementById('vt-word-sub').textContent = '';
+    input.placeholder = 'Gõ từ tiếng Anh...';
+  }
+}
+
+function updateVtHeader() {
+  const total = vtCards.length * 2;
+  const done = (vtRound === 1 ? vtIndex : vtCards.length + vtIndex);
+  document.getElementById('vt-round-badge').textContent = `Vòng ${vtRound} / 2`;
+  document.getElementById('vt-progress-label').textContent = `Câu ${done + 1} / ${total}`;
+  document.getElementById('vt-score-label').textContent = `✅ ${vtCorrect} đúng`;
+  document.getElementById('vt-progress-bar').style.width = `${(done / total) * 100}%`;
+}
+
+function normalizeText(str) {
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'') // bỏ dấu
+    .replace(/[^a-z0-9\s]/g,'')
+    .trim();
+}
+
+function checkVocabAnswer() {
+  const input = document.getElementById('vt-input');
+  const userVal = input.value.trim();
+  if (!userVal) { input.style.borderColor = 'var(--warning)'; input.focus(); return; }
+
+  const c = vtCards[vtIndex];
+  const correct = vtRound === 1 ? c.vi : c.w;
+
+  // So sánh mềm: bỏ dấu, lowercase
+  const isCorrect = normalizeText(userVal) === normalizeText(correct) ||
+    normalizeText(correct).includes(normalizeText(userVal)) && normalizeText(userVal).length > 3;
+
+  if (isCorrect) vtCorrect++;
+  else vtWrong++;
+
+  vtResults.push({ word: c.w, vi: c.vi, userAns: userVal, correct: isCorrect, round: vtRound });
+
+  // Hiện feedback
+  input.disabled = true;
+  input.style.borderColor = isCorrect ? 'var(--success)' : 'var(--danger)';
+
+  const feedback = document.getElementById('vt-feedback');
+  feedback.style.display = 'block';
+  document.getElementById('vt-feedback-icon').textContent = isCorrect ? '✅' : '❌';
+  document.getElementById('vt-feedback-text').textContent = isCorrect ? 'Chính xác!' : 'Chưa đúng!';
+  document.getElementById('vt-correct-ans').textContent = isCorrect ? '' : `Đáp án đúng: ${correct}`;
+  document.getElementById('vt-feedback-text').style.color = isCorrect ? 'var(--success)' : 'var(--danger)';
+
+  // Đổi nút thành "Tiếp theo"
+  const btn = document.getElementById('vt-btn');
+  btn.textContent = vtIndex < vtCards.length - 1 || vtRound === 1 ? 'Tiếp theo →' : 'Xem kết quả 🏆';
+  btn.onclick = () => { vtIndex++; renderVtQuestion(); };
+}
+
+function showVtResult() {
+  document.getElementById('vt-card').style.display = 'none';
+  document.getElementById('vt-result').style.display = 'block';
+
+  const total = vtCards.length * 2;
+  const pct = Math.round((vtCorrect / total) * 100);
+  const emoji = pct >= 90 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '😊' : '💪';
+  const title = pct >= 90 ? 'Xuất sắc!' : pct >= 70 ? 'Rất tốt!' : pct >= 50 ? 'Khá ổn!' : 'Cần luyện thêm!';
+  const msg = pct >= 90
+    ? 'Bạn đã thuộc hết từ vựng chủ đề này rồi! Hãy học chủ đề mới nhé.'
+    : pct >= 70
+    ? 'Bạn nhớ khá tốt! Ôn lại những từ chưa thuộc và thử lại.'
+    : 'Hãy quay lại học flashcard rồi thi lại nhé. Bạn sẽ tiến bộ nhanh thôi!';
+
+  document.getElementById('vt-result-emoji').textContent = emoji;
+  document.getElementById('vt-result-title').textContent = title;
+  document.getElementById('vt-result-score').textContent = `${vtCorrect} / ${total}`;
+  document.getElementById('vt-result-msg').textContent = msg;
+
+  // Bảng chi tiết những từ sai
+  const wrongs = vtResults.filter(r => !r.correct);
+  const detailEl = document.getElementById('vt-result-detail');
+  if (wrongs.length === 0) {
+    detailEl.innerHTML = '<div style="text-align:center;color:var(--success);font-weight:700;font-size:14px;padding:10px">🎉 Bạn trả lời đúng tất cả!</div>';
+  } else {
+    detailEl.innerHTML = `
+      <div style="font-size:12px;font-weight:700;color:var(--text-sub);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Cần ôn lại (${wrongs.length} từ):</div>
+      ${wrongs.map(r => `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg);border-radius:8px;margin-bottom:6px;font-size:13px">
+          <div>
+            <span style="font-weight:800;color:var(--primary)">${r.word}</span>
+            <span style="color:var(--text-sub);margin-left:6px">${r.vi}</span>
+          </div>
+          <div style="color:var(--danger);font-size:12px">Bạn: "${r.userAns}"</div>
+        </div>
+      `).join('')}
+    `;
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 // ══════════════════════════════════════════
 // MODULE 2: LUYỆN NGHE — AI tạo câu vô hạn
@@ -844,7 +1529,7 @@ async function loadNextListenQuestion() {
     return;
   }
 
-  const topic = LS_TOPICS[Math.floor(Math.random() * LS_TOPICS.length)];
+  const topic = currentDailyTopic ? currentDailyTopic.listenTopic : LS_TOPICS[Math.floor(Math.random() * LS_TOPICS.length)];
   const avoidList = lsUsedSentences.slice(-10).join('; ');
   const prompt = `Create ONE English listening exercise about the topic: "${topic}".
 Rules:
@@ -970,7 +1655,7 @@ async function loadNextReading() {
 
   const available = RD_TOPICS.filter(t => !rdUsedTopics.includes(t));
   if (available.length === 0) rdUsedTopics = [];
-  const topic = available[Math.floor(Math.random() * available.length)];
+  const topic = currentDailyTopic ? currentDailyTopic.readingTopic : available[Math.floor(Math.random() * available.length)];
   rdUsedTopics.push(topic);
 
   const prompt = `Create an English reading comprehension exercise about: "${topic}"
@@ -1105,8 +1790,10 @@ async function loadNextQuiz() {
 
   const qtype = QZ_TYPES[Math.floor(Math.random() * QZ_TYPES.length)];
   const level = qzCorrect >= 6 ? 'intermediate' : 'beginner';
+  const topicHint = currentDailyTopic ? `Focus the question on vocabulary related to "${currentDailyTopic.nameEn}".` : '';
   const prompt = `Create ONE English quiz question for Vietnamese family learners (${level} level).
 Type: ${qtype}
+${topicHint}
 Rules:
 - 4 options total (A, B, C, D)
 - Suitable for all ages in a Vietnamese family
@@ -1189,7 +1876,8 @@ const WRITING_PROMPTS = [
 let wrPromptIdx = 0;
 
 function loadWritingPrompt() {
-  document.getElementById('wr-prompt').textContent = WRITING_PROMPTS[wrPromptIdx % WRITING_PROMPTS.length];
+  const prompt = currentDailyTopic ? currentDailyTopic.writingPrompt : WRITING_PROMPTS[wrPromptIdx % WRITING_PROMPTS.length];
+  document.getElementById('wr-prompt').textContent = prompt;
   document.getElementById('wr-input').value = '';
   document.getElementById('wr-result').className = 'ai-result';
   document.getElementById('wr-result').innerHTML = '';
@@ -1237,6 +1925,9 @@ Hãy khuyến khích và động viên người học!`;
 }
 
 loadWritingPrompt();
+
+// ── Khởi động chủ đề hôm nay sau khi tất cả hàm đã load ──
+setTimeout(initDailyTopic, 80);
 
 // ══════════════════════════════════════════
 // RESULT POPUP
@@ -1336,6 +2027,390 @@ window.addEventListener('appinstalled', () => {
   const b = document.getElementById('install-banner');
   if (b) b.style.display = 'none';
 });
+
+// ══════════════════════════════════════════
+// MODULE 6: LUYỆN NÓI (SPEAKING)
+// ══════════════════════════════════════════
+// Cấu trúc mỗi câu:
+//  s   : plain text (dùng cho TTS & chấm điểm)
+//  vi  : nghĩa tiếng Việt
+//  tip : mẹo phát âm ngắn
+//  tokens: mảng token để hiển thị ngữ điệu
+//    Mỗi token: { t: 'text', a: 'up'|'down'|'flat'|'pause-short'|'pause-long' }
+//    type 'pause-short' = | (ngắt ngắn, vd dấu phẩy)
+//    type 'pause-long'  = ‖ (ngắt dài, vd kết câu)
+const SAMPLE_SENTENCES = [
+  {
+    s: 'Good morning! How are you doing today?',
+    vi: 'Chào buổi sáng! Hôm nay bạn có khỏe không?',
+    tip: '💡 "Good MORning" — nhấn mạnh âm tiết MOR. Cuối câu hỏi lên giọng ở "toDAY?"',
+    tokens: [
+      {t:'Good',a:'flat'},{t:'morning!',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'How',a:'flat'},{t:'are',a:'flat'},{t:'you',a:'flat'},{t:'doing',a:'flat'},{t:'today?',a:'up'},
+    ]
+  },
+  {
+    s: 'My name is Lan and I have been living in Vietnam all my life.',
+    vi: 'Tên tôi là Lan và tôi đã sống ở Việt Nam cả cuộc đời.',
+    tip: '💡 Ngắt nhẹ sau "Lan," rồi tiếp tục. Nhấn "ALL my life" để nhấn mạnh.',
+    tokens: [
+      {t:'My',a:'flat'},{t:'name',a:'up'},{t:'is',a:'flat'},{t:'Lan',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'I',a:'flat'},{t:'have',a:'flat'},{t:'been',a:'flat'},{t:'living',a:'flat'},{t:'in',a:'flat'},{t:'Vietnam',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'all',a:'up'},{t:'my',a:'flat'},{t:'life.',a:'down'},
+    ]
+  },
+  {
+    s: 'I really enjoy learning English with my family every single evening.',
+    vi: 'Tôi thực sự thích học tiếng Anh cùng gia đình mỗi buổi tối.',
+    tip: '💡 Nhấn "reALLY" và "FAMily". Giọng xuống dần ở cuối câu khẳng định.',
+    tokens: [
+      {t:'I',a:'flat'},{t:'really',a:'up'},{t:'enjoy',a:'up'},{t:'learning',a:'flat'},{t:'English',a:'flat'},
+      {t:'|',a:'pause-short'},
+      {t:'with',a:'flat'},{t:'my',a:'flat'},{t:'family',a:'up'},{t:'every',a:'flat'},{t:'single',a:'flat'},{t:'evening.',a:'down'},
+    ]
+  },
+  {
+    s: 'Could you please speak a little more slowly so I can understand you better?',
+    vi: 'Bạn có thể nói chậm hơn một chút để tôi hiểu bạn hơn không?',
+    tip: '💡 Câu nhờ vả lịch sự — giọng mềm, lên nhẹ ở cuối. Ngắt sau "slowly,".',
+    tokens: [
+      {t:'Could',a:'flat'},{t:'you',a:'flat'},{t:'please',a:'up'},{t:'speak',a:'flat'},{t:'a',a:'flat'},{t:'little',a:'flat'},{t:'more',a:'flat'},{t:'slowly',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'so',a:'flat'},{t:'I',a:'flat'},{t:'can',a:'flat'},{t:'understand',a:'up'},{t:'you',a:'flat'},{t:'better?',a:'up'},
+    ]
+  },
+  {
+    s: 'What is your favorite food and where do you usually go to eat it?',
+    vi: 'Món ăn yêu thích của bạn là gì và bạn thường đi ăn ở đâu?',
+    tip: '💡 Hai câu hỏi ghép — lên giọng ở "food?" rồi lên lại ở "eat it?"',
+    tokens: [
+      {t:'What',a:'flat'},{t:'is',a:'flat'},{t:'your',a:'flat'},{t:'favorite',a:'up'},{t:'food',a:'up'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'where',a:'flat'},{t:'do',a:'flat'},{t:'you',a:'flat'},{t:'usually',a:'flat'},{t:'go',a:'flat'},{t:'to',a:'flat'},{t:'eat',a:'up'},{t:'it?',a:'up'},
+    ]
+  },
+  {
+    s: 'I have been working very hard to improve my English speaking and listening skills.',
+    vi: 'Tôi đã cố gắng rất nhiều để cải thiện kỹ năng nói và nghe tiếng Anh.',
+    tip: '💡 Nhấn "VERY hard" và "IMprove". Ngắt nhẹ trước "speaking and listening".',
+    tokens: [
+      {t:'I',a:'flat'},{t:'have',a:'flat'},{t:'been',a:'flat'},{t:'working',a:'flat'},{t:'very',a:'up'},{t:'hard',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'to',a:'flat'},{t:'improve',a:'up'},{t:'my',a:'flat'},{t:'English',a:'flat'},
+      {t:'|',a:'pause-short'},
+      {t:'speaking',a:'flat'},{t:'and',a:'flat'},{t:'listening',a:'flat'},{t:'skills.',a:'down'},
+    ]
+  },
+  {
+    s: 'The weather today is absolutely beautiful, so let\'s go for a walk in the park.',
+    vi: 'Thời tiết hôm nay tuyệt đẹp, vậy hãy cùng đi dạo trong công viên nhé.',
+    tip: '💡 Nhấn "absoLUTEly beAUtiful". Ngắt rõ ở dấu phẩy. Giọng vui, tươi sáng!',
+    tokens: [
+      {t:'The',a:'flat'},{t:'weather',a:'flat'},{t:'today',a:'flat'},{t:'is',a:'flat'},{t:'absolutely',a:'up'},{t:'beautiful,',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'so',a:'flat'},{t:'let\'s',a:'up'},{t:'go',a:'flat'},{t:'for',a:'flat'},{t:'a',a:'flat'},{t:'walk',a:'up'},{t:'in',a:'flat'},{t:'the',a:'flat'},{t:'park.',a:'down'},
+    ]
+  },
+  {
+    s: 'Thank you so much for your kind help — I really appreciate everything you have done.',
+    vi: 'Cảm ơn bạn rất nhiều vì sự giúp đỡ tốt bụng — tôi thực sự trân trọng tất cả.',
+    tip: '💡 Cảm ơn chân thành — nhấn "SO much" và "reALLY appreCIate". Nghỉ dài trước mệnh đề sau.',
+    tokens: [
+      {t:'Thank',a:'flat'},{t:'you',a:'up'},{t:'so',a:'up'},{t:'much',a:'down'},{t:'for',a:'flat'},{t:'your',a:'flat'},{t:'kind',a:'up'},{t:'help',a:'down'},
+      {t:'‖',a:'pause-long'},
+      {t:'I',a:'flat'},{t:'really',a:'up'},{t:'appreciate',a:'up'},{t:'everything',a:'flat'},{t:'you',a:'flat'},{t:'have',a:'flat'},{t:'done.',a:'down'},
+    ]
+  },
+  {
+    s: 'Perseverance and hard work are the most important keys to achieving your dreams.',
+    vi: 'Kiên trì và nỗ lực là những chìa khóa quan trọng nhất để đạt được ước mơ.',
+    tip: '💡 Nhấn "PERseverance" và "MOST important". Giọng trang trọng, chắc chắn.',
+    tokens: [
+      {t:'Perseverance',a:'up'},{t:'and',a:'flat'},{t:'hard',a:'up'},{t:'work',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'are',a:'flat'},{t:'the',a:'flat'},{t:'most',a:'up'},{t:'important',a:'up'},{t:'keys',a:'flat'},
+      {t:'|',a:'pause-short'},
+      {t:'to',a:'flat'},{t:'achieving',a:'flat'},{t:'your',a:'flat'},{t:'dreams.',a:'down'},
+    ]
+  },
+  {
+    s: 'My family means absolutely everything to me, and I will always protect them.',
+    vi: 'Gia đình là tất cả với tôi, và tôi sẽ luôn bảo vệ họ.',
+    tip: '💡 Nhấn "absoLUTEly EVERYthing". Nghỉ rõ ở dấu phẩy trước "and I will...".',
+    tokens: [
+      {t:'My',a:'flat'},{t:'family',a:'up'},{t:'means',a:'flat'},{t:'absolutely',a:'up'},{t:'everything',a:'up'},{t:'to',a:'flat'},{t:'me,',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'I',a:'flat'},{t:'will',a:'flat'},{t:'always',a:'up'},{t:'protect',a:'up'},{t:'them.',a:'down'},
+    ]
+  },
+  {
+    s: 'Let me introduce myself — my name is Minh and I am from Ho Chi Minh City.',
+    vi: 'Hãy để tôi tự giới thiệu — tên tôi là Minh và tôi đến từ TP. Hồ Chí Minh.',
+    tip: '💡 Nghỉ rõ sau "myself —". Lên giọng nhẹ ở "Minh" như đang giới thiệu tự hào.',
+    tokens: [
+      {t:'Let',a:'flat'},{t:'me',a:'flat'},{t:'introduce',a:'up'},{t:'myself',a:'down'},
+      {t:'‖',a:'pause-long'},
+      {t:'my',a:'flat'},{t:'name',a:'flat'},{t:'is',a:'flat'},{t:'Minh',a:'up'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'I',a:'flat'},{t:'am',a:'flat'},{t:'from',a:'flat'},{t:'Ho',a:'flat'},{t:'Chi',a:'flat'},{t:'Minh',a:'up'},{t:'City.',a:'down'},
+    ]
+  },
+  {
+    s: 'I have been studying English for over three years, and I am getting better every day.',
+    vi: 'Tôi đã học tiếng Anh hơn ba năm, và tôi ngày càng tiến bộ hơn.',
+    tip: '💡 Nhấn "OVER three years" và "EVery day". Ngắt rõ giữa hai mệnh đề.',
+    tokens: [
+      {t:'I',a:'flat'},{t:'have',a:'flat'},{t:'been',a:'flat'},{t:'studying',a:'flat'},{t:'English',a:'flat'},{t:'for',a:'flat'},{t:'over',a:'up'},{t:'three',a:'up'},{t:'years,',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'I',a:'flat'},{t:'am',a:'flat'},{t:'getting',a:'flat'},{t:'better',a:'up'},{t:'every',a:'up'},{t:'day.',a:'down'},
+    ]
+  },
+  {
+    s: 'If you practice speaking English every day, you will become fluent much faster.',
+    vi: 'Nếu bạn luyện nói tiếng Anh mỗi ngày, bạn sẽ thành thạo nhanh hơn nhiều.',
+    tip: '💡 Mệnh đề "If..." thường lên giọng. Sau dấu phẩy ngắt và xuống giọng tiếp.',
+    tokens: [
+      {t:'If',a:'up'},{t:'you',a:'flat'},{t:'practice',a:'up'},{t:'speaking',a:'flat'},{t:'English',a:'flat'},{t:'every',a:'flat'},{t:'day,',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'you',a:'flat'},{t:'will',a:'flat'},{t:'become',a:'up'},{t:'fluent',a:'up'},{t:'much',a:'flat'},{t:'faster.',a:'down'},
+    ]
+  },
+  {
+    s: 'Vietnamese food is incredibly delicious — especially pho, banh mi, and fresh spring rolls.',
+    vi: 'Ẩm thực Việt Nam vô cùng ngon — đặc biệt là phở, bánh mì, và gỏi cuốn tươi.',
+    tip: '💡 Nghỉ dài sau "delicious —". Mỗi món ăn đọc rõ và lên nhẹ để nhấn mạnh sự yêu thích.',
+    tokens: [
+      {t:'Vietnamese',a:'flat'},{t:'food',a:'flat'},{t:'is',a:'flat'},{t:'incredibly',a:'up'},{t:'delicious',a:'down'},
+      {t:'‖',a:'pause-long'},
+      {t:'especially',a:'up'},{t:'pho,',a:'up'},
+      {t:'|',a:'pause-short'},
+      {t:'banh',a:'flat'},{t:'mi,',a:'up'},
+      {t:'|',a:'pause-short'},
+      {t:'and',a:'flat'},{t:'fresh',a:'flat'},{t:'spring',a:'flat'},{t:'rolls.',a:'down'},
+    ]
+  },
+  {
+    s: 'Traveling around Vietnam helps you understand the beauty and culture of this amazing country.',
+    vi: 'Du lịch khắp Việt Nam giúp bạn hiểu vẻ đẹp và văn hóa của đất nước tuyệt vời này.',
+    tip: '💡 Nhấn "beAUty" và "aMAzing". Ngắt nhẹ sau "Vietnam," để người nghe kịp xử lý.',
+    tokens: [
+      {t:'Traveling',a:'up'},{t:'around',a:'flat'},{t:'Vietnam',a:'down'},
+      {t:'|',a:'pause-short'},
+      {t:'helps',a:'flat'},{t:'you',a:'flat'},{t:'understand',a:'up'},{t:'the',a:'flat'},{t:'beauty',a:'up'},{t:'and',a:'flat'},{t:'culture',a:'flat'},
+      {t:'|',a:'pause-short'},
+      {t:'of',a:'flat'},{t:'this',a:'flat'},{t:'amazing',a:'up'},{t:'country.',a:'down'},
+    ]
+  },
+];
+
+let spSentenceIdx = 0;
+let spRecognition = null;
+let spIsRecording = false;
+let spChatRecognition = null;
+let spChatIsRecording = false;
+let chatHistory = [];
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+// ── Render intonation display ──
+function renderIntonation(tokens) {
+  const wrap = document.getElementById('sp-intonation-display');
+  wrap.innerHTML = '';
+  tokens.forEach(tok => {
+    if (tok.a === 'pause-short') {
+      const pm = document.createElement('div');
+      pm.className = 'sp-pause-mark';
+      pm.innerHTML = `<div class="sp-pause-line" style="height:18px"></div><span class="sp-pause-label">ngắt</span>`;
+      wrap.appendChild(pm);
+    } else if (tok.a === 'pause-long') {
+      const pm = document.createElement('div');
+      pm.className = 'sp-pause-mark';
+      pm.innerHTML = `<div class="sp-pause-line" style="height:26px"></div><div class="sp-pause-line" style="height:26px"></div><span class="sp-pause-label">nghỉ</span>`;
+      wrap.appendChild(pm);
+    } else {
+      const arrowMap = { up: '↗', down: '↘', flat: '→' };
+      const classMap = { up: 'arrow-up', down: 'arrow-down', flat: 'arrow-flat' };
+      const unit = document.createElement('div');
+      unit.className = 'sp-word-unit';
+      unit.innerHTML = `<div class="sp-word-arrow ${classMap[tok.a]}">${arrowMap[tok.a]}</div><div class="sp-word-text">${tok.t}</div>`;
+      wrap.appendChild(unit);
+    }
+  });
+}
+
+function setSpeakMode(mode, btn) {
+  document.querySelectorAll('.speak-mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('speak-repeat-section').style.display = mode === 'repeat' ? 'block' : 'none';
+  document.getElementById('speak-chat-section').style.display = mode === 'chat' ? 'block' : 'none';
+}
+
+function initSpeaking() {
+  spSentenceIdx = Math.floor(Math.random() * SAMPLE_SENTENCES.length);
+  renderSampleSentence();
+}
+
+function renderSampleSentence() {
+  const d = SAMPLE_SENTENCES[spSentenceIdx % SAMPLE_SENTENCES.length];
+  // Cập nhật hidden plain text (cho TTS & scoring)
+  document.getElementById('sp-sentence').textContent = d.s;
+  document.getElementById('sp-sentence-vi').textContent = d.vi;
+  // Render intonation
+  renderIntonation(d.tokens);
+  // Tip phát âm
+  const tipBox = document.getElementById('sp-tip-box');
+  if (d.tip) { tipBox.innerHTML = d.tip; tipBox.style.display = 'block'; }
+  else tipBox.style.display = 'none';
+  // Reset UI
+  document.getElementById('sp-recognized').style.display = 'none';
+  document.getElementById('sp-score-wrap').style.display = 'none';
+  const btn = document.getElementById('sp-record-btn');
+  btn.textContent = '🎤 Bấm để nói';
+  btn.className = 'sp-record-btn';
+  spIsRecording = false;
+}
+
+function newSampleSentence() { spSentenceIdx++; renderSampleSentence(); }
+
+function playSampleSentence() {
+  const text = document.getElementById('sp-sentence').textContent;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.82;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function toggleRecording() {
+  if (!SpeechRecognition) { alert('Trình duyệt không hỗ trợ micro. Dùng Chrome/Edge nhé!'); return; }
+  if (spIsRecording) { spRecognition && spRecognition.stop(); return; }
+  spRecognition = new SpeechRecognition();
+  spRecognition.lang = 'en-US'; spRecognition.interimResults = false; spRecognition.maxAlternatives = 1;
+  spRecognition.onstart = () => {
+    spIsRecording = true;
+    const btn = document.getElementById('sp-record-btn');
+    btn.textContent = '⏹ Dừng ghi âm'; btn.className = 'sp-record-btn recording';
+    document.getElementById('sp-recording-indicator').style.display = 'block';
+  };
+  spRecognition.onresult = (e) => showSpeakResult(e.results[0][0].transcript);
+  spRecognition.onerror = (e) => {
+    spIsRecording = false;
+    document.getElementById('sp-recording-indicator').style.display = 'none';
+    const btn = document.getElementById('sp-record-btn');
+    btn.textContent = '🎤 Bấm để nói'; btn.className = 'sp-record-btn';
+    if (e.error === 'not-allowed') alert('⚠️ Hãy cho phép trình duyệt truy cập microphone!');
+  };
+  spRecognition.onend = () => {
+    spIsRecording = false;
+    document.getElementById('sp-recording-indicator').style.display = 'none';
+    const btn = document.getElementById('sp-record-btn');
+    btn.textContent = '🎤 Bấm để nói'; btn.className = 'sp-record-btn';
+  };
+  spRecognition.start();
+}
+
+function showSpeakResult(said) {
+  const sample = document.getElementById('sp-sentence').textContent;
+  document.getElementById('sp-recognized').style.display = 'block';
+  document.getElementById('sp-recognized-text').textContent = '"' + said + '"';
+  const pct = calcSimilarity(said, sample);
+  document.getElementById('sp-score-wrap').style.display = 'block';
+  document.getElementById('sp-pct').textContent = pct + '%';
+  const bar = document.getElementById('sp-score-bar');
+  bar.style.width = pct + '%';
+  bar.style.background = pct >= 80 ? 'var(--success)' : pct >= 55 ? 'var(--warning)' : 'var(--danger)';
+  document.getElementById('sp-feedback-text').textContent =
+    pct >= 90 ? '🏆 Tuyệt vời! Phát âm rất chuẩn!' :
+    pct >= 75 ? '😊 Khá tốt! Thử lại để đạt 90% nhé.' :
+    pct >= 55 ? '💪 Được rồi! Nghe lại mẫu và luyện thêm.' :
+    '🎯 Hãy nghe lại câu mẫu rồi nói chậm từng từ.';
+}
+
+function calcSimilarity(a, b) {
+  const na = a.toLowerCase().replace(/[^a-z\s]/g,'').trim();
+  const nb = b.toLowerCase().replace(/[^a-z\s]/g,'').trim();
+  const wa = na.split(/\s+/), wb = nb.split(/\s+/);
+  let match = 0;
+  wb.forEach(w => { if (wa.includes(w)) match++; });
+  return Math.round((match / wb.length) * 100);
+}
+
+async function sendChatMessage() {
+  const input = document.getElementById('sp-chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  appendChatMsg(text, 'user');
+  chatHistory.push({ role: 'user', text });
+
+  const loadId = 'load-' + Date.now();
+  appendChatMsg('...', 'ai', loadId);
+
+  const historyText = chatHistory.slice(-8).map(m =>
+    `${m.role === 'user' ? 'Student' : 'Teacher'}: ${m.text}`).join('\n');
+
+  const topicCtx = currentDailyTopic ? `Today's learning topic is "${currentDailyTopic.nameEn}". Try to guide the conversation toward this topic naturally.` : '';
+  const prompt = `You are a friendly English conversation teacher for a Vietnamese family (all ages).
+${topicCtx}
+Conversation so far:\n${historyText}\n
+Rules:
+- Reply naturally in English (2-4 sentences max)
+- If the student made grammar mistakes, gently correct in Vietnamese at the end
+- Keep it encouraging and fun
+Format: [Your English reply]
+[Nếu có lỗi: "💡 Sửa lỗi: ..." bằng tiếng Việt]`;
+
+  const reply = await callGemini(prompt);
+  const loadEl = document.getElementById(loadId);
+  if (loadEl) loadEl.closest('.sp-msg').remove();
+  appendChatMsg(reply, 'ai');
+  chatHistory.push({ role: 'ai', text: reply });
+
+  // Tự đọc phần tiếng Anh
+  const engPart = reply.split('💡')[0].trim();
+  if (engPart) {
+    const u = new SpeechSynthesisUtterance(engPart);
+    u.lang = 'en-US'; u.rate = 0.85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+}
+
+function appendChatMsg(text, role, id) {
+  const box = document.getElementById('sp-chat-messages');
+  const div = document.createElement('div');
+  div.className = `sp-msg ${role}`;
+  if (id) div.id = id;
+  const bubble = document.createElement('div');
+  bubble.className = `sp-bubble ${role === 'ai' ? 'ai-bubble' : 'user-bubble'}`;
+  bubble.style.whiteSpace = 'pre-wrap';
+  bubble.textContent = text;
+  div.appendChild(bubble);
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function clearChat() {
+  chatHistory = [];
+  const topicLine = currentDailyTopic ? ` Today we're focusing on "${currentDailyTopic.nameEn}" — let's talk about it!` : ' What would you like to talk about?';
+  document.getElementById('sp-chat-messages').innerHTML =
+    `<div class="sp-msg ai"><div class="sp-bubble ai-bubble">Hi again! 😊 Let's start fresh.${topicLine}</div></div>`;
+}
+
+function toggleChatRecording() {
+  if (!SpeechRecognition) { alert('Dùng Chrome/Edge để dùng micro nhé!'); return; }
+  if (spChatIsRecording) { spChatRecognition && spChatRecognition.stop(); return; }
+  spChatRecognition = new SpeechRecognition();
+  spChatRecognition.lang = 'en-US'; spChatRecognition.interimResults = false;
+  const micBtn = document.getElementById('sp-chat-mic');
+  spChatRecognition.onstart = () => { spChatIsRecording = true; micBtn.style.background='#fee2e2'; micBtn.textContent='⏹'; };
+  spChatRecognition.onresult = (e) => { document.getElementById('sp-chat-input').value = e.results[0][0].transcript; sendChatMessage(); };
+  spChatRecognition.onend = () => { spChatIsRecording = false; micBtn.style.background='var(--bg)'; micBtn.textContent='🎤'; };
+  spChatRecognition.onerror = () => { spChatIsRecording = false; micBtn.style.background='var(--bg)'; micBtn.textContent='🎤'; };
+  spChatRecognition.start();
+}
+
+initSpeaking();
 </script>
 
 
