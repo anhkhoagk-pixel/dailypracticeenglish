@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0061)file:///C:/Users/PC/Downloads/English_For_Family_fixed_1.html -->
+<!-- saved from url=(0058)file:///C:/Users/PC/Downloads/English_For_Family_3__5.html -->
 <html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -17,24 +17,29 @@
 <link rel="apple-touch-icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 180 180&#39;&gt;&lt;rect width=&#39;180&#39; height=&#39;180&#39; rx=&#39;40&#39; fill=&#39;%234f46e5&#39;/&gt;&lt;text y=&#39;125&#39; x=&#39;50%&#39; text-anchor=&#39;middle&#39; font-size=&#39;100&#39; font-family=&#39;Arial&#39;&gt;%F0%9F%8C%9F&lt;/text&gt;&lt;/svg&gt;">
 <title>English For Family 🌟</title>
 <link href="file:///C:/Users/PC/Downloads/English%20For%20Family1%20%F0%9F%8C%9F_files/css2" rel="stylesheet">
+<link href="file:///C:/Users/PC/Downloads/English%20For%20Family%203%F0%9F%8C%9F_files/css2" rel="stylesheet">
 <style>
 :root {
-  --primary: #4f46e5;
-  --primary-light: #818cf8;
-  --primary-dark: #3730a3;
-  --secondary: #06b6d4;
+  --primary: #6c3fe0;
+  --primary-light: #a78bfa;
+  --primary-dark: #4c1d95;
+  --secondary: #f472b6;
+  --accent: #06b6d4;
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
-  --bg: #f0f4ff;
-  --card: #ffffff;
-  --text: #1e1b4b;
-  --text-sub: #6b7280;
-  --border: #e5e7eb;
-  --radius: 16px;
-  --radius-lg: 24px;
-  --shadow: 0 4px 24px rgba(79,70,229,0.10);
-  --shadow-lg: 0 8px 40px rgba(79,70,229,0.16);
+  --bg: #0f0a1e;
+  --bg2: #1a1035;
+  --card: #1e1640;
+  --card2: #261e50;
+  --text: #f0eeff;
+  --text-sub: #a89ecb;
+  --border: rgba(255,255,255,0.10);
+  --radius: 18px;
+  --radius-lg: 26px;
+  --shadow: 0 4px 24px rgba(108,63,224,0.18);
+  --shadow-lg: 0 8px 40px rgba(108,63,224,0.28);
+  --glow: 0 0 30px rgba(108,63,224,0.35);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,347 +51,389 @@ body {
   min-height: 100vh;
 }
 
+/* ── ANIMATED BG ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(108,63,224,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 30% at 10% 80%, rgba(244,114,182,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(6,182,212,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 /* ── HEADER ── */
 .header {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--secondary) 100%);
-  padding: 20px 24px 80px;
+  background: linear-gradient(135deg, #2d1b69 0%, #4c1d95 40%, #6c3fe0 80%, #f472b6 100%);
+  padding: 22px 20px 60px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .header::before {
   content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
+  position: absolute; top: -80px; right: -80px;
+  width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
 }
 .header::after {
   content: '';
-  position: absolute;
-  bottom: -40px; left: 30%;
-  width: 300px; height: 120px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
+  position: absolute; bottom: -50px; left: 20%;
+  width: 350px; height: 140px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(244,114,182,0.18) 0%, transparent 70%);
 }
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative; z-index: 1;
+/* Floating orbs */
+.header-orb1 {
+  position: absolute; bottom: 10px; left: -20px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,182,212,0.20) 0%, transparent 70%);
 }
-.logo { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
-.logo span { color: #fde68a; }
+.header-orb2 {
+  position: absolute; top: 20px; right: 80px;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+}
 
-/* API key setup */
-.api-banner {
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.3);
-  border-radius: 12px;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
+.header-top {
+  display: flex; align-items: center; justify-content: space-between;
   position: relative; z-index: 1;
+}
+.logo {
+  font-size: 24px; font-weight: 900; color: #fff;
+  letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px;
+}
+.logo-badge {
+  background: linear-gradient(135deg, #fde68a, #f59e0b);
+  color: #78350f; font-size: 11px; font-weight: 800;
+  padding: 3px 8px; border-radius: 20px; letter-spacing: .05em;
+}
+
+/* API key */
+.api-banner {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 14px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 14px; position: relative; z-index: 1;
+  backdrop-filter: blur(10px);
 }
 .api-banner input {
-  flex: 1;
-  background: rgba(255,255,255,0.15);
-  border: none;
-  outline: none;
-  color: #fff;
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  padding: 6px 10px;
-  border-radius: 8px;
+  flex: 1; background: rgba(255,255,255,0.10);
+  border: none; outline: none; color: #fff;
+  font-family: 'Nunito', sans-serif; font-size: 13px;
+  padding: 6px 10px; border-radius: 8px;
 }
-.api-banner input::placeholder { color: rgba(255,255,255,0.6); }
+.api-banner input::placeholder { color: rgba(255,255,255,0.5); }
 .api-banner button {
-  background: #fde68a;
-  color: var(--primary-dark);
-  border: none;
-  border-radius: 8px;
-  padding: 7px 14px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  color: #78350f; border: none; border-radius: 10px;
+  padding: 7px 16px; font-family: 'Nunito', sans-serif;
+  font-size: 13px; font-weight: 800; cursor: pointer; white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(251,191,36,0.35);
 }
-.api-status { font-size: 12px; color: rgba(255,255,255,0.8); }
-.api-status.ok { color: #86efac; }
+.api-status { font-size: 12px; color: rgba(255,255,255,0.7); white-space: nowrap; }
+.api-status.ok { color: #6ee7b7; }
 
 /* ── NAV TABS ── */
 .nav-wrap {
-  padding: 0 16px;
-  margin-top: -48px;
+  padding: 0 14px; margin-top: -52px;
   position: relative; z-index: 10;
 }
 .nav-tabs {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  padding: 8px;
-  display: flex;
-  gap: 4px;
-  box-shadow: var(--shadow-lg);
-  overflow-x: auto;
-  scrollbar-width: none;
+  background: rgba(30,22,64,0.95);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-lg); padding: 7px;
+  display: flex; gap: 4px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(108,63,224,0.2);
+  overflow-x: auto; scrollbar-width: none;
+  backdrop-filter: blur(20px);
 }
 .nav-tabs::-webkit-scrollbar { display: none; }
 .tab {
-  flex: 1;
-  min-width: 68px;
-  padding: 10px 6px;
-  border-radius: 12px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-sub);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  transition: all .2s;
+  flex: 1; min-width: 64px; padding: 10px 4px;
+  border-radius: 14px; border: none; background: transparent;
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  font-size: 10px; font-weight: 800; color: var(--text-sub);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  transition: all .25s; position: relative;
 }
 .tab .tab-icon { font-size: 20px; }
 .tab.active {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: #fff;
+  box-shadow: 0 4px 16px rgba(108,63,224,0.5);
 }
-.tab:hover:not(.active) { background: var(--bg); }
+.tab:hover:not(.active) { background: rgba(255,255,255,0.07); color: var(--text); }
 
 /* ── MAIN CONTENT ── */
-.content { padding: 20px 16px 40px; }
+.content { padding: 20px 14px 50px; position: relative; z-index: 1; }
 .screen { display: none; }
 .screen.active { display: block; }
 
 /* ── SECTION TITLE ── */
 .sec-title {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
+  font-size: 22px; font-weight: 900; color: var(--text);
+  margin-bottom: 4px; letter-spacing: -.3px;
 }
 .sec-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
 
 /* ── CARD ── */
 .card {
   background: var(--card);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+  box-shadow: var(--shadow); margin-bottom: 16px;
 }
 
-/* ── MODULE 1: FLASHCARD ── */
-.fc-wrap { perspective: 1000px; margin: 0 auto 20px; max-width: 420px; }
+/* ── FLASHCARD ── */
+.fc-wrap { perspective: 1200px; margin: 0 auto 20px; max-width: 440px; }
 .fc-inner {
-  width: 100%; height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform .5s cubic-bezier(.4,0,.2,1);
-  cursor: pointer;
+  width: 100%; height: 340px;
+  position: relative; transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.4,0,.2,1); cursor: pointer;
 }
 .fc-inner.flipped { transform: rotateY(180deg); }
 .fc-front, .fc-back {
   position: absolute; inset: 0;
   border-radius: var(--radius-lg);
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: center; justify-content: flex-end;
   backface-visibility: hidden;
-  padding: 24px;
+  overflow: hidden;
 }
+/* Front — ảnh + overlay */
 .fc-front {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
-.fc-back {
-  background: linear-gradient(135deg, var(--success) 0%, #34d399 100%);
-  color: #fff;
-  transform: rotateY(180deg);
+.fc-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.55; transition: opacity .3s;
 }
-.fc-word { font-size: 32px; font-weight: 900; letter-spacing: -1px; }
-.fc-type { font-size: 12px; opacity: .7; margin-top: 4px; }
-.fc-hint { font-size: 13px; opacity: .75; margin-top: 12px; }
-.fc-phonetic { font-size: 16px; margin-bottom: 6px; opacity: .85; }
-.fc-meaning { font-size: 20px; font-weight: 800; }
-.fc-example { font-size: 12px; opacity: .8; margin-top: 10px; font-style: italic; text-align: center; }
-.fc-controls { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; }
-.fc-controls button { flex: 1; padding: 14px; border-radius: 12px; border: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; cursor: pointer; transition: transform .1s; }
-.fc-controls button:active { transform: scale(.97); }
-.btn-hard { background: #fee2e2; color: var(--danger); }
-.btn-ok { background: #fef3c7; color: #92400e; }
-.btn-easy { background: #d1fae5; color: #065f46; }
-.fc-progress { text-align: center; font-size: 13px; color: var(--text-sub); margin-top: 12px; }
-.fc-progress span { font-weight: 800; color: var(--primary); }
+.fc-front-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(30,22,64,0.95) 0%, rgba(30,22,64,0.3) 55%, transparent 100%);
+}
+.fc-front-content {
+  position: relative; z-index: 2; width: 100%;
+  padding: 20px 22px; text-align: center;
+}
+.fc-word {
+  font-size: 36px; font-weight: 900; color: #fff;
+  letter-spacing: -1px; text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.fc-type-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; font-size: 11px; font-weight: 800;
+  padding: 2px 10px; border-radius: 20px;
+  margin-top: 6px; letter-spacing: .08em; text-transform: uppercase;
+}
 .fc-speak-btn {
-  background: rgba(255,255,255,0.2);
-  border: none; border-radius: 8px;
-  padding: 6px 12px;
-  color: #fff; font-size: 12px;
-  cursor: pointer; margin-top: 8px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 600;
+  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; font-size: 12px; font-weight: 700;
+  padding: 6px 14px; border-radius: 20px;
+  cursor: pointer; margin-top: 10px; font-family: 'Nunito', sans-serif;
+  transition: background .15s;
+}
+.fc-speak-btn:hover { background: rgba(255,255,255,0.30); }
+.fc-hint {
+  font-size: 12px; color: rgba(255,255,255,0.6);
+  margin-top: 8px;
 }
 
-/* ── MODULE 2: LUYỆN NGHE ── */
+/* Back */
+.fc-back {
+  background: linear-gradient(135deg, #0d9488 0%, #10b981 60%, #34d399 100%);
+  color: #fff; transform: rotateY(180deg);
+  justify-content: center; padding: 24px;
+}
+.fc-phonetic { font-size: 18px; margin-bottom: 8px; opacity: .85; letter-spacing: .05em; }
+.fc-meaning { font-size: 26px; font-weight: 900; text-align: center; line-height: 1.3; }
+.fc-example {
+  font-size: 13px; opacity: .85; margin-top: 14px;
+  font-style: italic; text-align: center; line-height: 1.6;
+  background: rgba(255,255,255,0.15); border-radius: 10px;
+  padding: 10px 14px;
+}
+
+/* Controls */
+.fc-controls { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+.fc-controls button {
+  flex: 1; padding: 14px; border-radius: 14px; border: none;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px;
+  cursor: pointer; transition: transform .1s, box-shadow .1s;
+}
+.fc-controls button:active { transform: scale(.96); }
+.btn-hard { background: linear-gradient(135deg,#450a0a,#7f1d1d); color: #fca5a5; box-shadow: 0 4px 14px rgba(239,68,68,0.25); }
+.btn-ok   { background: linear-gradient(135deg,#451a03,#92400e); color: #fcd34d; box-shadow: 0 4px 14px rgba(245,158,11,0.25); }
+.btn-easy { background: linear-gradient(135deg,#052e16,#065f46); color: #6ee7b7; box-shadow: 0 4px 14px rgba(16,185,129,0.25); }
+.fc-progress { text-align: center; font-size: 13px; color: var(--text-sub); margin-top: 12px; }
+.fc-progress span { font-weight: 900; color: var(--primary-light); }
+
+/* Topic selector */
+.topic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 18px; }
+.topic-btn {
+  padding: 12px 6px; border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--card2);
+  font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 800;
+  color: var(--text-sub); cursor: pointer; text-align: center;
+  transition: all .2s;
+}
+.topic-btn:hover { border-color: var(--primary-light); color: var(--primary-light); background: rgba(108,63,224,0.15); }
+.topic-btn.selected {
+  border-color: var(--primary); color: var(--primary-light);
+  background: rgba(108,63,224,0.20);
+  box-shadow: 0 0 0 2px rgba(108,63,224,0.25);
+}
+.topic-icon { font-size: 22px; display: block; margin-bottom: 4px; }
+
+/* ── DAILY TOPIC BANNER ── */
+.daily-topic-banner {
+  background: linear-gradient(135deg, #2d1b69 0%, #4c1d95 40%, #0e7490 100%);
+  border-radius: var(--radius-lg); padding: 18px 20px;
+  margin-bottom: 20px; color: #fff; position: relative; overflow: hidden;
+  box-shadow: var(--glow);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.daily-topic-banner::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,114,182,0.25) 0%, transparent 70%);
+}
+.daily-topic-banner::after {
+  content: ''; position: absolute; bottom: -25px; left: 15%;
+  width: 200px; height: 80px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(6,182,212,0.18) 0%, transparent 70%);
+}
+.dtb-label { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; opacity: .7; margin-bottom: 6px; position: relative; z-index: 1; }
+.dtb-title { font-size: 22px; font-weight: 900; letter-spacing: -.3px; margin-bottom: 4px; position: relative; z-index: 1; }
+.dtb-sub { font-size: 13px; opacity: .8; margin-bottom: 12px; position: relative; z-index: 1; }
+.dtb-modules { display: flex; flex-wrap: wrap; gap: 6px; position: relative; z-index: 1; }
+.dtb-chip {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 700;
+  cursor: pointer; transition: all .15s; backdrop-filter: blur(4px);
+}
+.dtb-chip:hover { background: rgba(255,255,255,0.28); transform: translateY(-1px); }
+
+/* ── LUYỆN NGHE ── */
 .listen-card {
-  background: linear-gradient(135deg, #0f172a, #1e3a5f);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 16px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0c4a6e 100%);
+  border-radius: var(--radius-lg); padding: 28px 24px;
+  color: #fff; text-align: center; margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .listen-sentence {
-  font-size: 18px; font-weight: 800; letter-spacing: .5px;
+  font-size: 18px; font-weight: 800; letter-spacing: .3px;
   min-height: 60px; display: flex; align-items: center; justify-content: center;
-  padding: 16px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 12px;
-  margin: 16px 0;
-  line-height: 1.5;
+  padding: 16px; background: rgba(255,255,255,0.08); border-radius: 14px;
+  margin: 16px 0; line-height: 1.5; border: 1px solid rgba(255,255,255,0.08);
 }
 .listen-sentence.blurred { filter: blur(6px); user-select: none; }
 .play-btn {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--secondary), #0e7490);
+  width: 68px; height: 68px; border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
   border: none; color: #fff; font-size: 28px;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   margin: 0 auto 16px;
-  box-shadow: 0 4px 20px rgba(6,182,212,0.4);
-  transition: transform .15s;
+  box-shadow: 0 4px 24px rgba(6,182,212,0.5), 0 0 0 6px rgba(6,182,212,0.12);
+  transition: transform .15s, box-shadow .15s;
 }
-.play-btn:hover { transform: scale(1.08); }
+.play-btn:hover { transform: scale(1.10); box-shadow: 0 6px 32px rgba(6,182,212,0.65), 0 0 0 10px rgba(6,182,212,0.12); }
 .listen-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .listen-opt {
-  padding: 14px 10px;
-  border-radius: 12px;
-  border: 2px solid var(--border);
-  background: var(--card);
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px; font-weight: 700;
-  color: var(--text);
-  transition: all .15s;
-  text-align: center;
+  padding: 14px 10px; border-radius: 14px;
+  border: 1.5px solid var(--border); background: var(--card2);
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--text);
+  transition: all .15s; text-align: center;
 }
-.listen-opt:hover { border-color: var(--primary); background: #eef2ff; }
-.listen-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
-.listen-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+.listen-opt:hover { border-color: var(--accent); background: rgba(6,182,212,0.12); color: #67e8f9; }
+.listen-opt.correct { border-color: var(--success); background: rgba(16,185,129,0.18); color: #6ee7b7; }
+.listen-opt.wrong   { border-color: var(--danger);  background: rgba(239,68,68,0.15);  color: #fca5a5; }
 
-/* ── MODULE 3: LUYỆN ĐỌC ── */
+/* ── LUYỆN ĐỌC ── */
 .reading-passage {
-  background: #fffbeb;
-  border-left: 4px solid var(--warning);
-  border-radius: 0 12px 12px 0;
-  padding: 16px 18px;
-  font-size: 15px;
-  line-height: 1.8;
-  margin-bottom: 16px;
-  color: var(--text);
+  background: rgba(245,158,11,0.08);
+  border-left: 4px solid var(--warning); border-radius: 0 14px 14px 0;
+  padding: 16px 18px; font-size: 15px; line-height: 1.9;
+  margin-bottom: 16px; color: var(--text);
 }
-.reading-q { font-weight: 800; font-size: 15px; margin-bottom: 10px; }
+.reading-q { font-weight: 800; font-size: 15px; margin-bottom: 10px; color: var(--text); }
 .reading-opts { display: flex; flex-direction: column; gap: 8px; }
 .reading-opt {
-  padding: 13px 16px;
-  border-radius: 10px;
-  border: 2px solid var(--border);
-  background: var(--card);
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px; font-weight: 600;
-  transition: all .15s;
+  padding: 13px 16px; border-radius: 12px;
+  border: 1.5px solid var(--border); background: var(--card2);
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 600; color: var(--text); transition: all .15s;
 }
-.reading-opt:hover { border-color: var(--primary); background: #eef2ff; }
-.reading-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
-.reading-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+.reading-opt:hover { border-color: var(--primary-light); background: rgba(108,63,224,0.15); }
+.reading-opt.correct { border-color: var(--success); background: rgba(16,185,129,0.18); color: #6ee7b7; }
+.reading-opt.wrong   { border-color: var(--danger);  background: rgba(239,68,68,0.15);  color: #fca5a5; }
 .reading-explain {
   margin-top: 12px; padding: 12px 14px;
-  background: #eff6ff; border-radius: 10px;
-  font-size: 13px; line-height: 1.6; color: #1e40af;
-  display: none;
+  background: rgba(6,182,212,0.12); border-radius: 10px;
+  font-size: 13px; line-height: 1.6; color: #67e8f9; display: none;
+  border: 1px solid rgba(6,182,212,0.25);
 }
 
-/* ── MODULE 4: TRẮC NGHIỆM ── */
-.quiz-q-num { font-size: 12px; color: var(--text-sub); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; }
-.quiz-q { font-size: 16px; font-weight: 800; margin-bottom: 16px; line-height: 1.5; }
-.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+/* ── TRẮC NGHIỆM ── */
+.quiz-q-num { font-size: 11px; color: var(--text-sub); font-weight: 800; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .12em; }
+.quiz-q { font-size: 17px; font-weight: 800; margin-bottom: 18px; line-height: 1.55; color: var(--text); }
+.quiz-opts { display: flex; flex-direction: column; gap: 10px; }
 .quiz-opt {
-  padding: 14px 18px;
-  border-radius: 12px;
-  border: 2px solid var(--border);
-  background: var(--card);
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px; font-weight: 700;
-  transition: all .15s;
-  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border-radius: 14px;
+  border: 1.5px solid var(--border); background: var(--card2);
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--text);
+  transition: all .15s; display: flex; align-items: center; gap: 12px;
 }
-.quiz-opt:hover:not(:disabled) { border-color: var(--primary); background: #eef2ff; }
-.quiz-opt.correct { border-color: var(--success); background: #d1fae5; color: #065f46; }
-.quiz-opt.wrong { border-color: var(--danger); background: #fee2e2; color: #991b1b; }
+.quiz-opt:hover:not(:disabled) { border-color: var(--primary-light); background: rgba(108,63,224,0.18); transform: translateX(3px); }
+.quiz-opt.correct { border-color: var(--success); background: rgba(16,185,129,0.18); color: #6ee7b7; }
+.quiz-opt.wrong   { border-color: var(--danger);  background: rgba(239,68,68,0.15);  color: #fca5a5; }
 .quiz-opt:disabled { cursor: default; }
 .opt-letter {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--bg); display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 900; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,0.10); display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; flex-shrink: 0; color: var(--text-sub);
 }
 .quiz-opt.correct .opt-letter { background: var(--success); color: #fff; }
-.quiz-opt.wrong .opt-letter { background: var(--danger); color: #fff; }
+.quiz-opt.wrong   .opt-letter { background: var(--danger);  color: #fff; }
 .quiz-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
 .quiz-score-bar { display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; }
 .score-dot { width: 10px; height: 10px; border-radius: 50%; }
 
-/* ── MODULE 5: LUYỆN VIẾT ── */
+/* ── LUYỆN VIẾT ── */
 .writing-prompt {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  color: #fff;
-  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: var(--radius); padding: 18px 20px; color: #fff; margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.10); box-shadow: var(--glow);
 }
-.writing-prompt .label { font-size: 11px; font-weight: 700; opacity: .75; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
-.writing-prompt .prompt-text { font-size: 16px; font-weight: 800; line-height: 1.5; }
+.writing-prompt .label { font-size: 10px; font-weight: 800; opacity: .7; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 6px; }
+.writing-prompt .prompt-text { font-size: 16px; font-weight: 800; line-height: 1.55; }
 .writing-area {
-  width: 100%; min-height: 100px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 2px solid var(--border);
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px; line-height: 1.7;
-  resize: vertical;
-  outline: none;
-  transition: border-color .2s;
+  width: 100%; min-height: 120px;
+  padding: 14px 16px; border-radius: 14px;
+  border: 1.5px solid var(--border); background: var(--card2);
+  font-family: 'Nunito', sans-serif; font-size: 15px; line-height: 1.7;
+  resize: vertical; outline: none; transition: border-color .2s;
   color: var(--text);
 }
-.writing-area:focus { border-color: var(--primary); }
+.writing-area:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(108,63,224,0.20); }
 .ai-result {
-  background: var(--bg);
-  border-radius: 12px;
-  padding: 16px;
-  margin-top: 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  display: none;
-  white-space: pre-wrap;
-  word-break: break-word;
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px; margin-top: 12px;
+  font-size: 14px; line-height: 1.8; display: none;
+  white-space: pre-wrap; word-break: break-word; color: var(--text);
 }
 .ai-result.show { display: block; }
-.ai-loading {
-  display: flex; align-items: center; gap: 10px;
-  color: var(--primary); font-weight: 700; font-size: 14px;
-}
+.ai-loading { display: flex; align-items: center; gap: 10px; color: var(--primary-light); font-weight: 700; font-size: 14px; }
 .dot-anim span {
-  display: inline-block;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--primary); margin: 0 2px;
-  animation: bounce .9s infinite;
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary-light); margin: 0 2px; animation: bounce .9s infinite;
 }
 .dot-anim span:nth-child(2) { animation-delay: .15s; }
 .dot-anim span:nth-child(3) { animation-delay: .3s; }
@@ -395,282 +442,104 @@ body {
 /* ── BUTTONS ── */
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 12px;
-  transition: transform .1s, box-shadow .1s;
-  box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+  color: #fff; border: none; border-radius: 14px;
+  padding: 14px 24px; font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 15px; cursor: pointer; width: 100%;
+  margin-top: 12px; transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 20px rgba(108,63,224,0.45);
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,0.4); }
-.btn-primary:active { transform: scale(.98); }
-.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(108,63,224,0.55); }
+.btn-primary:active { transform: scale(.97); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; }
 .btn-secondary {
-  background: var(--bg);
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 12px;
-  padding: 11px 20px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all .15s;
+  background: rgba(108,63,224,0.12); color: var(--primary-light);
+  border: 1.5px solid rgba(108,63,224,0.35); border-radius: 14px;
+  padding: 11px 20px; font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 14px; cursor: pointer; transition: all .15s;
 }
-.btn-secondary:hover { background: #eef2ff; }
+.btn-secondary:hover { background: rgba(108,63,224,0.22); border-color: var(--primary-light); }
 
-/* ── PROGRESS HEADER ── */
-.progress-row {
-  display: flex; gap: 12px; margin-bottom: 20px;
-}
+/* ── PROGRESS ── */
+.progress-row { display: flex; gap: 10px; margin-bottom: 20px; }
 .stat-chip {
-  flex: 1; background: var(--card);
-  border-radius: 12px; padding: 12px;
-  text-align: center; box-shadow: var(--shadow);
+  flex: 1; background: var(--card2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: var(--shadow);
 }
-.stat-chip .val { font-size: 22px; font-weight: 900; color: var(--primary); }
-.stat-chip .lbl { font-size: 11px; color: var(--text-sub); font-weight: 600; margin-top: 2px; }
+.stat-chip .val { font-size: 24px; font-weight: 900; color: var(--primary-light); }
+.stat-chip .lbl { font-size: 11px; color: var(--text-sub); font-weight: 700; margin-top: 3px; }
 
 /* ── RESULT POPUP ── */
 .result-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 100;
-  align-items: center; justify-content: center;
-  padding: 20px;
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+  z-index: 100; align-items: center; justify-content: center; padding: 20px;
 }
 .result-overlay.show { display: flex; }
 .result-popup {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
-  max-width: 360px; width: 100%;
-  text-align: center;
-  animation: popIn .3s cubic-bezier(.34,1.56,.64,1);
+  background: var(--card2); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 36px 24px;
+  max-width: 360px; width: 100%; text-align: center;
+  animation: popIn .35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6), var(--glow);
 }
-@keyframes popIn { from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1} }
-.result-emoji { font-size: 56px; margin-bottom: 12px; }
-.result-title { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
-.result-msg { font-size: 14px; color: var(--text-sub); line-height: 1.6; margin-bottom: 20px; }
-.result-score-big { font-size: 48px; font-weight: 900; color: var(--primary); margin: 12px 0; }
-
-/* topic selector */
-.topic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
-.topic-btn {
-  padding: 12px 6px;
-  border-radius: 10px;
-  border: 2px solid var(--border);
-  background: var(--card);
-  font-family: 'Nunito', sans-serif;
-  font-size: 12px; font-weight: 700;
-  cursor: pointer; text-align: center;
-  transition: all .15s;
-}
-.topic-btn:hover, .topic-btn.selected { border-color: var(--primary); background: #eef2ff; color: var(--primary); }
-.topic-icon { font-size: 20px; display: block; margin-bottom: 4px; }
-
-/* ── DAILY TOPIC BANNER ── */
-.daily-topic-banner {
-  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #0891b2 100%);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
-  margin-bottom: 20px;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 6px 30px rgba(79,70,229,0.35);
-}
-.daily-topic-banner::before {
-  content: '';
-  position: absolute;
-  top: -30px; right: -30px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-}
-.daily-topic-banner::after {
-  content: '';
-  position: absolute;
-  bottom: -20px; left: 20%;
-  width: 180px; height: 60px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-}
-.dtb-label {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  opacity: .75;
-  margin-bottom: 6px;
-  position: relative; z-index: 1;
-}
-.dtb-title {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -.3px;
-  margin-bottom: 4px;
-  position: relative; z-index: 1;
-}
-.dtb-sub {
-  font-size: 13px;
-  opacity: .8;
-  margin-bottom: 12px;
-  position: relative; z-index: 1;
-}
-.dtb-modules {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  position: relative; z-index: 1;
-}
-.dtb-chip {
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 20px;
-  padding: 4px 10px;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .15s;
-}
-.dtb-chip:hover { background: rgba(255,255,255,0.3); }
+@keyframes popIn { from{transform:scale(.75);opacity:0} to{transform:scale(1);opacity:1} }
+.result-emoji { font-size: 64px; margin-bottom: 14px; }
+.result-title { font-size: 24px; font-weight: 900; margin-bottom: 8px; color: var(--text); }
+.result-msg { font-size: 14px; color: var(--text-sub); line-height: 1.7; margin-bottom: 20px; }
+.result-score-big { font-size: 56px; font-weight: 900; color: var(--primary-light); margin: 12px 0; text-shadow: 0 0 24px rgba(167,139,250,0.6); }
 
 /* ── SPEAKING ── */
 .speak-mode-btn {
-  padding: 16px 10px;
-  border-radius: var(--radius);
-  border: 2px solid var(--border);
-  background: var(--card);
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  text-align: center;
-  transition: all .15s;
-  box-shadow: var(--shadow);
+  padding: 16px 10px; border-radius: var(--radius);
+  border: 1.5px solid var(--border); background: var(--card2);
+  cursor: pointer; font-family: 'Nunito', sans-serif; text-align: center;
+  transition: all .2s; box-shadow: var(--shadow);
 }
-.speak-mode-btn:hover { border-color: var(--primary); background: #eef2ff; }
-.speak-mode-btn.active { border-color: var(--primary); background: linear-gradient(135deg,#eef2ff,#e0e7ff); }
-
+.speak-mode-btn:hover { border-color: var(--primary-light); background: rgba(108,63,224,0.15); }
+.speak-mode-btn.active {
+  border-color: var(--primary); background: rgba(108,63,224,0.22);
+  box-shadow: 0 0 0 2px rgba(108,63,224,0.35), var(--shadow);
+}
 .sp-record-btn {
-  background: linear-gradient(135deg, var(--danger), #f87171);
-  color: #fff; border: none;
-  border-radius: 40px; padding: 14px 28px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800; font-size: 15px;
-  cursor: pointer; letter-spacing: .5px;
-  box-shadow: 0 4px 16px rgba(239,68,68,0.35);
-  transition: transform .1s, box-shadow .1s;
+  background: linear-gradient(135deg, #be123c, #f43f5e);
+  color: #fff; border: none; border-radius: 40px; padding: 14px 32px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(244,63,94,0.5);
+  transition: transform .15s, box-shadow .15s;
 }
-.sp-record-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(239,68,68,0.45); }
+.sp-record-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,63,94,0.65); }
 .sp-record-btn.recording {
-  background: linear-gradient(135deg, #6b7280, #9ca3af);
-  box-shadow: 0 4px 16px rgba(107,114,128,0.35);
+  background: linear-gradient(135deg, #374151, #6b7280);
+  box-shadow: 0 4px 16px rgba(107,114,128,0.4);
   animation: pulse 1.2s infinite;
 }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
 
-/* Chat bubbles */
-.sp-msg { display: flex; margin-bottom: 2px; }
+/* Chat */
+.sp-msg { display: flex; margin-bottom: 4px; }
 .sp-msg.user { justify-content: flex-end; }
 .sp-msg.ai   { justify-content: flex-start; }
-.sp-bubble {
-  max-width: 82%; padding: 10px 14px;
-  border-radius: 16px; font-size: 14px; line-height: 1.6;
-}
-.ai-bubble  { background: var(--bg); color: var(--text); border-bottom-left-radius: 4px; }
-.user-bubble{ background: linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; border-bottom-right-radius: 4px; }
-.sp-correction { font-size: 12px; color: var(--success); margin-top: 4px; font-style: italic; }
+.sp-bubble { max-width: 82%; padding: 10px 14px; border-radius: 18px; font-size: 14px; line-height: 1.6; }
+.ai-bubble   { background: var(--card2); color: var(--text); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+.user-bubble { background: linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; border-bottom-right-radius: 4px; }
 
-/* ── INTONATION DISPLAY ── */
-.sp-intonation-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px 0;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 6px 8px 10px;
-  line-height: 1;
-}
-.sp-word-unit {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin: 0 2px;
-}
-.sp-word-text {
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--primary);
-  white-space: nowrap;
-}
-.sp-word-arrow {
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 2px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.arrow-up   { color: #ef4444; }   /* lên giọng — đỏ */
-.arrow-down { color: #3b82f6; }   /* xuống giọng — xanh */
-.arrow-flat { color: #10b981; }   /* giữ giọng — xanh lá */
-.sp-pause-mark {
-  display: inline-flex;
-  align-items: flex-end;
-  padding-bottom: 2px;
-  margin: 0 4px;
-}
-.sp-pause-line {
-  width: 2px;
-  background: #f59e0b;
-  border-radius: 2px;
-  margin: 0 1px;
-}
-.sp-pause-label {
-  font-size: 9px;
-  font-weight: 800;
-  color: #f59e0b;
-  letter-spacing: .05em;
-  margin-left: 3px;
-  padding-bottom: 4px;
-}
-.sp-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 10px 12px;
-  background: var(--bg);
-  border-radius: 10px;
-}
-.sp-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-sub);
-}
+/* Intonation */
+.sp-intonation-wrap { display:flex; flex-wrap:wrap; gap:2px 0; justify-content:center; align-items:flex-end; padding:6px 8px 10px; }
+.sp-word-unit { display:inline-flex; flex-direction:column; align-items:center; margin:0 2px; }
+.sp-word-text { font-size:17px; font-weight:800; color:var(--primary-light); white-space:nowrap; }
+.sp-word-arrow { font-size:13px; font-weight:900; line-height:1; margin-bottom:2px; height:16px; display:flex; align-items:center; justify-content:center; }
+.arrow-up   { color:#f87171; }
+.arrow-down { color:#60a5fa; }
+.arrow-flat { color:#34d399; }
+.sp-pause-mark { display:inline-flex; align-items:flex-end; padding-bottom:2px; margin:0 4px; }
+.sp-pause-line { width:2px; background:#fbbf24; border-radius:2px; margin:0 1px; }
+.sp-pause-label { font-size:9px; font-weight:800; color:#fbbf24; letter-spacing:.05em; margin-left:3px; padding-bottom:4px; }
+.sp-legend { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:10px; padding:10px 12px; background:rgba(255,255,255,0.05); border-radius:12px; border:1px solid var(--border); }
+.sp-legend-item { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:700; color:var(--text-sub); }
 .sp-tip-box {
-  background: linear-gradient(135deg,#fef3c7,#fffbeb);
-  border: 1.5px solid #fde68a;
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #92400e;
-  text-align: left;
+  background: rgba(251,191,36,0.10); border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 12px; padding: 10px 14px; margin-top: 10px;
+  font-size: 12px; line-height: 1.6; color: #fcd34d; text-align: left;
 }
 .sp-tip-box strong { font-weight: 800; }
 </style>
@@ -679,32 +548,32 @@ body {
 
 <!-- BANNER CÀI APP -->
 <div id="install-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:999;
-  background:linear-gradient(135deg,#3730a3,#4f46e5); color:#fff; padding:14px 16px;
-  align-items:center; gap:12px; box-shadow:0 -4px 24px rgba(0,0,0,0.2);">
-  <span style="font-size:28px">🌟</span>
+  background:linear-gradient(135deg,#2d1b69,#4c1d95); color:#fff; padding:14px 16px;
+  align-items:center; gap:12px; box-shadow:0 -4px 32px rgba(0,0,0,0.5); border-top:1px solid rgba(255,255,255,0.10);">
+  <span style="font-size:28px">✨</span>
   <div style="flex:1">
     <div style="font-weight:800; font-size:14px">Cài app vào điện thoại!</div>
-    <div style="font-size:12px; opacity:.8">Dùng offline, không cần mở trình duyệt</div>
+    <div style="font-size:12px; opacity:.75">Dùng offline, không cần mở trình duyệt</div>
   </div>
-  <button onclick="installApp()" style="background:#fde68a; color:#3730a3; border:none; border-radius:10px;
-    padding:10px 16px; font-family:&#39;Nunito&#39;,sans-serif; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap;">
+  <button onclick="installApp()" style="background:linear-gradient(135deg,#fde68a,#fbbf24); color:#78350f; border:none; border-radius:12px;
+    padding:10px 18px; font-family:&#39;Nunito&#39;,sans-serif; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap;
+    box-shadow:0 2px 12px rgba(251,191,36,0.4);">
     Cài ngay
   </button>
-  <button onclick="dismissBanner()" style="background:rgba(255,255,255,0.15); color:#fff; border:none;
-    border-radius:8px; padding:10px 12px; cursor:pointer; font-size:16px;">✕</button>
+  <button onclick="dismissBanner()" style="background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.2);
+    border-radius:10px; padding:10px 12px; cursor:pointer; font-size:16px;">✕</button>
 </div>
 
 <!-- HEADER -->
 <div class="header">
+  <div class="header-orb1"></div>
+  <div class="header-orb2"></div>
   <div class="header-top">
-    <div class="logo">English <span>Family</span> 🌟</div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.7)">Học cùng AI</div>
-  </div>
-  <div class="api-banner" style="margin-top:12px">
-    <span style="font-size:18px">🔑</span>
-    <input type="password" id="api-key-input" placeholder="Dán Gemini API key vào đây...">
-    <button onclick="saveKey()">Lưu</button>
-    <span class="api-status ok" id="api-status">✓ Đã kết nối</span>
+    <div class="logo">
+      ✨ English <span style="color:#fde68a">Family</span>
+      <span class="logo-badge">AI</span>
+    </div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.65);font-weight:700;letter-spacing:.05em">Học cùng trí tuệ nhân tạo</div>
   </div>
 </div>
 
@@ -735,11 +604,52 @@ body {
 <!-- CONTENT -->
 <div class="content">
 
+  <!-- ══ GITHUB TOKEN PANEL ══ -->
+  <div style="margin-bottom:16px">
+    <button onclick="toggleKeyPanel()" id="key-toggle-btn" style="width:100%;background:linear-gradient(135deg,rgba(108,63,224,0.25),rgba(244,114,182,0.15));border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:11px 16px;color:#fff;font-family:&#39;Nunito&#39;,sans-serif;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:16px">🔑</span>
+      <span style="flex:1;text-align:left">Quản lý GitHub Token</span>
+      <span id="key-count-badge" style="background:rgba(110,231,183,0.25);color:#6ee7b7;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:800">1 token</span>
+      <span id="key-toggle-arrow">▼</span>
+    </button>
+    <div id="key-panel" style="display: none; margin-top: 8px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 16px;">
+      <div style="font-size:11px;color:#a89ecb;font-weight:700;margin-bottom:12px;letter-spacing:.06em">
+        💡 Nhập tối đa 3 GitHub Token (ghp_...) — tự xoay vòng khi hết quota
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;font-weight:800;color:#a89ecb;width:56px;flex-shrink:0">Token 1</span>
+          <input type="password" id="key-input-0" placeholder="ghp_..." autocomplete="off" style="flex:1;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:9px 12px;color:#fff;font-family:&#39;Nunito&#39;,sans-serif;font-size:13px;outline:none;">
+          <span id="key-status-0" style="font-size:18px;width:24px;text-align:center" title="Token hoạt động tốt">✅</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;font-weight:800;color:#a89ecb;width:56px;flex-shrink:0">Token 2</span>
+          <input type="password" id="key-input-1" placeholder="ghp_... (dự phòng)" autocomplete="off" style="flex:1;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:9px 12px;color:#fff;font-family:&#39;Nunito&#39;,sans-serif;font-size:13px;outline:none;">
+          <span id="key-status-1" style="font-size:18px;width:24px;text-align:center" title="Chưa có token">⬜</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;font-weight:800;color:#a89ecb;width:56px;flex-shrink:0">Token 3</span>
+          <input type="password" id="key-input-2" placeholder="ghp_... (dự phòng)" autocomplete="off" style="flex:1;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:9px 12px;color:#fff;font-family:&#39;Nunito&#39;,sans-serif;font-size:13px;outline:none;">
+          <span id="key-status-2" style="font-size:18px;width:24px;text-align:center" title="Chưa có token">⬜</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:14px">
+        <button onclick="saveAllKeys()" style="flex:1;background:linear-gradient(135deg,#fde68a,#fbbf24);color:#78350f;border:none;border-radius:10px;padding:10px;font-family:&#39;Nunito&#39;,sans-serif;font-weight:800;font-size:13px;cursor:pointer;">
+          💾 Lưu tất cả
+        </button>
+        <button onclick="resetAllKeys()" style="flex:1;background:rgba(239,68,68,0.12);color:#fca5a5;border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:10px;font-family:&#39;Nunito&#39;,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">
+          🗑️ Xoá hết
+        </button>
+      </div>
+      <div id="key-active-status" style="margin-top:10px;font-size:12px;color:#a89ecb;text-align:center">🟢 1 token hoạt động · ⛔ 0 token hết quota · <strong style="color:#fde68a">Đang dùng Token 1</strong></div>
+    </div>
+  </div>
+
   <!-- ══ DAILY TOPIC BANNER ══ -->
   <div class="daily-topic-banner" id="daily-topic-banner">
     <div class="dtb-label">📅 Chủ đề hôm nay</div>
-    <div class="dtb-title" id="dtb-title">🍜 Ẩm thực &amp; Nấu ăn</div>
-    <div class="dtb-sub" id="dtb-sub">Từ vựng về món ăn, nguyên liệu và nấu nướng</div>
+    <div class="dtb-title" id="dtb-title">✈️ Du lịch &amp; Khám phá</div>
+    <div class="dtb-sub" id="dtb-sub">Từ vựng về chuyến đi, địa điểm và phiêu lưu</div>
     <div class="dtb-modules">
       <span class="dtb-chip" onclick="switchTabByName(&#39;flashcard&#39;)">🃏 Flashcard</span>
       <span class="dtb-chip" onclick="switchTabByName(&#39;listening&#39;)">🎧 Nghe</span>
@@ -757,8 +667,8 @@ body {
 
     <div class="topic-grid" id="fc-topics">
       <button class="topic-btn" onclick="loadTopic(&#39;daily&#39;, this)"><span class="topic-icon">🏠</span>Hàng ngày</button>
-      <button class="topic-btn selected" onclick="loadTopic(&#39;food&#39;, this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
-      <button class="topic-btn" onclick="loadTopic(&#39;travel&#39;, this)"><span class="topic-icon">✈️</span>Du lịch</button>
+      <button class="topic-btn" onclick="loadTopic(&#39;food&#39;, this)"><span class="topic-icon">🍜</span>Ẩm thực</button>
+      <button class="topic-btn selected" onclick="loadTopic(&#39;travel&#39;, this)"><span class="topic-icon">✈️</span>Du lịch</button>
       <button class="topic-btn" onclick="loadTopic(&#39;work&#39;, this)"><span class="topic-icon">💼</span>Công việc</button>
       <button class="topic-btn" onclick="loadTopic(&#39;nature&#39;, this)"><span class="topic-icon">🌿</span>Thiên nhiên</button>
       <button class="topic-btn" onclick="loadTopic(&#39;emotion&#39;, this)"><span class="topic-icon">❤️</span>Cảm xúc</button>
@@ -766,16 +676,20 @@ body {
 
     <div class="fc-wrap">
       <div class="fc-inner" id="fc-card" onclick="flipCard()">
-        <div class="fc-front">
-          <div class="fc-word" id="fc-word">Appetite</div>
-          <div class="fc-type" id="fc-type">n</div>
-          <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
-          <div class="fc-hint">👆 Bấm để xem nghĩa</div>
+        <div class="fc-front" style="background: linear-gradient(135deg, rgb(6, 78, 59), rgb(13, 148, 136));">
+          <img class="fc-img" id="fc-img" src="./English For Family 4 🌟_files/English_For_Family_v3_2.html" alt="" onerror="this.style.display=&#39;none&#39;" style="display: none;">
+          <div id="fc-emoji-display" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -65%); font-size: 90px; line-height: 1; z-index: 1; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 4px 16px); transition: 0.3s;">🧭</div><div class="fc-front-overlay"></div>
+          <div class="fc-front-content">
+            <div class="fc-word" id="fc-word">Explore</div>
+            <div class="fc-type-badge" id="fc-type">verb</div>
+            <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
+            <div class="fc-hint">👆 Bấm để xem nghĩa</div>
+          </div>
         </div>
         <div class="fc-back">
-          <div class="fc-phonetic" id="fc-phonetic">/ˈæpɪtaɪt/</div>
-          <div class="fc-meaning" id="fc-meaning">Sự ngon miệng, khẩu vị</div>
-          <div class="fc-example" id="fc-example">I have a great appetite today.</div>
+          <div class="fc-phonetic" id="fc-phonetic">/ɪkˈsplɔːr/</div>
+          <div class="fc-meaning" id="fc-meaning">Khám phá</div>
+          <div class="fc-example" id="fc-example">Let's explore the local culture.</div>
         </div>
       </div>
     </div>
@@ -785,7 +699,7 @@ body {
       <button class="btn-ok" onclick="rateCard(&#39;ok&#39;)">🤔 Tạm ổn</button>
       <button class="btn-easy" onclick="rateCard(&#39;easy&#39;)">😄 Đã nhớ</button>
     </div>
-    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">6</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
+    <div class="fc-progress">Thẻ <span id="fc-cur">2</span> / <span id="fc-total">6</span> &nbsp;·&nbsp; ✅ <span id="fc-known">13</span> đã nhớ</div>
 
     <!-- Nút bắt đầu kiểm tra -->
     <button class="btn-primary" onclick="startVocabTest()" style="margin-top:16px">
@@ -797,58 +711,67 @@ body {
   <div class="screen" id="screen-vocab-test">
     <!-- Header kiểm tra -->
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-      <button onclick="exitVocabTest()" style="background:var(--bg);border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--primary);cursor:pointer;font-family:&#39;Nunito&#39;,sans-serif;">← Quay lại</button>
+      <button onclick="exitVocabTest()" style="background:rgba(108,63,224,0.15);border:1.5px solid rgba(108,63,224,0.3);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--primary-light);cursor:pointer;font-family:&#39;Nunito&#39;,sans-serif;">← Quay lại</button>
       <div class="sec-title" style="margin:0">Kiểm tra từ vựng</div>
     </div>
 
     <!-- Vòng thi + tiến độ -->
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-      <div id="vt-round-badge" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800">Vòng 1 / 2</div>
+      <div id="vt-round-badge" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800">Vòng 2 / 2</div>
       <div style="flex:1;min-width:120px">
         <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text-sub);margin-bottom:4px">
-          <span id="vt-progress-label">Câu 1 / 0</span>
-          <span id="vt-score-label">✅ 0 đúng</span>
+          <span id="vt-progress-label">Câu 12 / 12</span>
+          <span id="vt-score-label">✅ 10 đúng</span>
         </div>
         <div style="background:var(--border);height:5px;border-radius:99px;overflow:hidden">
-          <div id="vt-progress-bar" style="height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));width:0%;transition:width .4s;border-radius:99px"></div>
+          <div id="vt-progress-bar" style="height: 100%; background: linear-gradient(90deg,var(--primary),var(--primary-light)); width: 91.6667%; transition: width 0.4s; border-radius: 99px;"></div>
         </div>
       </div>
     </div>
 
     <!-- Card câu hỏi kiểm tra -->
-    <div class="card" id="vt-card" style="text-align:center">
+    <div class="card" id="vt-card" style="text-align: center; display: none;">
       <!-- Nhãn hướng dẫn -->
-      <div id="vt-direction" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px"></div>
+      <div id="vt-direction" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px">🇻🇳 Tiếng Việt → Gõ tiếng Anh</div>
 
       <!-- Từ cần dịch -->
-      <div id="vt-word-display" style="font-size:28px;font-weight:900;color:var(--primary);margin-bottom:6px"></div>
+      <div id="vt-word-display" style="font-size:28px;font-weight:900;color:var(--primary);margin-bottom:6px">Cuộc phiêu lưu</div>
       <div id="vt-word-sub" style="font-size:13px;color:var(--text-sub);margin-bottom:20px"></div>
 
       <!-- Input gõ đáp án -->
-      <input type="text" id="vt-input" placeholder="Gõ đáp án vào đây..." style="width:100%;padding:14px 16px;border-radius:12px;border:2px solid var(--border);font-size:16px;font-family:&#39;Nunito&#39;,sans-serif;outline:none;text-align:center;transition:border-color .2s" onkeydown="if(event.key===&#39;Enter&#39;) checkVocabAnswer()" oninput="document.getElementById(&#39;vt-input&#39;).style.borderColor=&#39;var(--border)&#39;">
+      <input type="text" id="vt-input" placeholder="Gõ từ tiếng Anh..." style="width: 100%; padding: 14px 16px; border-radius: 12px; border-color: var(--success); border-top-style: ; border-top-width: ; border-right-style: ; border-right-width: ; border-bottom-style: ; border-bottom-width: ; border-left-style: ; border-left-width: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; font-size: 16px; font-family: Nunito, sans-serif; outline: none; text-align: center; transition: border-color 0.2s;" onkeydown="if(event.key===&#39;Enter&#39;) checkVocabAnswer()" oninput="document.getElementById(&#39;vt-input&#39;).style.borderColor=&#39;var(--border)&#39;" disabled="">
 
       <!-- Kết quả sau khi trả lời -->
-      <div id="vt-feedback" style="margin-top:14px;display:none">
-        <div id="vt-feedback-icon" style="font-size:32px;margin-bottom:6px"></div>
-        <div id="vt-feedback-text" style="font-size:14px;font-weight:700"></div>
+      <div id="vt-feedback" style="margin-top: 14px; display: block;">
+        <div id="vt-feedback-icon" style="font-size:32px;margin-bottom:6px">✅</div>
+        <div id="vt-feedback-text" style="font-size: 14px; font-weight: 700; color: var(--success);">Chính xác!</div>
         <div id="vt-correct-ans" style="font-size:13px;color:var(--text-sub);margin-top:4px"></div>
       </div>
 
       <!-- Nút xác nhận / tiếp theo -->
-      <button id="vt-btn" onclick="checkVocabAnswer()" class="btn-primary" style="margin-top:16px">
-        Xác nhận ✓
-      </button>
+      <button id="vt-btn" onclick="checkVocabAnswer()" class="btn-primary" style="margin-top:16px">Xem kết quả 🏆</button>
     </div>
 
     <!-- Kết quả cuối -->
-    <div id="vt-result" style="display:none;text-align:center">
+    <div id="vt-result" style="display: block; text-align: center;">
       <div class="card">
-        <div id="vt-result-emoji" style="font-size:60px;margin-bottom:12px"></div>
-        <div id="vt-result-title" style="font-size:22px;font-weight:900;color:var(--text);margin-bottom:8px"></div>
-        <div id="vt-result-score" style="font-size:40px;font-weight:900;color:var(--primary);margin:10px 0"></div>
-        <div id="vt-result-msg" style="font-size:14px;color:var(--text-sub);line-height:1.6;margin-bottom:20px"></div>
+        <div id="vt-result-emoji" style="font-size:60px;margin-bottom:12px">🏆</div>
+        <div id="vt-result-title" style="font-size:22px;font-weight:900;color:var(--text);margin-bottom:8px">Xuất sắc!</div>
+        <div id="vt-result-score" style="font-size:40px;font-weight:900;color:var(--primary);margin:10px 0">11 / 12</div>
+        <div id="vt-result-msg" style="font-size:14px;color:var(--text-sub);line-height:1.6;margin-bottom:20px">Bạn đã thuộc hết từ vựng chủ đề này rồi! Hãy học chủ đề mới nhé.</div>
         <!-- Bảng kết quả chi tiết -->
-        <div id="vt-result-detail" style="text-align:left;margin-bottom:16px"></div>
+        <div id="vt-result-detail" style="text-align:left;margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--text-sub);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Cần ôn lại (1 từ):</div>
+      
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg);border-radius:8px;margin-bottom:6px;font-size:13px">
+          <div>
+            <span style="font-weight:800;color:var(--primary)">Souvenir</span>
+            <span style="color:var(--text-sub);margin-left:6px">Quà lưu niệm</span>
+          </div>
+          <div style="color:var(--danger);font-size:12px">Bạn: "souvernir"</div>
+        </div>
+      
+    </div>
         <div style="display:flex;gap:10px">
           <button class="btn-primary" onclick="startVocabTest()" style="margin-top:0">🔄 Thi lại</button>
           <button onclick="exitVocabTest()" style="flex:1;padding:14px;border-radius:12px;border:2px solid var(--primary);background:transparent;color:var(--primary);font-family:&#39;Nunito&#39;,sans-serif;font-weight:800;font-size:15px;cursor:pointer;margin-top:0">← Học lại</button>
@@ -864,10 +787,10 @@ body {
     <div class="listen-card">
       <div style="font-size:13px;opacity:.7;margin-bottom:8px">Câu <span id="ls-num">1</span> / <span id="ls-total">∞</span></div>
       <button class="play-btn" id="play-btn" onclick="playListen()">▶</button>
-      <div class="listen-sentence blurred" id="ls-sentence">The early bird catches the worm.</div>
+      <div class="listen-sentence" id="ls-sentence">Traveling helps us learn about different cultures and traditions.</div>
       <div style="font-size:12px;opacity:.6">Bấm ▶ để nghe • Chọn nghĩa đúng bên dưới</div>
     </div>
-    <div class="listen-options" id="ls-options"><button class="listen-opt">Những chú chim hót hay.</button><button class="listen-opt">Chim dậy sớm bắt được sâu.</button><button class="listen-opt">Con giun sợ chim.</button><button class="listen-opt">Buổi sáng rất đẹp.</button></div>
+    <div class="listen-options" id="ls-options"><button class="listen-opt">Du lịch không có lợi cho sức khỏe.</button><button class="listen-opt">Du lịch chỉ làm mất thời gian và tiền bạc.</button><button class="listen-opt">Du lịch giúp chúng ta tìm hiểu về các nền văn hóa và truyền thống khác nhau.</button><button class="listen-opt">Du lịch chỉ dành cho người già.</button></div>
     <button class="btn-primary" id="ls-next-btn" onclick="nextListen()" style="display:none">Câu tiếp theo →</button>
   </div>
 
@@ -875,10 +798,10 @@ body {
   <div class="screen" id="screen-reading">
     <div class="sec-title">Luyện đọc</div>
     <div class="sec-sub">Đọc đoạn văn và trả lời câu hỏi</div>
-    <div class="reading-passage" id="rd-passage">Vietnam is a beautiful country in Southeast Asia. It has a long coastline with many stunning beaches. The country is famous for its delicious food such as pho, banh mi, and spring rolls. Vietnamese people are known for their hospitality and hard work. The capital city is Hanoi, while Ho Chi Minh City is the largest city.</div>
+    <div class="reading-passage" id="rd-passage">Vietnam is a beautiful country with many places to visit. You can explore the famous Ha Long Bay, known for its stunning limestone islands. In the north, you can visit Hanoi, the capital, which has rich history and delicious food. In the south, Ho Chi Minh City is a bustling place with many shops and markets. Travelers can enjoy the warm weather and friendly people throughout the year.</div>
     <div class="card">
-      <div class="reading-q" id="rd-question">1. What is Vietnam famous for?</div>
-      <div class="reading-opts" id="rd-opts"><button class="reading-opt">A. Its mountains and forests</button><button class="reading-opt">B. Its delicious food and hospitality</button><button class="reading-opt">C. Its modern technology</button><button class="reading-opt">D. Its cold weather</button></div>
+      <div class="reading-q" id="rd-question">1. What is Ha Long Bay known for?</div>
+      <div class="reading-opts" id="rd-opts"><button class="reading-opt">A. Its rich history</button><button class="reading-opt">B. Delicious food</button><button class="reading-opt">C. Stunning limestone islands</button><button class="reading-opt">D. Friendly people</button></div>
       <div class="reading-explain" id="rd-explain" style="display: none;"></div>
     </div>
     <button class="btn-primary" id="rd-next-btn" onclick="nextReading()" style="display:none">Bài tiếp theo →</button>
@@ -895,8 +818,8 @@ body {
     </div>
     <div class="card">
       <div class="quiz-q-num" id="qz-num">Câu 1 / 10</div>
-      <div class="quiz-q" id="qz-question">Choose the correct meaning of "Perseverance"</div>
-      <div class="quiz-opts" id="qz-opts"><button class="quiz-opt"><div class="opt-letter">A</div><span>Sự tức giận</span></button><button class="quiz-opt"><div class="opt-letter">B</div><span>Sự kiên trì</span></button><button class="quiz-opt"><div class="opt-letter">C</div><span>Sự vô tâm</span></button><button class="quiz-opt"><div class="opt-letter">D</div><span>Sự hối hận</span></button></div>
+      <div class="quiz-q" id="qz-question">I need to book a _____ to go to Hanoi.</div>
+      <div class="quiz-opts" id="qz-opts"><button class="quiz-opt"><div class="opt-letter">A</div><span>hotel</span></button><button class="quiz-opt"><div class="opt-letter">B</div><span>ticket</span></button><button class="quiz-opt"><div class="opt-letter">C</div><span>car</span></button><button class="quiz-opt"><div class="opt-letter">D</div><span>map</span></button></div>
       <div style="margin-top:12px;font-size:13px;color:var(--text-sub);display:none" id="qz-explain"></div>
     </div>
     <button class="btn-primary" id="qz-next-btn" onclick="nextQuiz()" style="display:none">Câu tiếp →</button>
@@ -910,12 +833,12 @@ body {
     <!-- Prompt đề bài -->
     <div class="writing-prompt">
       <div class="label">✍️ Đề bài hôm nay</div>
-      <div class="prompt-text" id="wr-prompt">Write about your favorite Vietnamese dish. How is it made and why do you love it? (Viết về món ăn Việt Nam yêu thích của bạn)</div>
+      <div class="prompt-text" id="wr-prompt">Write about a place in Vietnam you want to visit or have visited. What makes it special? (Viết về một địa điểm ở Việt Nam bạn muốn đến hoặc đã đến)</div>
     </div>
 
     <!-- Hướng dẫn viết -->
-    <div class="card" style="padding:14px 16px;margin-bottom:12px;background:#f0f9ff;border:1.5px solid #bae6fd">
-      <div style="font-size:13px;color:#0369a1;line-height:1.7">
+    <div class="card" style="padding:14px 16px;margin-bottom:12px;background:rgba(6,182,212,0.10);border:1.5px solid rgba(6,182,212,0.3)">
+      <div style="font-size:13px;color:#67e8f9;line-height:1.7">
         💡 <strong>Mẹo viết hay:</strong> Hãy viết ít nhất 3-5 câu. Dùng từ vựng đã học, viết đơn giản và rõ ràng. AI sẽ chấm điểm &amp; giúp bạn cải thiện!
       </div>
     </div>
@@ -926,7 +849,7 @@ body {
       <textarea class="writing-area" id="wr-input" placeholder="Bắt đầu viết tiếng Anh ở đây... (Try to write at least 3 sentences!)"></textarea>
 
       <!-- Bộ đếm ký tự -->
-      <div style="text-align:right;font-size:12px;color:var(--text-sub);margin-top:6px" id="wr-char-count">0 ký tự</div>
+      <div style="text-align: right; font-size: 12px; color: var(--success); margin-top: 6px;" id="wr-char-count">81 ký tự</div>
 
       <!-- Nút hành động -->
       <div style="display:flex;gap:10px;margin-top:4px">
@@ -940,7 +863,7 @@ body {
     </div>
 
     <!-- Kết quả AI chấm bài -->
-    <div class="ai-result" id="wr-result"></div>
+    <div class="ai-result show" id="wr-result">⭐ ĐIỂM: 7/10<br><br>✅ ĐIỂM TỐT:<br>- Bạn đã chọn một địa điểm thú vị ở Việt Nam là Bà Rịa - Vũng Tàu, nơi có nhiều bãi biển đẹp.<br>- Câu văn của bạn thể hiện rõ mong muốn được trải nghiệm một hoạt động thú vị là bơi lội.<br><br>⚠️ CẦN SỬA:<br>- "under beach" không đúng. Bạn có thể dùng "trên bãi biển" hoặc "trong biển".<br>- Câu nên thêm một số từ để làm rõ ý hơn, ví dụ như "Tôi muốn đi du lịch đến tỉnh Bà Rịa - Vũng Tàu vì tôi muốn bơi lội trên bãi biển".<br><br>💡 GỢI Ý VIẾT LẠI:<br>"Tôi muốn đi du lịch đến tỉnh Bà Rịa - Vũng Tàu vì tôi muốn bơi lội trên bãi biển."<br><br>Rất tốt, hãy tiếp tục viết thêm về những điều bạn thích ở Bà Rịa - Vũng Tàu nhé!</div>
 
     <!-- Gợi ý câu mẫu -->
     <div class="card" style="margin-top:4px">
@@ -993,13 +916,13 @@ body {
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:10px">Câu mẫu — Bấm 🔊 để nghe</div>
 
         <!-- Intonation display (render bằng JS) -->
-        <div id="sp-intonation-display" style="min-height:60px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:0;margin-bottom:8px;padding:4px 4px 8px"><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">This</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">dish</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">smells</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">absolutely</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-down">↘</div><div class="sp-word-text">delicious,</div></div><div class="sp-pause-mark"><div class="sp-pause-line" style="height:26px"></div><div class="sp-pause-line" style="height:26px"></div><span class="sp-pause-label">nghỉ</span></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">just</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">like</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">my</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">grandmother</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">used</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">to</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-down">↘</div><div class="sp-word-text">make.</div></div></div>
+        <div id="sp-intonation-display" style="min-height:60px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:0;margin-bottom:8px;padding:4px 4px 8px"><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">Every</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">adventure</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">we</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">take</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">as</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">a</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">family</div></div><div class="sp-pause-mark"><div class="sp-pause-line" style="height:18px"></div><span class="sp-pause-label">ngắt</span></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">teaches</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">us</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">something</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-down">↘</div><div class="sp-word-text">new</div></div><div class="sp-pause-mark"><div class="sp-pause-line" style="height:18px"></div><span class="sp-pause-label">ngắt</span></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">and</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-up">↗</div><div class="sp-word-text">brings</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-flat">→</div><div class="sp-word-text">us</div></div><div class="sp-word-unit"><div class="sp-word-arrow arrow-down">↘</div><div class="sp-word-text">closer.</div></div></div>
 
         <!-- Bản dịch tiếng Việt -->
-        <div id="sp-sentence-vi" style="font-size:13px;color:var(--text-sub);margin-bottom:6px">Món này có mùi thơm tuyệt vời, y như bà ngoại tôi nấu ngày xưa.</div>
+        <div id="sp-sentence-vi" style="font-size:13px;color:var(--text-sub);margin-bottom:6px">Mỗi chuyến phiêu lưu gia đình đều dạy chúng ta điều mới và kéo chúng ta lại gần hơn.</div>
 
         <!-- Hidden plain text for speech synthesis & scoring -->
-        <div id="sp-sentence" style="display:none">This dish smells absolutely delicious, just like my grandmother used to make.</div>
+        <div id="sp-sentence" style="display:none">Every adventure we take as a family teaches us something new and brings us closer.</div>
 
         <!-- Legend ký hiệu -->
         <div class="sp-legend">
@@ -1011,7 +934,7 @@ body {
         </div>
 
         <!-- Tip phát âm -->
-        <div class="sp-tip-box" id="sp-tip-box" style="display: block;">💡 Nghỉ rõ ở dấu phẩy. Phần sau đọc chậm và hoài niệm.</div>
+        <div class="sp-tip-box" id="sp-tip-box" style="display: block;">💡 Nhấn "FAMily" và "CLOser". Giọng ấm áp, hạnh phúc.</div>
 
         <!-- Nút phát âm mẫu -->
         <button onclick="playSampleSentence()" style="background:linear-gradient(135deg,var(--secondary),#0e7490);color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:24px;cursor:pointer;margin:14px auto 14px;display:block;box-shadow:0 4px 16px rgba(6,182,212,0.35)">🔊</button>
@@ -1053,7 +976,7 @@ body {
       <div class="card" style="text-align:center;padding:24px 20px">
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px">🇻🇳 Đọc câu này — rồi nói lại bằng tiếng Anh</div>
 
-        <div id="tr-vi-sentence" style="font-size:22px;font-weight:900;color:var(--text);line-height:1.5;background:linear-gradient(135deg,#fef3c7,#fffbeb);border-radius:14px;padding:18px 16px;margin-bottom:16px;border:2px solid #fde68a">Con tôi đang học tiếng Anh tại trường.</div>
+        <div id="tr-vi-sentence" style="font-size:22px;font-weight:900;color:var(--text);line-height:1.5;background:rgba(251,191,36,0.12);border-radius:14px;padding:18px 16px;margin-bottom:16px;border:2px solid rgba(251,191,36,0.4)">Con tôi đang học tiếng Anh tại trường.</div>
 
         <!-- Gợi ý từ khoá -->
         <div id="tr-hint-wrap" style="margin-bottom:16px">
@@ -1063,7 +986,7 @@ body {
 
         <!-- Nút ghi âm -->
         <button id="tr-record-btn" onclick="toggleTranslateRecording()" class="sp-record-btn">🎤 Bấm để nói tiếng Anh</button>
-        <div id="tr-recording-indicator" style="display:none;color:var(--danger);font-weight:700;font-size:13px;margin-top:8px;animation:pulse 1s infinite">
+        <div id="tr-recording-indicator" style="display: none; color: var(--danger); font-weight: 700; font-size: 13px; margin-top: 8px; animation: 1s ease 0s infinite normal none running pulse;">
           ● Đang ghi âm... (bấm lại để dừng)
         </div>
 
@@ -1090,9 +1013,9 @@ body {
           </div>
         </div>
         <!-- Đáp án mẫu -->
-        <div style="background:#f0fdf4;border-radius:10px;padding:12px 14px;margin-bottom:10px">
-          <div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ Câu mẫu chuẩn:</div>
-          <div id="tr-model-answer" style="font-size:14px;font-weight:800;color:#14532d"></div>
+        <div style="background:rgba(16,185,129,0.12);border-radius:10px;padding:12px 14px;margin-bottom:10px">
+          <div style="font-size:11px;font-weight:700;color:#6ee7b7;margin-bottom:4px">✅ Câu mẫu chuẩn:</div>
+          <div id="tr-model-answer" style="font-size:14px;font-weight:800;color:#a7f3d0"></div>
         </div>
         <!-- Phản hồi chi tiết -->
         <div id="tr-feedback-detail" style="font-size:13px;line-height:1.8;color:var(--text);white-space:pre-wrap"></div>
@@ -1106,12 +1029,12 @@ body {
     </div>
 
     <!-- ── CHẾ ĐỘ 3: HỘI THOẠI AI ── -->
-    <div id="speak-chat-section" style="display:none">
+    <div id="speak-chat-section" style="display: none;">
       <div class="card" style="padding:0;overflow:hidden">
         <!-- Chat messages -->
         <div id="sp-chat-messages" style="height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px">
           <div class="sp-msg ai">
-            <div class="sp-bubble ai-bubble" id="chat-init-msg">Hi! I'm your English conversation partner 😊 Today's topic is "Food &amp; Cooking" — từ vựng về món ăn, nguyên liệu và nấu nướng. Let's practice together! You can type or use the microphone.</div>
+            <div class="sp-bubble ai-bubble" id="chat-init-msg">Hi! I'm your English conversation partner 😊 Today's topic is "Travel &amp; Exploration" — từ vựng về chuyến đi, địa điểm và phiêu lưu. Let's practice together! You can type or use the microphone.</div>
           </div>
         </div>
         <!-- Input area -->
@@ -1141,44 +1064,181 @@ body {
 // ══════════════════════════════════════════
 // CONFIG & STATE
 // ══════════════════════════════════════════
-let GEMINI_KEY = localStorage.getItem('gemini_key') || '';
-if (GEMINI_KEY) {
-  document.getElementById('api-key-input').value = '••••••••••••••••';
-  document.getElementById('api-status').textContent = '✓ Đã kết nối';
-  document.getElementById('api-status').className = 'api-status ok';
+// ══════════════════════════════════════════
+// HỆ THỐNG 3 GITHUB TOKEN XOAY VÒNG
+// ══════════════════════════════════════════
+let GEMINI_KEYS = [
+  localStorage.getItem('gemini_key_0') || '',
+  localStorage.getItem('gemini_key_1') || '',
+  localStorage.getItem('gemini_key_2') || '',
+];
+// Trạng thái từng key: 'ok' | 'quota' | 'error' | ''
+let KEY_STATUS = ['', '', ''];
+let activeKeyIdx = 0; // key đang dùng hiện tại
+
+function initKeyUI() {
+  let count = 0;
+  GEMINI_KEYS.forEach((k, i) => {
+    const inp = document.getElementById('key-input-' + i);
+    if (inp) inp.value = k ? '••••••••••••••••' : '';
+    if (k) { KEY_STATUS[i] = 'ok'; count++; }
+    updateKeyStatusIcon(i);
+  });
+  document.getElementById('key-count-badge').textContent = count + ' token';
+  updateActiveStatus();
 }
 
-function saveKey() {
-  const val = document.getElementById('api-key-input').value.trim();
-  if (!val || val.includes('•')) return;
-  GEMINI_KEY = val;
-  localStorage.setItem('gemini_key', val);
-  document.getElementById('api-key-input').value = '••••••••••••••••';
-  document.getElementById('api-status').textContent = '✓ Đã kết nối';
-  document.getElementById('api-status').className = 'api-status ok';
-  alert('✅ API key đã lưu! Giờ bạn có thể dùng tất cả tính năng AI.');
+function updateKeyStatusIcon(i) {
+  const el = document.getElementById('key-status-' + i);
+  if (!el) return;
+  const s = KEY_STATUS[i];
+  if (s === 'ok')    { el.textContent = '✅'; el.title = 'Token hoạt động tốt'; }
+  else if (s === 'quota') { el.textContent = '⛔'; el.title = 'Hết quota — đang bỏ qua'; }
+  else if (s === 'error') { el.textContent = '❌'; el.title = 'Token lỗi hoặc không hợp lệ'; }
+  else               { el.textContent = '⬜'; el.title = 'Chưa có token'; }
+}
+
+function updateActiveStatus() {
+  const el = document.getElementById('key-active-status');
+  if (!el) return;
+  const active = GEMINI_KEYS.filter(k => k).length;
+  if (active === 0) { el.textContent = '⚠️ Chưa có token nào. Hãy nhập ít nhất 1 GitHub Token (ghp_...).'; return; }
+  const okKeys = KEY_STATUS.filter(s => s === 'ok').length;
+  const quotaKeys = KEY_STATUS.filter(s => s === 'quota').length;
+  el.innerHTML = `🟢 ${okKeys} token hoạt động · ⛔ ${quotaKeys} token hết quota · <strong style="color:#fde68a">Đang dùng Token ${activeKeyIdx + 1}</strong>`;
+}
+
+function toggleKeyPanel() {
+  const panel = document.getElementById('key-panel');
+  const arrow = document.getElementById('key-toggle-arrow');
+  const isOpen = panel.style.display !== 'none';
+  panel.style.display = isOpen ? 'none' : 'block';
+  arrow.textContent = isOpen ? '▼' : '▲';
+}
+
+function saveAllKeys() {
+  let count = 0;
+  for (let i = 0; i < 3; i++) {
+    const inp = document.getElementById('key-input-' + i);
+    const val = inp.value.trim();
+    if (val && !val.includes('•')) {
+      GEMINI_KEYS[i] = val;
+      localStorage.setItem('gemini_key_' + i, val);
+      KEY_STATUS[i] = 'ok';
+      inp.value = '••••••••••••••••';
+      count++;
+    } else if (!val) {
+      GEMINI_KEYS[i] = '';
+      localStorage.removeItem('gemini_key_' + i);
+      KEY_STATUS[i] = '';
+    }
+    updateKeyStatusIcon(i);
+  }
+  // Tìm key đầu tiên còn ok
+  activeKeyIdx = GEMINI_KEYS.findIndex((k, i) => k && KEY_STATUS[i] === 'ok');
+  if (activeKeyIdx < 0) activeKeyIdx = 0;
+  document.getElementById('key-count-badge').textContent = GEMINI_KEYS.filter(k=>k).length + ' token';
+  updateActiveStatus();
+  alert(count > 0 ? `✅ Đã lưu ${count} token! Hệ thống sẽ tự xoay vòng khi hết quota.` : '⚠️ Không có token mới nào được lưu.');
+}
+
+function resetAllKeys() {
+  if (!confirm('Xoá hết tất cả GitHub Token?')) return;
+  for (let i = 0; i < 3; i++) {
+    GEMINI_KEYS[i] = ''; KEY_STATUS[i] = '';
+    localStorage.removeItem('gemini_key_' + i);
+    const inp = document.getElementById('key-input-' + i);
+    if (inp) inp.value = '';
+    updateKeyStatusIcon(i);
+  }
+  document.getElementById('key-count-badge').textContent = '0 token';
+  updateActiveStatus();
+}
+
+// Chọn key tiếp theo khi key hiện tại hết quota
+function rotateToNextKey() {
+  for (let n = 1; n <= 3; n++) {
+    const next = (activeKeyIdx + n) % 3;
+    if (GEMINI_KEYS[next] && KEY_STATUS[next] === 'ok') {
+      activeKeyIdx = next;
+      updateActiveStatus();
+      return true;
+    }
+  }
+  return false; // Hết tất cả key
 }
 
 async function callGemini(prompt) {
-  if (!GEMINI_KEY) {
-    return '⚠️ Bạn chưa nhập Gemini API key. Hãy dán key vào ô phía trên và nhấn Lưu.';
+  // Tìm key đang ok
+  const availableKeys = GEMINI_KEYS.map((k, i) => ({k, i, s: KEY_STATUS[i]}))
+    .filter(x => x.k && x.s !== 'quota' && x.s !== 'error');
+
+  if (availableKeys.length === 0) {
+    const hasAny = GEMINI_KEYS.some(k => k);
+    if (!hasAny) return '⚠️ Chưa nhập API key. Bấm 🔑 "Quản lý API Keys" để thêm key.';
+    // Reset quota keys sau khi đã qua đủ thời gian
+    KEY_STATUS = KEY_STATUS.map(s => s === 'quota' ? 'ok' : s);
+    GEMINI_KEYS.forEach((_, i) => updateKeyStatusIcon(i));
+    return '⛔ Tất cả token đang hết quota. Vui lòng chờ vài phút rồi thử lại.';
   }
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+
+  // Thử từng key theo thứ tự, bắt đầu từ activeKeyIdx
+  const sorted = [...availableKeys].sort((a, b) => {
+    const ai = (a.i - activeKeyIdx + 3) % 3;
+    const bi = (b.i - activeKeyIdx + 3) % 3;
+    return ai - bi;
+  });
+
+  for (const {k, i} of sorted) {
+    try {
+      const res = await fetch(
+        'https://models.inference.ai.azure.com/chat/completions',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${k}`
+          },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [{ role: 'user', content: prompt }],
+            max_tokens: 1000,
+            temperature: 0.7
+          })
+        }
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        const msg = data.error?.message || '';
+        if (res.status === 429 || msg.includes('quota') || msg.includes('rate limit')) {
+          KEY_STATUS[i] = 'quota';
+          updateKeyStatusIcon(i);
+          setTimeout(() => { KEY_STATUS[i] = 'ok'; updateKeyStatusIcon(i); updateActiveStatus(); }, 65000);
+          continue;
+        }
+        if (res.status === 401 || res.status === 403) {
+          KEY_STATUS[i] = 'error'; updateKeyStatusIcon(i); continue;
+        }
+        return '❌ Lỗi API: ' + msg;
       }
-    );
-    const data = await res.json();
-    if (data.error) return '❌ Lỗi API: ' + data.error.message;
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || '❌ Không nhận được phản hồi.';
-  } catch (e) {
-    return '❌ Lỗi kết nối: ' + e.message;
+
+      // Thành công
+      activeKeyIdx = i;
+      KEY_STATUS[i] = 'ok';
+      updateKeyStatusIcon(i);
+      updateActiveStatus();
+      return data.choices?.[0]?.message?.content || '❌ Không nhận được phản hồi.';
+
+    } catch (e) {
+      continue;
+    }
   }
+  return '⛔ Tất cả token đang hết quota. Chờ 1 phút rồi thử lại nhé!';
 }
+
+// Khởi tạo UI key khi trang load
+initKeyUI();
 
 // ══════════════════════════════════════════
 // TAB NAVIGATION
@@ -1412,17 +1472,88 @@ function loadTopic(topic, btn) {
   renderCard();
 }
 
+// Emoji + gradient màu cho từng từ
+const WORD_VISUALS = {
+  // daily
+  'Routine':    {emoji:'🌅', grad:'135deg,#1e3a5f,#0f172a'},
+  'Sunrise':    {emoji:'🌄', grad:'135deg,#7c2d12,#ea580c'},
+  'Grateful':   {emoji:'🙏', grad:'135deg,#4c1d95,#7c3aed'},
+  'Harmony':    {emoji:'☯️',  grad:'135deg,#064e3b,#059669'},
+  'Cherish':    {emoji:'💝', grad:'135deg,#831843,#db2777'},
+  'Accomplish': {emoji:'🏆', grad:'135deg,#78350f,#d97706'},
+  'Genuine':    {emoji:'💎', grad:'135deg,#1e3a5f,#0ea5e9'},
+  'Patience':   {emoji:'🧘', grad:'135deg,#1e1b4b,#6d28d9'},
+  'Embrace':    {emoji:'🤗', grad:'135deg,#831843,#f43f5e'},
+  'Perseverance':{emoji:'⛰️', grad:'135deg,#1c1917,#57534e'},
+  // food
+  'Delicious':  {emoji:'🍜', grad:'135deg,#7c2d12,#c2410c'},
+  'Appetite':   {emoji:'🍽️', grad:'135deg,#064e3b,#10b981'},
+  'Savor':      {emoji:'😋', grad:'135deg,#78350f,#f59e0b'},
+  'Cuisine':    {emoji:'👨‍🍳', grad:'135deg,#1e3a5f,#0284c7'},
+  'Sizzle':     {emoji:'🔥', grad:'135deg,#7f1d1d,#ef4444'},
+  'Nourish':    {emoji:'🥗', grad:'135deg,#052e16,#16a34a'},
+  // travel
+  'Adventure':  {emoji:'🗺️', grad:'135deg,#1e3a5f,#0369a1'},
+  'Wander':     {emoji:'🚶', grad:'135deg,#2d1b69,#7c3aed'},
+  'Itinerary':  {emoji:'📋', grad:'135deg,#1c1917,#78716c'},
+  'Explore':    {emoji:'🧭', grad:'135deg,#064e3b,#0d9488'},
+  'Breathtaking':{emoji:'🏔️', grad:'135deg,#0c4a6e,#0ea5e9'},
+  'Souvenir':   {emoji:'🎁', grad:'135deg,#831843,#e11d48'},
+  // work
+  'Efficient':  {emoji:'⚡', grad:'135deg,#78350f,#eab308'},
+  'Collaborate':{emoji:'🤝', grad:'135deg,#1e3a5f,#3b82f6'},
+  'Deadline':   {emoji:'⏰', grad:'135deg,#7f1d1d,#dc2626'},
+  'Innovative': {emoji:'💡', grad:'135deg,#713f12,#ca8a04'},
+  'Resilient':  {emoji:'💪', grad:'135deg,#1e1b4b,#4f46e5'},
+  // nature
+  'Serene':     {emoji:'🌿', grad:'135deg,#052e16,#15803d'},
+  'Flourish':   {emoji:'🌸', grad:'135deg,#831843,#f472b6'},
+  'Tranquil':   {emoji:'🏞️', grad:'135deg,#0c4a6e,#0284c7'},
+  'Wilderness': {emoji:'🌲', grad:'135deg,#052e16,#166534'},
+  'Radiant':    {emoji:'☀️', grad:'135deg,#78350f,#f59e0b'},
+  // emotion
+  'Joyful':     {emoji:'😄', grad:'135deg,#78350f,#f97316'},
+  'Melancholy': {emoji:'🌧️', grad:'135deg,#1e3a5f,#475569'},
+  'Euphoric':   {emoji:'🎉', grad:'135deg,#4c1d95,#a855f7'},
+  'Compassion': {emoji:'❤️', grad:'135deg,#7f1d1d,#ef4444'},
+  'Nostalgic':  {emoji:'📷', grad:'135deg,#1c1917,#a16207'},
+  'Contentment':{emoji:'😌', grad:'135deg,#064e3b,#059669'},
+};
+const DEFAULT_GRAD = '135deg,#2d1b69,#4c1d95';
+
+const TYPE_FULL = {n:'noun',v:'verb',adj:'adjective',adv:'adverb',prep:'preposition'};
+
 function renderCard() {
   if (!fcCards.length) return;
   const c = fcCards[fcIndex];
   document.getElementById('fc-word').textContent = c.w;
-  document.getElementById('fc-type').textContent = c.type;
+  document.getElementById('fc-type').textContent = TYPE_FULL[c.type] || c.type;
   document.getElementById('fc-phonetic').textContent = c.p;
   document.getElementById('fc-meaning').textContent = c.vi;
   document.getElementById('fc-example').textContent = c.ex;
   document.getElementById('fc-cur').textContent = fcIndex + 1;
   document.getElementById('fc-total').textContent = fcCards.length;
   document.getElementById('fc-known').textContent = fcKnown;
+
+  // Visual: emoji + gradient — hoạt động offline, không cần internet
+  const vis = WORD_VISUALS[c.w] || {emoji:'📚', grad: DEFAULT_GRAD};
+  const imgEl = document.getElementById('fc-img');
+  imgEl.style.display = 'none'; // ẩn img tag
+
+  // Đặt gradient + emoji cho mặt trước
+  const front = document.querySelector('.fc-front');
+  front.style.background = `linear-gradient(${vis.grad})`;
+
+  // Hiển thị emoji to trong fc-front-overlay
+  let emojiEl = document.getElementById('fc-emoji-display');
+  if (!emojiEl) {
+    emojiEl = document.createElement('div');
+    emojiEl.id = 'fc-emoji-display';
+    emojiEl.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:90px;line-height:1;z-index:1;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.4));transition:all .3s;';
+    front.insertBefore(emojiEl, front.querySelector('.fc-front-overlay'));
+  }
+  emojiEl.textContent = vis.emoji;
+
   const inner = document.getElementById('fc-card');
   inner.classList.remove('flipped');
   fcFlipped = false;
@@ -1644,7 +1775,7 @@ async function loadNextListenQuestion() {
   document.getElementById('ls-next-btn').style.display = 'none';
   document.getElementById('play-btn').disabled = true;
 
-  if (!GEMINI_KEY) {
+  if (!GEMINI_KEYS.some(k => k)) {
     // Dùng backup nếu chưa có key
     const d = LISTEN_BACKUP[lsIndex % LISTEN_BACKUP.length];
     lsCurrentData = d;
@@ -1771,7 +1902,7 @@ async function loadNextReading() {
   document.getElementById('rd-explain').style.display = 'none';
   document.getElementById('rd-next-btn').style.display = 'none';
 
-  if (!GEMINI_KEY) {
+  if (!GEMINI_KEYS.some(k => k)) {
     const d = READING_BACKUP[rdIndex % READING_BACKUP.length];
     renderReading(d);
     return;
@@ -1905,7 +2036,7 @@ async function loadNextQuiz() {
   document.getElementById('qz-next-btn').style.display = 'none';
   document.getElementById('qz-explain').style.display = 'none';
 
-  if (!GEMINI_KEY) {
+  if (!GEMINI_KEYS.some(k => k)) {
     const d = QUIZ_BACKUP[qzIndex % QUIZ_BACKUP.length];
     qzCurrentQ = d;
     renderQuizCard(d);
