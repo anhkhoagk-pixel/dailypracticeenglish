@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0058)file:///C:/Users/PC/Downloads/English_For_Family_3__5.html -->
+<!-- saved from url=(0058)file:///C:/Users/PC/Downloads/English_For_Family_3__6.html -->
 <html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -610,9 +610,9 @@ body::before {
       <span style="font-size:16px">🔑</span>
       <span style="flex:1;text-align:left">Quản lý GitHub Token</span>
       <span id="key-count-badge" style="background:rgba(110,231,183,0.25);color:#6ee7b7;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:800">1 token</span>
-      <span id="key-toggle-arrow">▼</span>
+      <span id="key-toggle-arrow">▲</span>
     </button>
-    <div id="key-panel" style="display: none; margin-top: 8px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 16px;">
+    <div id="key-panel" style="display: block; margin-top: 8px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 16px;">
       <div style="font-size:11px;color:#a89ecb;font-weight:700;margin-bottom:12px;letter-spacing:.06em">
         💡 Nhập tối đa 3 GitHub Token (ghp_...) — tự xoay vòng khi hết quota
       </div>
@@ -676,20 +676,20 @@ body::before {
 
     <div class="fc-wrap">
       <div class="fc-inner" id="fc-card" onclick="flipCard()">
-        <div class="fc-front" style="background: linear-gradient(135deg, rgb(6, 78, 59), rgb(13, 148, 136));">
-          <img class="fc-img" id="fc-img" src="./English For Family 4 🌟_files/English_For_Family_v3_2.html" alt="" onerror="this.style.display=&#39;none&#39;" style="display: none;">
-          <div id="fc-emoji-display" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -65%); font-size: 90px; line-height: 1; z-index: 1; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 4px 16px); transition: 0.3s;">🧭</div><div class="fc-front-overlay"></div>
+        <div class="fc-front" style="background: linear-gradient(135deg, rgb(30, 58, 95), rgb(3, 105, 161));">
+          <img class="fc-img" id="fc-img" src="./English For Family 5🌟_files/English_For_Family_v3_2.html" alt="" onerror="this.style.display=&#39;none&#39;" style="display: none;">
+          <div id="fc-emoji-display" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -65%); font-size: 90px; line-height: 1; z-index: 1; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 4px 16px); transition: 0.3s;">🗺️</div><div class="fc-front-overlay"></div>
           <div class="fc-front-content">
-            <div class="fc-word" id="fc-word">Explore</div>
-            <div class="fc-type-badge" id="fc-type">verb</div>
+            <div class="fc-word" id="fc-word">Adventure</div>
+            <div class="fc-type-badge" id="fc-type">noun</div>
             <button class="fc-speak-btn" onclick="event.stopPropagation();speakWord()">🔊 Nghe phát âm</button>
             <div class="fc-hint">👆 Bấm để xem nghĩa</div>
           </div>
         </div>
         <div class="fc-back">
-          <div class="fc-phonetic" id="fc-phonetic">/ɪkˈsplɔːr/</div>
-          <div class="fc-meaning" id="fc-meaning">Khám phá</div>
-          <div class="fc-example" id="fc-example">Let's explore the local culture.</div>
+          <div class="fc-phonetic" id="fc-phonetic">/ədˈventʃər/</div>
+          <div class="fc-meaning" id="fc-meaning">Cuộc phiêu lưu</div>
+          <div class="fc-example" id="fc-example">Travel is the greatest adventure.</div>
         </div>
       </div>
     </div>
@@ -699,7 +699,7 @@ body::before {
       <button class="btn-ok" onclick="rateCard(&#39;ok&#39;)">🤔 Tạm ổn</button>
       <button class="btn-easy" onclick="rateCard(&#39;easy&#39;)">😄 Đã nhớ</button>
     </div>
-    <div class="fc-progress">Thẻ <span id="fc-cur">2</span> / <span id="fc-total">6</span> &nbsp;·&nbsp; ✅ <span id="fc-known">13</span> đã nhớ</div>
+    <div class="fc-progress">Thẻ <span id="fc-cur">1</span> / <span id="fc-total">6</span> &nbsp;·&nbsp; ✅ <span id="fc-known">0</span> đã nhớ</div>
 
     <!-- Nút bắt đầu kiểm tra -->
     <button class="btn-primary" onclick="startVocabTest()" style="margin-top:16px">
@@ -717,61 +717,52 @@ body::before {
 
     <!-- Vòng thi + tiến độ -->
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-      <div id="vt-round-badge" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800">Vòng 2 / 2</div>
+      <div id="vt-round-badge" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800">Vòng 1 / 2</div>
       <div style="flex:1;min-width:120px">
         <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text-sub);margin-bottom:4px">
-          <span id="vt-progress-label">Câu 12 / 12</span>
-          <span id="vt-score-label">✅ 10 đúng</span>
+          <span id="vt-progress-label">Câu 1 / 0</span>
+          <span id="vt-score-label">✅ 0 đúng</span>
         </div>
         <div style="background:var(--border);height:5px;border-radius:99px;overflow:hidden">
-          <div id="vt-progress-bar" style="height: 100%; background: linear-gradient(90deg,var(--primary),var(--primary-light)); width: 91.6667%; transition: width 0.4s; border-radius: 99px;"></div>
+          <div id="vt-progress-bar" style="height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));width:0%;transition:width .4s;border-radius:99px"></div>
         </div>
       </div>
     </div>
 
     <!-- Card câu hỏi kiểm tra -->
-    <div class="card" id="vt-card" style="text-align: center; display: none;">
+    <div class="card" id="vt-card" style="text-align:center">
       <!-- Nhãn hướng dẫn -->
-      <div id="vt-direction" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px">🇻🇳 Tiếng Việt → Gõ tiếng Anh</div>
+      <div id="vt-direction" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px"></div>
 
       <!-- Từ cần dịch -->
-      <div id="vt-word-display" style="font-size:28px;font-weight:900;color:var(--primary);margin-bottom:6px">Cuộc phiêu lưu</div>
+      <div id="vt-word-display" style="font-size:28px;font-weight:900;color:var(--primary);margin-bottom:6px"></div>
       <div id="vt-word-sub" style="font-size:13px;color:var(--text-sub);margin-bottom:20px"></div>
 
       <!-- Input gõ đáp án -->
-      <input type="text" id="vt-input" placeholder="Gõ từ tiếng Anh..." style="width: 100%; padding: 14px 16px; border-radius: 12px; border-color: var(--success); border-top-style: ; border-top-width: ; border-right-style: ; border-right-width: ; border-bottom-style: ; border-bottom-width: ; border-left-style: ; border-left-width: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; font-size: 16px; font-family: Nunito, sans-serif; outline: none; text-align: center; transition: border-color 0.2s;" onkeydown="if(event.key===&#39;Enter&#39;) checkVocabAnswer()" oninput="document.getElementById(&#39;vt-input&#39;).style.borderColor=&#39;var(--border)&#39;" disabled="">
+      <input type="text" id="vt-input" placeholder="Gõ đáp án vào đây..." style="width:100%;padding:14px 16px;border-radius:12px;border:2px solid var(--border);font-size:16px;font-family:&#39;Nunito&#39;,sans-serif;outline:none;text-align:center;transition:border-color .2s" onkeydown="if(event.key===&#39;Enter&#39;) checkVocabAnswer()" oninput="document.getElementById(&#39;vt-input&#39;).style.borderColor=&#39;var(--border)&#39;">
 
       <!-- Kết quả sau khi trả lời -->
-      <div id="vt-feedback" style="margin-top: 14px; display: block;">
-        <div id="vt-feedback-icon" style="font-size:32px;margin-bottom:6px">✅</div>
-        <div id="vt-feedback-text" style="font-size: 14px; font-weight: 700; color: var(--success);">Chính xác!</div>
+      <div id="vt-feedback" style="margin-top:14px;display:none">
+        <div id="vt-feedback-icon" style="font-size:32px;margin-bottom:6px"></div>
+        <div id="vt-feedback-text" style="font-size:14px;font-weight:700"></div>
         <div id="vt-correct-ans" style="font-size:13px;color:var(--text-sub);margin-top:4px"></div>
       </div>
 
       <!-- Nút xác nhận / tiếp theo -->
-      <button id="vt-btn" onclick="checkVocabAnswer()" class="btn-primary" style="margin-top:16px">Xem kết quả 🏆</button>
+      <button id="vt-btn" onclick="checkVocabAnswer()" class="btn-primary" style="margin-top:16px">
+        Xác nhận ✓
+      </button>
     </div>
 
     <!-- Kết quả cuối -->
-    <div id="vt-result" style="display: block; text-align: center;">
+    <div id="vt-result" style="display:none;text-align:center">
       <div class="card">
-        <div id="vt-result-emoji" style="font-size:60px;margin-bottom:12px">🏆</div>
-        <div id="vt-result-title" style="font-size:22px;font-weight:900;color:var(--text);margin-bottom:8px">Xuất sắc!</div>
-        <div id="vt-result-score" style="font-size:40px;font-weight:900;color:var(--primary);margin:10px 0">11 / 12</div>
-        <div id="vt-result-msg" style="font-size:14px;color:var(--text-sub);line-height:1.6;margin-bottom:20px">Bạn đã thuộc hết từ vựng chủ đề này rồi! Hãy học chủ đề mới nhé.</div>
+        <div id="vt-result-emoji" style="font-size:60px;margin-bottom:12px"></div>
+        <div id="vt-result-title" style="font-size:22px;font-weight:900;color:var(--text);margin-bottom:8px"></div>
+        <div id="vt-result-score" style="font-size:40px;font-weight:900;color:var(--primary);margin:10px 0"></div>
+        <div id="vt-result-msg" style="font-size:14px;color:var(--text-sub);line-height:1.6;margin-bottom:20px"></div>
         <!-- Bảng kết quả chi tiết -->
-        <div id="vt-result-detail" style="text-align:left;margin-bottom:16px">
-      <div style="font-size:12px;font-weight:700;color:var(--text-sub);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Cần ôn lại (1 từ):</div>
-      
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg);border-radius:8px;margin-bottom:6px;font-size:13px">
-          <div>
-            <span style="font-weight:800;color:var(--primary)">Souvenir</span>
-            <span style="color:var(--text-sub);margin-left:6px">Quà lưu niệm</span>
-          </div>
-          <div style="color:var(--danger);font-size:12px">Bạn: "souvernir"</div>
-        </div>
-      
-    </div>
+        <div id="vt-result-detail" style="text-align:left;margin-bottom:16px"></div>
         <div style="display:flex;gap:10px">
           <button class="btn-primary" onclick="startVocabTest()" style="margin-top:0">🔄 Thi lại</button>
           <button onclick="exitVocabTest()" style="flex:1;padding:14px;border-radius:12px;border:2px solid var(--primary);background:transparent;color:var(--primary);font-family:&#39;Nunito&#39;,sans-serif;font-weight:800;font-size:15px;cursor:pointer;margin-top:0">← Học lại</button>
@@ -787,10 +778,10 @@ body::before {
     <div class="listen-card">
       <div style="font-size:13px;opacity:.7;margin-bottom:8px">Câu <span id="ls-num">1</span> / <span id="ls-total">∞</span></div>
       <button class="play-btn" id="play-btn" onclick="playListen()">▶</button>
-      <div class="listen-sentence" id="ls-sentence">Traveling helps us learn about different cultures and traditions.</div>
+      <div class="listen-sentence blurred" id="ls-sentence">Traveling helps us learn about different cultures and traditions.</div>
       <div style="font-size:12px;opacity:.6">Bấm ▶ để nghe • Chọn nghĩa đúng bên dưới</div>
     </div>
-    <div class="listen-options" id="ls-options"><button class="listen-opt">Du lịch không có lợi cho sức khỏe.</button><button class="listen-opt">Du lịch chỉ làm mất thời gian và tiền bạc.</button><button class="listen-opt">Du lịch giúp chúng ta tìm hiểu về các nền văn hóa và truyền thống khác nhau.</button><button class="listen-opt">Du lịch chỉ dành cho người già.</button></div>
+    <div class="listen-options" id="ls-options"><button class="listen-opt">Du lịch giúp chúng ta tìm hiểu về các nền văn hóa và phong tục khác nhau.</button><button class="listen-opt">Du lịch làm cho chúng ta mệt mỏi và buồn chán.</button><button class="listen-opt">Du lịch chỉ là việc đi đến những thành phố lớn.</button><button class="listen-opt">Du lịch không có tác động gì đến cuộc sống của chúng ta.</button></div>
     <button class="btn-primary" id="ls-next-btn" onclick="nextListen()" style="display:none">Câu tiếp theo →</button>
   </div>
 
@@ -798,10 +789,10 @@ body::before {
   <div class="screen" id="screen-reading">
     <div class="sec-title">Luyện đọc</div>
     <div class="sec-sub">Đọc đoạn văn và trả lời câu hỏi</div>
-    <div class="reading-passage" id="rd-passage">Vietnam is a beautiful country with many places to visit. You can explore the famous Ha Long Bay, known for its stunning limestone islands. In the north, you can visit Hanoi, the capital, which has rich history and delicious food. In the south, Ho Chi Minh City is a bustling place with many shops and markets. Travelers can enjoy the warm weather and friendly people throughout the year.</div>
+    <div class="reading-passage" id="rd-passage">Vietnam is a beautiful country in Southeast Asia. It has many different places to visit, like the busy streets of Ho Chi Minh City and the peaceful beaches of Da Nang. In the north, you can see the stunning mountains of Sapa and the famous Ha Long Bay. Vietnamese food is also very delicious, and many travelers enjoy trying local dishes. Traveling in Vietnam can be a fun and exciting experience for families.</div>
     <div class="card">
-      <div class="reading-q" id="rd-question">1. What is Ha Long Bay known for?</div>
-      <div class="reading-opts" id="rd-opts"><button class="reading-opt">A. Its rich history</button><button class="reading-opt">B. Delicious food</button><button class="reading-opt">C. Stunning limestone islands</button><button class="reading-opt">D. Friendly people</button></div>
+      <div class="reading-q" id="rd-question">1. What is a famous place to visit in the north of Vietnam?</div>
+      <div class="reading-opts" id="rd-opts"><button class="reading-opt">A. A. Ho Chi Minh City</button><button class="reading-opt">B. B. Da Nang</button><button class="reading-opt">C. C. Sapa</button><button class="reading-opt">D. D. Nha Trang</button></div>
       <div class="reading-explain" id="rd-explain" style="display: none;"></div>
     </div>
     <button class="btn-primary" id="rd-next-btn" onclick="nextReading()" style="display:none">Bài tiếp theo →</button>
@@ -818,8 +809,8 @@ body::before {
     </div>
     <div class="card">
       <div class="quiz-q-num" id="qz-num">Câu 1 / 10</div>
-      <div class="quiz-q" id="qz-question">I need to book a _____ to go to Hanoi.</div>
-      <div class="quiz-opts" id="qz-opts"><button class="quiz-opt"><div class="opt-letter">A</div><span>hotel</span></button><button class="quiz-opt"><div class="opt-letter">B</div><span>ticket</span></button><button class="quiz-opt"><div class="opt-letter">C</div><span>car</span></button><button class="quiz-opt"><div class="opt-letter">D</div><span>map</span></button></div>
+      <div class="quiz-q" id="qz-question">We need to buy a new __________ for our trip to the mountains.</div>
+      <div class="quiz-opts" id="qz-opts"><button class="quiz-opt"><div class="opt-letter">A</div><span>car</span></button><button class="quiz-opt"><div class="opt-letter">B</div><span>eat</span></button><button class="quiz-opt"><div class="opt-letter">C</div><span>happy</span></button><button class="quiz-opt"><div class="opt-letter">D</div><span>quick</span></button></div>
       <div style="margin-top:12px;font-size:13px;color:var(--text-sub);display:none" id="qz-explain"></div>
     </div>
     <button class="btn-primary" id="qz-next-btn" onclick="nextQuiz()" style="display:none">Câu tiếp →</button>
@@ -849,7 +840,7 @@ body::before {
       <textarea class="writing-area" id="wr-input" placeholder="Bắt đầu viết tiếng Anh ở đây... (Try to write at least 3 sentences!)"></textarea>
 
       <!-- Bộ đếm ký tự -->
-      <div style="text-align: right; font-size: 12px; color: var(--success); margin-top: 6px;" id="wr-char-count">81 ký tự</div>
+      <div style="text-align: right; font-size: 12px; color: var(--success); margin-top: 6px;" id="wr-char-count">290 ký tự</div>
 
       <!-- Nút hành động -->
       <div style="display:flex;gap:10px;margin-top:4px">
@@ -863,7 +854,7 @@ body::before {
     </div>
 
     <!-- Kết quả AI chấm bài -->
-    <div class="ai-result show" id="wr-result">⭐ ĐIỂM: 7/10<br><br>✅ ĐIỂM TỐT:<br>- Bạn đã chọn một địa điểm thú vị ở Việt Nam là Bà Rịa - Vũng Tàu, nơi có nhiều bãi biển đẹp.<br>- Câu văn của bạn thể hiện rõ mong muốn được trải nghiệm một hoạt động thú vị là bơi lội.<br><br>⚠️ CẦN SỬA:<br>- "under beach" không đúng. Bạn có thể dùng "trên bãi biển" hoặc "trong biển".<br>- Câu nên thêm một số từ để làm rõ ý hơn, ví dụ như "Tôi muốn đi du lịch đến tỉnh Bà Rịa - Vũng Tàu vì tôi muốn bơi lội trên bãi biển".<br><br>💡 GỢI Ý VIẾT LẠI:<br>"Tôi muốn đi du lịch đến tỉnh Bà Rịa - Vũng Tàu vì tôi muốn bơi lội trên bãi biển."<br><br>Rất tốt, hãy tiếp tục viết thêm về những điều bạn thích ở Bà Rịa - Vũng Tàu nhé!</div>
+    <div class="ai-result" id="wr-result"></div>
 
     <!-- Gợi ý câu mẫu -->
     <div class="card" style="margin-top:4px">
@@ -892,12 +883,12 @@ body::before {
 
     <!-- 3 chế độ -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px">
-      <button class="speak-mode-btn" id="mode-btn-repeat" onclick="setSpeakMode(&#39;repeat&#39;, this)">
+      <button class="speak-mode-btn active" id="mode-btn-repeat" onclick="setSpeakMode(&#39;repeat&#39;, this)">
         <span style="font-size:20px">🔊</span>
         <div style="font-weight:800;font-size:12px;margin-top:4px">Nói theo mẫu</div>
         <div style="font-size:10px;opacity:.7;margin-top:2px">Nghe rồi lặp lại</div>
       </button>
-      <button class="speak-mode-btn active" id="mode-btn-translate" onclick="setSpeakMode(&#39;translate&#39;, this)">
+      <button class="speak-mode-btn" id="mode-btn-translate" onclick="setSpeakMode(&#39;translate&#39;, this)">
         <span style="font-size:18px">🇻🇳→🇬🇧</span>
         <div style="font-weight:800;font-size:12px;margin-top:4px">Dịch &amp; Nói</div>
         <div style="font-size:10px;opacity:.7;margin-top:2px">Việt → Anh</div>
@@ -910,7 +901,7 @@ body::before {
     </div>
 
     <!-- ── CHẾ ĐỘ 1: NÓI THEO MẪU ── -->
-    <div id="speak-repeat-section" style="display: none;">
+    <div id="speak-repeat-section" style="display: block;">
       <div class="card" style="text-align:center">
         <!-- Label -->
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:10px">Câu mẫu — Bấm 🔊 để nghe</div>
@@ -970,23 +961,23 @@ body::before {
     </div>
 
     <!-- ── CHẾ ĐỘ 2: DỊCH & NÓI ── -->
-    <div id="speak-translate-section" style="display: block;">
+    <div id="speak-translate-section" style="display: none;">
 
       <!-- Câu tiếng Việt -->
       <div class="card" style="text-align:center;padding:24px 20px">
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:12px">🇻🇳 Đọc câu này — rồi nói lại bằng tiếng Anh</div>
 
-        <div id="tr-vi-sentence" style="font-size:22px;font-weight:900;color:var(--text);line-height:1.5;background:rgba(251,191,36,0.12);border-radius:14px;padding:18px 16px;margin-bottom:16px;border:2px solid rgba(251,191,36,0.4)">Con tôi đang học tiếng Anh tại trường.</div>
+        <div id="tr-vi-sentence" style="font-size:22px;font-weight:900;color:var(--text);line-height:1.5;background:rgba(251,191,36,0.12);border-radius:14px;padding:18px 16px;margin-bottom:16px;border:2px solid rgba(251,191,36,0.4)">Chúng tôi đã đi du lịch Đà Nẵng hè năm ngoái.</div>
 
         <!-- Gợi ý từ khoá -->
         <div id="tr-hint-wrap" style="margin-bottom:16px">
           <div style="font-size:11px;font-weight:700;color:var(--text-sub);margin-bottom:6px">💡 Từ khoá gợi ý:</div>
-          <div id="tr-keywords" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center"><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">child</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">learn</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">English</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">school</span></div>
+          <div id="tr-keywords" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center"><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">travel</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">Da Nang</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">last summer</span><span style="background:#eef2ff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700">we</span></div>
         </div>
 
         <!-- Nút ghi âm -->
         <button id="tr-record-btn" onclick="toggleTranslateRecording()" class="sp-record-btn">🎤 Bấm để nói tiếng Anh</button>
-        <div id="tr-recording-indicator" style="display: none; color: var(--danger); font-weight: 700; font-size: 13px; margin-top: 8px; animation: 1s ease 0s infinite normal none running pulse;">
+        <div id="tr-recording-indicator" style="display:none;color:var(--danger);font-weight:700;font-size:13px;margin-top:8px;animation:pulse 1s infinite">
           ● Đang ghi âm... (bấm lại để dừng)
         </div>
 
@@ -1034,7 +1025,7 @@ body::before {
         <!-- Chat messages -->
         <div id="sp-chat-messages" style="height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px">
           <div class="sp-msg ai">
-            <div class="sp-bubble ai-bubble" id="chat-init-msg">Hi! I'm your English conversation partner 😊 Today's topic is "Travel &amp; Exploration" — từ vựng về chuyến đi, địa điểm và phiêu lưu. Let's practice together! You can type or use the microphone.</div>
+            <div class="sp-bubble ai-bubble" id="chat-init-msg">Hi! I'm your English conversation partner 😊 Today we're practicing "Travel &amp; Exploration" — từ vựng về chuyến đi, địa điểm và phiêu lưu. I'll ask you questions and chat only about this topic. Let's go!</div>
           </div>
         </div>
         <!-- Input area -->
@@ -1264,6 +1255,13 @@ const DAILY_TOPICS = [
     listenTopic: 'daily life',
     readingTopic: 'daily routines and habits',
     writingPrompt: 'Describe your typical morning routine. What do you do from when you wake up until you leave home? (Mô tả thói quen buổi sáng của bạn)',
+    translateSentences: [
+      { vi: 'Tôi thức dậy lúc sáu giờ sáng mỗi ngày.', keywords: ['wake up','six','morning','every day'], model: 'I wake up at six o\'clock every morning.' },
+      { vi: 'Buổi sáng tôi thường uống cà phê và đọc báo.', keywords: ['morning','coffee','read','newspaper'], model: 'Every morning I usually drink coffee and read the newspaper.' },
+      { vi: 'Tôi về nhà lúc sáu giờ chiều và nấu cơm cho gia đình.', keywords: ['come home','six','evening','cook','family'], model: 'I come home at six in the evening and cook for my family.' },
+      { vi: 'Thói quen tốt giúp cuộc sống trở nên dễ dàng hơn.', keywords: ['good habits','life','easier','help'], model: 'Good habits help make life much easier.' },
+      { vi: 'Mỗi tối tôi cùng con ôn bài và đọc sách.', keywords: ['every evening','children','review','read'], model: 'Every evening I review lessons and read books with my children.' },
+    ],
     speakSentences: [
       {s:'I wake up at six o\'clock every morning and start my daily routine.',vi:'Tôi thức dậy lúc sáu giờ sáng và bắt đầu thói quen hàng ngày.',tip:'💡 Ngắt nhẹ sau "morning," để người nghe kịp hiểu.',tokens:[{t:'I',a:'flat'},{t:'wake',a:'up'},{t:'up',a:'down'},{t:'at',a:'flat'},{t:'six',a:'up'},{t:"o'clock",a:'flat'},{t:'every',a:'flat'},{t:'morning',a:'down'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'start',a:'up'},{t:'my',a:'flat'},{t:'daily',a:'up'},{t:'routine.',a:'down'}]},
       {s:'My morning routine keeps me focused and energized throughout the whole day.',vi:'Thói quen buổi sáng giúp tôi tập trung và tràn đầy năng lượng suốt cả ngày.',tip:'💡 Nhấn "FOcused" và "eNERgized". Giọng xuống dần ở "whole day".',tokens:[{t:'My',a:'flat'},{t:'morning',a:'flat'},{t:'routine',a:'flat'},{t:'keeps',a:'up'},{t:'me',a:'flat'},{t:'focused',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'energized',a:'up'},{t:'throughout',a:'flat'},{t:'the',a:'flat'},{t:'whole',a:'flat'},{t:'day.',a:'down'}]},
@@ -1281,6 +1279,13 @@ const DAILY_TOPICS = [
     listenTopic: 'food',
     readingTopic: 'Vietnamese food and cuisine',
     writingPrompt: 'Write about your favorite Vietnamese dish. How is it made and why do you love it? (Viết về món ăn Việt Nam yêu thích của bạn)',
+    translateSentences: [
+      { vi: 'Món phở bò này thơm ngon tuyệt vời.', keywords: ['beef pho','delicious','smell','wonderful'], model: 'This beef pho smells absolutely wonderful.' },
+      { vi: 'Tôi đang học nấu các món Việt truyền thống.', keywords: ['learning','cook','traditional','Vietnamese'], model: 'I am learning to cook traditional Vietnamese dishes.' },
+      { vi: 'Chúng tôi ăn cơm tối cùng nhau mỗi ngày.', keywords: ['eat','dinner','together','every day'], model: 'We eat dinner together every day.' },
+      { vi: 'Bánh mì Việt Nam nổi tiếng khắp thế giới.', keywords: ['banh mi','Vietnamese','famous','world'], model: 'Vietnamese banh mi is famous all over the world.' },
+      { vi: 'Tôi thích nấu ăn vào cuối tuần cho cả gia đình.', keywords: ['cook','weekend','family','like'], model: 'I love cooking for the whole family on weekends.' },
+    ],
     speakSentences: [
       {s:'This dish smells absolutely delicious, just like my grandmother used to make.',vi:'Món này có mùi thơm tuyệt vời, y như bà ngoại tôi nấu ngày xưa.',tip:'💡 Nghỉ rõ ở dấu phẩy. Phần sau đọc chậm và hoài niệm.',tokens:[{t:'This',a:'flat'},{t:'dish',a:'flat'},{t:'smells',a:'up'},{t:'absolutely',a:'up'},{t:'delicious,',a:'down'},{t:'‖',a:'pause-long'},{t:'just',a:'flat'},{t:'like',a:'flat'},{t:'my',a:'flat'},{t:'grandmother',a:'up'},{t:'used',a:'flat'},{t:'to',a:'flat'},{t:'make.',a:'down'}]},
       {s:'Vietnamese cuisine is incredibly rich and famous all around the world.',vi:'Ẩm thực Việt Nam vô cùng phong phú và nổi tiếng khắp thế giới.',tip:'💡 Nhấn "inCREDibly RICH" — giọng tự hào, đi lên trước khi xuống.',tokens:[{t:'Vietnamese',a:'flat'},{t:'cuisine',a:'up'},{t:'is',a:'flat'},{t:'incredibly',a:'up'},{t:'rich',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'famous',a:'up'},{t:'all',a:'flat'},{t:'around',a:'flat'},{t:'the',a:'flat'},{t:'world.',a:'down'}]},
@@ -1297,6 +1302,13 @@ const DAILY_TOPICS = [
     listenTopic: 'travel',
     readingTopic: 'travel in Vietnam',
     writingPrompt: 'Write about a place in Vietnam you want to visit or have visited. What makes it special? (Viết về một địa điểm ở Việt Nam bạn muốn đến hoặc đã đến)',
+    translateSentences: [
+      { vi: 'Tôi muốn đi thăm Hội An vào tháng tới.', keywords: ['visit','Hoi An','next month','want'], model: 'I want to visit Hoi An next month.' },
+      { vi: 'Vịnh Hạ Long là một trong những kỳ quan đẹp nhất thế giới.', keywords: ['Ha Long Bay','wonder','beautiful','world'], model: 'Ha Long Bay is one of the most beautiful wonders in the world.' },
+      { vi: 'Chúng tôi đã đi du lịch Đà Nẵng hè năm ngoái.', keywords: ['travel','Da Nang','last summer','we'], model: 'We traveled to Da Nang last summer.' },
+      { vi: 'Hành lý của tôi đã sẵn sàng cho chuyến đi ngày mai.', keywords: ['luggage','ready','trip','tomorrow'], model: 'My luggage is ready for the trip tomorrow.' },
+      { vi: 'Du lịch giúp tôi hiểu thêm về văn hóa Việt Nam.', keywords: ['travel','understand','culture','Vietnam'], model: 'Traveling helps me understand more about Vietnamese culture.' },
+    ],
     speakSentences: [
       {s:'Traveling around the world opens your mind and helps you understand different cultures.',vi:'Du lịch khắp thế giới mở rộng tầm nhìn và giúp bạn hiểu các nền văn hóa khác nhau.',tip:'💡 Ngắt sau "world," và sau "mind,". Nhấn "DIFferent CULtures".',tokens:[{t:'Traveling',a:'up'},{t:'around',a:'flat'},{t:'the',a:'flat'},{t:'world',a:'down'},{t:'|',a:'pause-short'},{t:'opens',a:'up'},{t:'your',a:'flat'},{t:'mind',a:'down'},{t:'‖',a:'pause-long'},{t:'and',a:'flat'},{t:'helps',a:'flat'},{t:'you',a:'flat'},{t:'understand',a:'up'},{t:'different',a:'up'},{t:'cultures.',a:'down'}]},
       {s:'The view from the mountain top was so breathtaking that I could not say a word.',vi:'Cảnh nhìn từ đỉnh núi đẹp đến mức tôi không thể nói nên lời.',tip:'💡 Nhấn "breathTAKing" mạnh. Ngắt dài trước "that I could not".',tokens:[{t:'The',a:'flat'},{t:'view',a:'up'},{t:'from',a:'flat'},{t:'the',a:'flat'},{t:'mountain',a:'flat'},{t:'top',a:'down'},{t:'|',a:'pause-short'},{t:'was',a:'flat'},{t:'so',a:'up'},{t:'breathtaking',a:'up'},{t:'‖',a:'pause-long'},{t:'that',a:'flat'},{t:'I',a:'flat'},{t:'could',a:'flat'},{t:'not',a:'up'},{t:'say',a:'flat'},{t:'a',a:'flat'},{t:'word.',a:'down'}]},
@@ -1313,6 +1325,13 @@ const DAILY_TOPICS = [
     listenTopic: 'work',
     readingTopic: 'workplace skills and career',
     writingPrompt: 'Describe your dream job or your current job. What skills do you need? (Mô tả công việc mơ ước hoặc công việc hiện tại của bạn)',
+    translateSentences: [
+      { vi: 'Tôi bắt đầu làm việc lúc tám giờ sáng.', keywords: ['start work','eight','morning'], model: 'I start work at eight o\'clock in the morning.' },
+      { vi: 'Cuộc họp hôm nay rất quan trọng với nhóm của tôi.', keywords: ['meeting','today','important','team'], model: 'Today\'s meeting is very important for my team.' },
+      { vi: 'Tôi đang cố gắng cải thiện kỹ năng tiếng Anh của mình.', keywords: ['trying','improve','English skills','myself'], model: 'I am trying to improve my English skills.' },
+      { vi: 'Làm việc nhóm giúp chúng tôi hoàn thành công việc nhanh hơn.', keywords: ['teamwork','finish','faster','work'], model: 'Teamwork helps us finish work much faster.' },
+      { vi: 'Tôi muốn thăng tiến trong công việc năm nay.', keywords: ['promotion','career','this year','want'], model: 'I want to get a promotion at work this year.' },
+    ],
     speakSentences: [
       {s:'Collaboration and good communication are the keys to building a successful team.',vi:'Hợp tác và giao tiếp tốt là chìa khóa để xây dựng một đội nhóm thành công.',tip:'💡 Ngắt sau "communication," và nhấn "SUCcessful TEAM".',tokens:[{t:'Collaboration',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'good',a:'flat'},{t:'communication',a:'down'},{t:'‖',a:'pause-long'},{t:'are',a:'flat'},{t:'the',a:'flat'},{t:'keys',a:'flat'},{t:'to',a:'flat'},{t:'building',a:'up'},{t:'a',a:'flat'},{t:'successful',a:'up'},{t:'team.',a:'down'}]},
       {s:'Being efficient and meeting deadlines on time shows that you are a reliable professional.',vi:'Làm việc hiệu quả và hoàn thành deadline đúng giờ cho thấy bạn là người chuyên nghiệp đáng tin.',tip:'💡 Nhấn "EFFicient" và "reLIable proFESsional". Giọng tự tin.',tokens:[{t:'Being',a:'flat'},{t:'efficient',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'meeting',a:'flat'},{t:'deadlines',a:'up'},{t:'on',a:'flat'},{t:'time',a:'down'},{t:'‖',a:'pause-long'},{t:'shows',a:'flat'},{t:'that',a:'flat'},{t:'you',a:'flat'},{t:'are',a:'flat'},{t:'a',a:'flat'},{t:'reliable',a:'up'},{t:'professional.',a:'down'}]},
@@ -1329,6 +1348,13 @@ const DAILY_TOPICS = [
     listenTopic: 'nature',
     readingTopic: 'environment and nature',
     writingPrompt: 'Write about how you can protect the environment in your daily life. (Viết về cách bạn bảo vệ môi trường trong cuộc sống hàng ngày)',
+    translateSentences: [
+      { vi: 'Buổi sáng tôi thích đi bộ trong công viên gần nhà.', keywords: ['morning','walk','park','near home'], model: 'I love walking in the park near my house in the morning.' },
+      { vi: 'Chúng ta phải bảo vệ môi trường cho con cháu mai sau.', keywords: ['protect','environment','future','children'], model: 'We must protect the environment for future generations.' },
+      { vi: 'Trời hôm nay trong xanh và mát mẻ.', keywords: ['sky','clear','cool','today'], model: 'The sky is clear and cool today.' },
+      { vi: 'Tôi trồng rau trong vườn nhỏ sau nhà.', keywords: ['grow','vegetables','garden','behind house'], model: 'I grow vegetables in the small garden behind my house.' },
+      { vi: 'Mưa lớn khiến con đường bị ngập nước.', keywords: ['heavy rain','street','flooded','caused'], model: 'The heavy rain caused the streets to flood.' },
+    ],
     speakSentences: [
       {s:'The forest is serene and full of life, and it makes me feel completely at peace.',vi:'Khu rừng thanh bình và tràn đầy sức sống, khiến tôi cảm thấy hoàn toàn bình yên.',tip:'💡 Giọng nhẹ nhàng, chậm rãi. Ngắt dài ở dấu phẩy, như đang thở trong rừng.',tokens:[{t:'The',a:'flat'},{t:'forest',a:'up'},{t:'is',a:'flat'},{t:'serene',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'full',a:'up'},{t:'of',a:'flat'},{t:'life,',a:'down'},{t:'‖',a:'pause-long'},{t:'and',a:'flat'},{t:'it',a:'flat'},{t:'makes',a:'flat'},{t:'me',a:'flat'},{t:'feel',a:'up'},{t:'completely',a:'up'},{t:'at',a:'flat'},{t:'peace.',a:'down'}]},
       {s:'We must protect our natural environment so that future generations can enjoy it too.',vi:'Chúng ta phải bảo vệ môi trường thiên nhiên để con cháu tương lai cũng được thưởng thức.',tip:'💡 Nhấn "MUST protect" và "FUture GENErations". Giọng nghiêm túc, trách nhiệm.',tokens:[{t:'We',a:'flat'},{t:'must',a:'up'},{t:'protect',a:'up'},{t:'our',a:'flat'},{t:'natural',a:'flat'},{t:'environment',a:'down'},{t:'‖',a:'pause-long'},{t:'so',a:'flat'},{t:'that',a:'flat'},{t:'future',a:'up'},{t:'generations',a:'up'},{t:'|',a:'pause-short'},{t:'can',a:'flat'},{t:'enjoy',a:'up'},{t:'it',a:'flat'},{t:'too.',a:'down'}]},
@@ -1345,6 +1371,13 @@ const DAILY_TOPICS = [
     listenTopic: 'friendship',
     readingTopic: 'emotions and mental health',
     writingPrompt: 'Write about a time when you felt very happy or proud. What happened? (Viết về một lần bạn cảm thấy rất vui hoặc tự hào. Chuyện gì đã xảy ra?)',
+    translateSentences: [
+      { vi: 'Tôi cảm thấy rất vui khi được ở bên gia đình.', keywords: ['feel','happy','family','together'], model: 'I feel very happy when I am with my family.' },
+      { vi: 'Cô ấy rất buồn khi nghe tin xấu đó.', keywords: ['sad','heard','bad news','she'], model: 'She was very sad when she heard the bad news.' },
+      { vi: 'Tôi tự hào về sự tiến bộ tiếng Anh của mình.', keywords: ['proud','progress','English','myself'], model: 'I am proud of my progress in English.' },
+      { vi: 'Con tôi rất hào hứng trước chuyến đi dã ngoại.', keywords: ['excited','picnic','trip','child'], model: 'My child is very excited about the upcoming picnic trip.' },
+      { vi: 'Sự biết ơn giúp chúng ta sống hạnh phúc hơn.', keywords: ['gratitude','helps','live','happier'], model: 'Gratitude helps us live a happier life.' },
+    ],
     speakSentences: [
       {s:'I feel truly joyful and grateful whenever I spend quality time with my family.',vi:'Tôi cảm thấy thực sự vui và biết ơn khi dành thời gian ý nghĩa bên gia đình.',tip:'💡 Nhấn "TRUly JOYful" và "QUAlity time". Giọng ấm áp, chân thành.',tokens:[{t:'I',a:'flat'},{t:'feel',a:'flat'},{t:'truly',a:'up'},{t:'joyful',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'grateful',a:'up'},{t:'|',a:'pause-short'},{t:'whenever',a:'flat'},{t:'I',a:'flat'},{t:'spend',a:'flat'},{t:'quality',a:'up'},{t:'time',a:'flat'},{t:'|',a:'pause-short'},{t:'with',a:'flat'},{t:'my',a:'flat'},{t:'family.',a:'down'}]},
       {s:'Showing compassion to others, even strangers, is one of the most beautiful things in life.',vi:'Thể hiện lòng trắc ẩn với người khác, dù là người lạ, là một trong những điều đẹp nhất.',tip:'💡 Ngắt ở "others," và "strangers,". Nhấn "MOST beAUtiful things".',tokens:[{t:'Showing',a:'flat'},{t:'compassion',a:'up'},{t:'to',a:'flat'},{t:'others,',a:'down'},{t:'|',a:'pause-short'},{t:'even',a:'flat'},{t:'strangers,',a:'down'},{t:'‖',a:'pause-long'},{t:'is',a:'flat'},{t:'one',a:'flat'},{t:'of',a:'flat'},{t:'the',a:'flat'},{t:'most',a:'up'},{t:'beautiful',a:'up'},{t:'things',a:'flat'},{t:'in',a:'flat'},{t:'life.',a:'down'}]},
@@ -1361,6 +1394,13 @@ const DAILY_TOPICS = [
     listenTopic: 'health',
     readingTopic: 'healthy lifestyle',
     writingPrompt: 'Write about your exercise habits or a sport you enjoy. How does it benefit your health? (Viết về thói quen tập thể dục hoặc môn thể thao bạn thích)',
+    translateSentences: [
+      { vi: 'Tôi chạy bộ ba mươi phút mỗi buổi sáng.', keywords: ['run','thirty minutes','every morning'], model: 'I run for thirty minutes every morning.' },
+      { vi: 'Ăn nhiều rau quả rất tốt cho sức khỏe.', keywords: ['eating','vegetables','fruit','healthy'], model: 'Eating lots of vegetables and fruit is very healthy.' },
+      { vi: 'Tôi uống đủ tám ly nước mỗi ngày.', keywords: ['drink','eight glasses','water','every day'], model: 'I drink eight glasses of water every day.' },
+      { vi: 'Ngủ đủ giấc giúp cơ thể phục hồi sau một ngày làm việc.', keywords: ['sleep enough','body','recover','work'], model: 'Getting enough sleep helps the body recover after a long day of work.' },
+      { vi: 'Chúng tôi đi bơi cùng nhau vào cuối tuần.', keywords: ['swim','together','weekend','we'], model: 'We go swimming together on weekends.' },
+    ],
     speakSentences: [
       {s:'Exercising every day not only keeps you healthy but also improves your mental well-being.',vi:'Tập thể dục mỗi ngày không chỉ giữ sức khỏe mà còn cải thiện sức khỏe tinh thần.',tip:'💡 Nhấn "NOT only" và "ALSO IMproves". Giọng khẳng định, tích cực.',tokens:[{t:'Exercising',a:'flat'},{t:'every',a:'flat'},{t:'day',a:'down'},{t:'|',a:'pause-short'},{t:'not',a:'up'},{t:'only',a:'flat'},{t:'keeps',a:'flat'},{t:'you',a:'flat'},{t:'healthy',a:'down'},{t:'‖',a:'pause-long'},{t:'but',a:'flat'},{t:'also',a:'up'},{t:'improves',a:'up'},{t:'your',a:'flat'},{t:'mental',a:'up'},{t:'well-being.',a:'down'}]},
       {s:'A healthy mind and a healthy body work together to help you live a longer and happier life.',vi:'Tâm trí khỏe mạnh và cơ thể khỏe mạnh kết hợp để giúp bạn sống lâu hơn và hạnh phúc hơn.',tip:'💡 Ngắt sau "body," — hai vế cân bằng nhau, nhấn cả hai như nhau.',tokens:[{t:'A',a:'flat'},{t:'healthy',a:'up'},{t:'mind',a:'down'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'a',a:'flat'},{t:'healthy',a:'up'},{t:'body',a:'down'},{t:'‖',a:'pause-long'},{t:'work',a:'flat'},{t:'together',a:'up'},{t:'|',a:'pause-short'},{t:'to',a:'flat'},{t:'help',a:'flat'},{t:'you',a:'flat'},{t:'live',a:'up'},{t:'longer',a:'up'},{t:'|',a:'pause-short'},{t:'and',a:'flat'},{t:'happier.',a:'down'}]},
@@ -1393,11 +1433,13 @@ function initDailyTopic() {
   // Override speaking sentences
   SAMPLE_SENTENCES.splice(0, SAMPLE_SENTENCES.length, ...t.speakSentences);
   initSpeaking();
+  // Re-init translate mode with new topic sentences
+  if (typeof trIdx !== 'undefined') initTranslateMode();
 
   // Update chat init message
   const initMsg = document.getElementById('chat-init-msg');
   if (initMsg) {
-    initMsg.textContent = `Hi! I'm your English conversation partner 😊 Today's topic is "${t.nameEn}" — ${t.sub.toLowerCase()}. Let's practice together! You can type or use the microphone.`;
+    initMsg.textContent = `Hi! I'm your English conversation partner 😊 Today we're practicing "${t.nameEn}" — ${t.sub.toLowerCase()}. I'll ask you questions and chat only about this topic. Let's go!`;
   }
 }
 
@@ -2573,13 +2615,19 @@ let trSaidText = '';
 let trRecognition = null;
 let trIsRecording = false;
 
+function getTranslateSentences() {
+  return currentDailyTopic.translateSentences || TRANSLATE_SENTENCES;
+}
+
 function initTranslateMode() {
-  trIdx = Math.floor(Math.random() * TRANSLATE_SENTENCES.length);
+  const list = getTranslateSentences();
+  trIdx = Math.floor(Math.random() * list.length);
   renderTranslateSentence();
 }
 
 function renderTranslateSentence() {
-  const d = TRANSLATE_SENTENCES[trIdx % TRANSLATE_SENTENCES.length];
+  const list = getTranslateSentences();
+  const d = list[trIdx % list.length];
   document.getElementById('tr-vi-sentence').textContent = d.vi;
   // Từ khoá gợi ý
   document.getElementById('tr-keywords').innerHTML = d.keywords.map(k =>
@@ -2595,7 +2643,7 @@ function renderTranslateSentence() {
   trIsRecording = false;
 }
 
-function newTranslateSentence() { trIdx++; renderTranslateSentence(); }
+function newTranslateSentence() { trIdx = (trIdx + 1) % getTranslateSentences().length; renderTranslateSentence(); }
 function retryTranslate() { renderTranslateSentence(); }
 
 function toggleTranslateRecording() {
@@ -2633,7 +2681,7 @@ function toggleTranslateRecording() {
 
 async function gradeTranslation() {
   if (!trSaidText) return;
-  const d = TRANSLATE_SENTENCES[trIdx % TRANSLATE_SENTENCES.length];
+  const d = getTranslateSentences()[trIdx % getTranslateSentences().length];
   const gradeBtn = document.getElementById('tr-grade-btn');
   gradeBtn.disabled = true;
   gradeBtn.textContent = '⏳ AI đang chấm...';
@@ -2801,12 +2849,15 @@ async function sendChatMessage() {
   const historyText = chatHistory.slice(-8).map(m =>
     `${m.role === 'user' ? 'Student' : 'Teacher'}: ${m.text}`).join('\n');
 
-  const topicCtx = currentDailyTopic ? `Today's learning topic is "${currentDailyTopic.nameEn}". Try to guide the conversation toward this topic naturally.` : '';
+  const t = currentDailyTopic;
+  const topicName = t ? t.nameEn : 'English conversation';
+  const topicSub = t ? t.sub : '';
   const prompt = `You are a friendly English conversation teacher for a Vietnamese family (all ages).
-${topicCtx}
+IMPORTANT: Today's ONLY topic is "${topicName}" (${topicSub}). You MUST keep all conversation strictly about this topic. If the student talks about something else, kindly bring them back to "${topicName}".
 Conversation so far:\n${historyText}\n
 Rules:
 - Reply naturally in English (2-4 sentences max)
+- Ask a follow-up question related to "${topicName}"
 - If the student made grammar mistakes, gently correct in Vietnamese at the end
 - Keep it encouraging and fun
 Format: [Your English reply]
